@@ -2,7 +2,7 @@
 
 @theme {
   --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-cormorant), Georgia, serif;
+  --font-serif: var(--font-libre-baskerville), Georgia, serif;
   --color-background: #f5f0ec;
   --color-foreground: #292725;
   --color-muted: #625d59;

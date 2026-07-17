@@ -140,7 +140,7 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="mx-auto flex size-44 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft backdrop-blur sm:size-52">
-                      <span className="text-6xl font-serif font-semibold tracking-[-0.06em] text-foreground sm:text-7xl">
+                      <span className="text-6xl font-serif font-bold tracking-[-0.02em] text-foreground sm:text-7xl">
                         X
                       </span>
                     </div>

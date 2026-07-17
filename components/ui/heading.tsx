@@ -6,10 +6,10 @@ export function Heading({ as: Tag = "h1", className, children, ...props }: Headi
   return (
     <Tag
       className={cn(
-        "text-balance font-serif font-semibold tracking-[-0.035em] text-foreground",
-        Tag === "h1" && "text-[2.75rem] leading-[1.05] sm:text-5xl lg:text-[4.5rem]",
-        Tag === "h2" && "text-4xl leading-[1.06] sm:text-5xl",
-        Tag === "h3" && "text-2xl leading-[1.08] sm:text-3xl",
+        "text-balance font-serif font-bold tracking-[-0.02em] text-foreground",
+        Tag === "h1" && "text-[2.5rem] leading-[1.12] sm:text-[2.875rem] lg:text-[4rem]",
+        Tag === "h2" && "text-[2rem] leading-[1.14] sm:text-[2.75rem]",
+        Tag === "h3" && "text-2xl leading-[1.14] sm:text-[1.75rem]",
         className,
       )}
       {...props}

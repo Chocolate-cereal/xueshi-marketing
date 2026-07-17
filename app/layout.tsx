@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Libre_Baskerville, Manrope } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
@@ -13,10 +13,10 @@ const manrope = Manrope({
   display: "swap",
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
+const libreBaskerville = Libre_Baskerville({
+  variable: "--font-libre-baskerville",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -42,7 +42,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${manrope.variable} ${cormorant.variable} antialiased`}>
+      <body className={`${manrope.variable} ${libreBaskerville.variable} antialiased`}>
         <ThemeScript />
         <div className="flex min-h-screen flex-col">
           <Header />
