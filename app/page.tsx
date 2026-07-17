@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CallToAction } from "@/components/ui/call-to-action";
@@ -55,58 +57,92 @@ const tools = [
   "Experiment logs",
 ];
 
+// Set this to "/profile.jpg" after the final portrait is added to public/profile.jpg.
+const portraitImageSrc: string | null = null;
+
 export default function HomePage() {
   return (
     <>
       <Section className="pb-16 pt-16 sm:pb-20 sm:pt-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-            <div className="max-w-3xl">
-              <Badge>Evidence-led digital marketing portfolio</Badge>
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.22fr)_minmax(320px,1fr)] lg:items-center lg:gap-16">
+            <div className="min-w-0 max-w-3xl">
+              <Badge>Digital Marketing Portfolio</Badge>
               <Heading className="mt-7 max-w-4xl">
-                Marketing clarity for teams that need better decisions, not louder claims.
+                Hi, I’m Xue. I turn marketing evidence into clear growth recommendations.
               </Heading>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-                Xueshi Marketing documents practical audit work across search, content,
-                conversion, and measurement. The focus is simple: make the next growth
-                decision easier to explain, test, and improve.
+                I’m a digital marketer specialising in SEO, landing page optimisation,
+                website performance and competitor research. I create evidence-based audits
+                that identify opportunities, explain priorities and recommend practical next
+                steps.
               </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button href="/contact">Discuss a focused audit</Button>
-                <Button href="/case-studies" variant="secondary">
-                  View case study placeholders
+              <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
+                Currently seeking digital marketing opportunities with agencies, in-house
+                teams and growing organisations.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button href="/case-studies">View My Case Studies</Button>
+                <Button href="/contact" variant="secondary">
+                  Contact Me
                 </Button>
               </div>
-            </div>
-            <Card className="p-8 sm:p-10">
-              <p className="text-sm font-medium uppercase tracking-[0.22em] text-muted">
-                Working standards
-              </p>
-              <div className="mt-8 space-y-6">
+              <div className="mt-8 flex flex-wrap gap-3" aria-label="Digital marketing skills">
                 {[
-                  [
-                    "Evidence before opinion",
-                    "Recommendations start with observed constraints, customer intent, and available performance data.",
-                  ],
-                  [
-                    "Clear tradeoffs",
-                    "Priorities include expected impact, implementation effort, and the risk of misreading results.",
-                  ],
-                  [
-                    "Reusable documentation",
-                    "Findings are written so future teams can understand the decision path.",
-                  ],
-                ].map(([title, description]) => (
-                  <div
-                    key={title}
-                    className="border-t border-border pt-6 first:border-t-0 first:pt-0"
+                  "SEO Audits",
+                  "Landing Page Optimisation",
+                  "Competitor Analysis",
+                  "Website Performance",
+                  "Marketing Analytics",
+                  "Keyword Research",
+                ].map((skill) => (
+                  <Badge
+                    key={skill}
+                    className="bg-transparent px-4 py-2 normal-case tracking-normal text-foreground"
                   >
-                    <h2 className="text-base font-semibold text-foreground">{title}</h2>
-                    <p className="mt-2 text-sm leading-6 text-muted">{description}</p>
-                  </div>
+                    {skill}
+                  </Badge>
                 ))}
               </div>
-            </Card>
+            </div>
+            <div className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-surface shadow-soft">
+                {portraitImageSrc ? (
+                  <Image
+                    src={portraitImageSrc}
+                    alt="Portrait of Xue, digital marketing professional"
+                    fill
+                    sizes="(min-width: 1024px) 40vw, (min-width: 640px) 28rem, 100vw"
+                    className="object-cover object-center"
+                    priority
+                  />
+                ) : (
+                  <div
+                    className="flex h-full flex-col justify-between bg-[radial-gradient(circle_at_20%_15%,color-mix(in_srgb,var(--color-ring)_22%,transparent),transparent_34%),linear-gradient(145deg,color-mix(in_srgb,var(--color-surface)_92%,var(--color-ring)),var(--color-background))] p-8"
+                    role="img"
+                    aria-label="Portrait placeholder for Xue, digital marketing professional"
+                  >
+                    <div className="flex justify-end">
+                      <span className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted backdrop-blur">
+                        Portfolio
+                      </span>
+                    </div>
+                    <div className="mx-auto flex size-44 items-center justify-center rounded-[2rem] border border-border bg-surface/80 shadow-soft backdrop-blur sm:size-52">
+                      <span className="text-6xl font-semibold tracking-[-0.08em] text-foreground sm:text-7xl">
+                        X
+                      </span>
+                    </div>
+                    <div className="rounded-2xl border border-border bg-background/75 p-5 backdrop-blur">
+                      <p className="text-sm font-semibold text-foreground">Xue</p>
+                      <p className="mt-2 text-sm leading-6 text-muted">
+                        Digital marketing professional focused on evidence-led growth
+                        recommendations.
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </Container>
       </Section>
