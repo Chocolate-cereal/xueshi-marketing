@@ -69,13 +69,14 @@ export default function HomePage() {
             <div className="min-w-0 max-w-3xl">
               <Badge>Digital Marketing Portfolio</Badge>
               <Heading className="mt-7 max-w-4xl">
-                Hi, I’m Xue. I turn marketing evidence into clear growth recommendations.
+                Hi, I’m <span className="text-accent">Xue.</span> I turn marketing
+                evidence into clear growth recommendations.
               </Heading>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
                 I’m a digital marketer specialising in SEO, landing page optimisation,
-                website performance and competitor research. I create evidence-based audits
-                that identify opportunities, explain priorities and recommend practical next
-                steps.
+                website performance and competitor research. I create evidence-based
+                audits that identify opportunities, explain priorities and recommend
+                practical next steps.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
                 Currently seeking digital marketing opportunities with agencies, in-house
@@ -87,7 +88,10 @@ export default function HomePage() {
                   Contact Me
                 </Button>
               </div>
-              <div className="mt-8 flex flex-wrap gap-3" aria-label="Digital marketing skills">
+              <div
+                className="mt-8 flex flex-wrap gap-3"
+                aria-label="Digital marketing skills"
+              >
                 {[
                   "SEO Audits",
                   "Landing Page Optimisation",
@@ -98,7 +102,7 @@ export default function HomePage() {
                 ].map((skill) => (
                   <Badge
                     key={skill}
-                    className="bg-transparent px-4 py-2 normal-case tracking-normal text-foreground"
+                    className="rounded-md bg-transparent px-3.5 py-2 normal-case tracking-normal text-foreground"
                   >
                     {skill}
                   </Badge>
@@ -118,17 +122,17 @@ export default function HomePage() {
                   />
                 ) : (
                   <div
-                    className="flex h-full flex-col justify-between bg-[radial-gradient(circle_at_20%_15%,color-mix(in_srgb,var(--color-ring)_22%,transparent),transparent_34%),linear-gradient(145deg,color-mix(in_srgb,var(--color-surface)_92%,var(--color-ring)),var(--color-background))] p-8"
+                    className="flex h-full flex-col justify-between bg-accent-soft p-8"
                     role="img"
                     aria-label="Portrait placeholder for Xue, digital marketing professional"
                   >
                     <div className="flex justify-end">
-                      <span className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted backdrop-blur">
+                      <span className="rounded-md border border-border bg-surface/80 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-muted backdrop-blur">
                         Portfolio
                       </span>
                     </div>
-                    <div className="mx-auto flex size-44 items-center justify-center rounded-[2rem] border border-border bg-surface/80 shadow-soft backdrop-blur sm:size-52">
-                      <span className="text-6xl font-semibold tracking-[-0.08em] text-foreground sm:text-7xl">
+                    <div className="mx-auto flex size-44 items-center justify-center rounded-3xl border border-border bg-surface/85 shadow-soft backdrop-blur sm:size-52">
+                      <span className="text-6xl font-bold tracking-[-0.08em] text-foreground sm:text-7xl">
                         X
                       </span>
                     </div>
@@ -217,7 +221,7 @@ export default function HomePage() {
             {tools.map((tool) => (
               <Badge
                 key={tool}
-                className="bg-surface px-4 py-2 normal-case tracking-normal text-foreground"
+                className="rounded-md bg-surface px-3.5 py-2 normal-case tracking-normal text-foreground"
               >
                 {tool}
               </Badge>

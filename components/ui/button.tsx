@@ -7,14 +7,22 @@ type ButtonProps = React.ComponentProps<"button"> & {
 };
 
 const variants = {
-  primary: "bg-foreground text-background shadow-soft hover:-translate-y-0.5 hover:shadow-lg",
-  secondary: "border border-border bg-surface text-foreground hover:border-foreground/30",
-  ghost: "text-muted hover:bg-muted/10 hover:text-foreground",
+  primary:
+    "bg-accent text-white shadow-soft hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg",
+  secondary:
+    "border border-border bg-surface text-foreground hover:border-accent hover:bg-accent-soft",
+  ghost: "text-muted hover:bg-accent-soft hover:text-foreground",
 };
 
-export function Button({ href, variant = "primary", className, children, ...props }: ButtonProps) {
+export function Button({
+  href,
+  variant = "primary",
+  className,
+  children,
+  ...props
+}: ButtonProps) {
   const classes = cn(
-    "inline-flex h-11 items-center justify-center rounded-full px-5 text-sm font-medium transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+    "inline-flex h-11 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
     variants[variant],
     className,
   );
