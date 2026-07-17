@@ -69,13 +69,8 @@ export default function HomePage() {
             <div className="min-w-0 max-w-3xl">
               <Badge>Digital Marketing Portfolio</Badge>
               <Heading className="mt-7 max-w-4xl">
-                <span className="block">
-                  Hello, I’m <span className="text-accent">Xue</span>—a digital marketer
-                </span>
-                <span className="block">
-                  who turns research and performance data into clear growth
-                  recommendations.
-                </span>
+                Hello, I’m <span className="text-accent">Xue</span>—I turn marketing
+                evidence into clear growth recommendations.
               </Heading>
               <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-muted sm:text-xl">
                 I specialise in SEO, landing page optimisation, website performance and
@@ -140,7 +135,7 @@ export default function HomePage() {
                       </span>
                     </div>
                     <div className="mx-auto flex size-44 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft backdrop-blur sm:size-52">
-                      <span className="text-6xl font-serif font-bold tracking-[-0.02em] text-foreground sm:text-7xl">
+                      <span className="text-6xl tracking-[-0.02em] text-foreground sm:text-7xl">
                         X
                       </span>
                     </div>

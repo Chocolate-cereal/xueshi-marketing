@@ -1,24 +1,10 @@
 import type { Metadata } from "next";
-import { Libre_Baskerville, Manrope } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/layout/footer";
+import { libreBaskerville, manrope } from "./fonts";
 import { Header } from "@/components/layout/header";
 import { ThemeScript } from "@/components/layout/theme-script";
 import { siteConfig } from "@/data/site";
-
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const libreBaskerville = Libre_Baskerville({
-  variable: "--font-libre-baskerville",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
