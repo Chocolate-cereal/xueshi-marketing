@@ -65,19 +65,21 @@ export default function HomePage() {
     <>
       <Section className="pb-16 pt-16 sm:pb-20 sm:pt-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.27fr)_minmax(320px,1fr)] lg:items-center lg:gap-16">
-            <div className="min-w-0 max-w-[680px]">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.27fr)_minmax(320px,1fr)] lg:items-start lg:gap-16">
+            <div className="min-w-0 max-w-[700px]">
               <Badge>Digital Marketing Portfolio</Badge>
-              <Heading className="mt-7 max-w-[680px]">
+              <Heading className="mt-7 max-w-[700px]">
                 <span className="block">
-                  Hello, I’m <span className="text-accent">Xue</span>.
+                  Hello, I’m <span className="text-accent">Xue.</span>
                 </span>
-                I turn data and research into clear marketing decisions.
+                <span className="block">
+                  I turn marketing evidence into clear decisions.
+                </span>
               </Heading>
               <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-muted sm:text-xl">
                 I’m a digital marketer specialising in SEO, landing page optimisation,
-                website performance and competitor research. I create evidence-based
-                audits that identify opportunities and recommend practical next steps.
+                website performance and competitor research. I use data and structured
+                analysis to identify opportunities and recommend practical next steps.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
                 Currently seeking digital marketing opportunities with agencies, in-house
@@ -92,26 +94,6 @@ export default function HomePage() {
                 >
                   Contact Me
                 </Button>
-              </div>
-              <div
-                className="mt-8 flex flex-wrap gap-3"
-                aria-label="Digital marketing skills"
-              >
-                {[
-                  "SEO Audits",
-                  "Landing Page Optimisation",
-                  "Competitor Analysis",
-                  "Website Performance",
-                  "Marketing Analytics",
-                  "Keyword Research",
-                ].map((skill) => (
-                  <Badge
-                    key={skill}
-                    className="rounded-sm bg-transparent px-3 py-1.5 text-[0.7rem] tracking-[0.14em] text-foreground"
-                  >
-                    {skill}
-                  </Badge>
-                ))}
               </div>
             </div>
             <div className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
@@ -150,6 +132,24 @@ export default function HomePage() {
                     </div>
                   </div>
                 )}
+              </div>
+            </div>
+            <div className="lg:col-span-2" aria-label="Digital marketing skills">
+              <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+                {[
+                  "SEO Audits",
+                  "Landing Page Optimisation",
+                  "Competitor Research",
+                  "Website Performance",
+                  "Marketing Analytics",
+                ].map((skill) => (
+                  <Badge
+                    key={skill}
+                    className="justify-center rounded-sm bg-transparent px-3 py-3 text-center text-[0.7rem] tracking-[0.14em] text-foreground"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
               </div>
             </div>
           </div>
