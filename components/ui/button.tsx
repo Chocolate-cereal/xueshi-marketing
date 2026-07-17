@@ -7,11 +7,10 @@ type ButtonProps = React.ComponentProps<"button"> & {
 };
 
 const variants = {
-  primary:
-    "bg-accent text-white shadow-soft hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-lg",
+  primary: "bg-accent text-white hover:bg-accent-hover",
   secondary:
     "border border-border bg-surface text-foreground hover:border-accent hover:bg-accent-soft",
-  ghost: "text-muted hover:bg-accent-soft hover:text-foreground",
+  ghost: "text-accent hover:text-accent-hover",
 };
 
 export function Button({
@@ -22,7 +21,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex h-11 items-center justify-center rounded-xl px-5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+    "inline-flex h-11 items-center justify-center rounded-md px-5 text-sm font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
     variants[variant],
     className,
   );

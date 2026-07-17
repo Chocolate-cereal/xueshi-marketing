@@ -69,14 +69,18 @@ export default function HomePage() {
             <div className="min-w-0 max-w-3xl">
               <Badge>Digital Marketing Portfolio</Badge>
               <Heading className="mt-7 max-w-4xl">
-                Hi, I’m <span className="text-accent">Xue.</span> I turn marketing
-                evidence into clear growth recommendations.
+                <span className="block">
+                  Hello, I’m <span className="text-accent">Xue</span>—a digital marketer
+                </span>
+                <span className="block">
+                  who turns research and performance data into clear growth
+                  recommendations.
+                </span>
               </Heading>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted sm:text-xl">
-                I’m a digital marketer specialising in SEO, landing page optimisation,
-                website performance and competitor research. I create evidence-based
-                audits that identify opportunities, explain priorities and recommend
-                practical next steps.
+              <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-muted sm:text-xl">
+                I specialise in SEO, landing page optimisation, website performance and
+                competitor research—creating evidence-based audits that clarify priorities
+                and practical next steps.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
                 Currently seeking digital marketing opportunities with agencies, in-house
@@ -84,7 +88,11 @@ export default function HomePage() {
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Button href="/case-studies">View My Case Studies</Button>
-                <Button href="/contact" variant="secondary">
+                <Button
+                  href="/contact"
+                  variant="ghost"
+                  className="px-1 underline decoration-accent/35 underline-offset-6 hover:bg-transparent hover:decoration-accent-hover"
+                >
                   Contact Me
                 </Button>
               </div>
@@ -102,7 +110,7 @@ export default function HomePage() {
                 ].map((skill) => (
                   <Badge
                     key={skill}
-                    className="rounded-md bg-transparent px-3.5 py-2 normal-case tracking-normal text-foreground"
+                    className="rounded-sm bg-transparent px-3 py-1.5 text-[0.7rem] tracking-[0.14em] text-foreground"
                   >
                     {skill}
                   </Badge>
@@ -110,7 +118,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto">
-              <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-surface shadow-soft">
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-border bg-surface">
                 {portraitImageSrc ? (
                   <Image
                     src={portraitImageSrc}
@@ -122,7 +130,7 @@ export default function HomePage() {
                   />
                 ) : (
                   <div
-                    className="flex h-full flex-col justify-between bg-accent-soft p-8"
+                    className="flex h-full flex-col justify-between bg-surface p-8"
                     role="img"
                     aria-label="Portrait placeholder for Xue, digital marketing professional"
                   >
@@ -131,8 +139,8 @@ export default function HomePage() {
                         Portfolio
                       </span>
                     </div>
-                    <div className="mx-auto flex size-44 items-center justify-center rounded-3xl border border-border bg-surface/85 shadow-soft backdrop-blur sm:size-52">
-                      <span className="text-6xl font-bold tracking-[-0.08em] text-foreground sm:text-7xl">
+                    <div className="mx-auto flex size-44 items-center justify-center rounded-2xl border border-accent/30 bg-accent-soft backdrop-blur sm:size-52">
+                      <span className="text-6xl font-serif font-semibold tracking-[-0.06em] text-foreground sm:text-7xl">
                         X
                       </span>
                     </div>
@@ -221,7 +229,7 @@ export default function HomePage() {
             {tools.map((tool) => (
               <Badge
                 key={tool}
-                className="rounded-md bg-surface px-3.5 py-2 normal-case tracking-normal text-foreground"
+                className="rounded-sm bg-transparent px-3 py-1.5 text-[0.7rem] tracking-[0.14em] text-foreground"
               >
                 {tool}
               </Badge>
