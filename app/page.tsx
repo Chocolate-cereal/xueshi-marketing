@@ -65,17 +65,19 @@ export default function HomePage() {
     <>
       <Section className="pb-16 pt-16 sm:pb-20 sm:pt-24">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.22fr)_minmax(320px,1fr)] lg:items-center lg:gap-16">
-            <div className="min-w-0 max-w-3xl">
+          <div className="grid gap-12 lg:grid-cols-[minmax(0,1.27fr)_minmax(320px,1fr)] lg:items-center lg:gap-16">
+            <div className="min-w-0 max-w-[680px]">
               <Badge>Digital Marketing Portfolio</Badge>
-              <Heading className="mt-7 max-w-4xl">
-                Hello, I’m <span className="text-accent">Xue</span>—I turn marketing
-                evidence into clear growth recommendations.
+              <Heading className="mt-7 max-w-[680px]">
+                <span className="block">
+                  Hello, I’m <span className="text-accent">Xue</span>.
+                </span>
+                I turn data and research into clear marketing decisions.
               </Heading>
               <p className="mt-6 max-w-2xl text-lg font-normal leading-8 text-muted sm:text-xl">
-                I specialise in SEO, landing page optimisation, website performance and
-                competitor research—creating evidence-based audits that clarify priorities
-                and practical next steps.
+                I’m a digital marketer specialising in SEO, landing page optimisation,
+                website performance and competitor research. I create evidence-based
+                audits that identify opportunities and recommend practical next steps.
               </p>
               <p className="mt-5 max-w-2xl text-base leading-8 text-muted">
                 Currently seeking digital marketing opportunities with agencies, in-house
