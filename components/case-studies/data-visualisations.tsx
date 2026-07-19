@@ -64,13 +64,18 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
   const id = channel.toLowerCase();
   const [activeSegment, setActiveSegment] = useState<string | null>(null);
   const segments = [
-    { name: "Revolut only", x: 225, y: 145, radius: 54 },
-    { name: "Wise only", x: 495, y: 145, radius: 54 },
-    { name: "XE only", x: 360, y: 320, radius: 42 },
-    { name: "Revolut + Wise", x: 360, y: 125, radius: 39 },
-    { name: "Revolut + XE", x: 285, y: 245, radius: 38 },
-    { name: "Wise + XE", x: 435, y: 245, radius: 38 },
-    { name: "Shared by all three", x: 360, y: 210, radius: 36 },
+    { name: "Revolut only", x: 225, y: 145, radius: 62 },
+    { name: "Wise only", x: 495, y: 145, radius: 62 },
+    { name: "XE only", x: 360, y: 320, radius: 45 },
+    { name: "Revolut + Wise", x: 360, y: 112, radius: 42 },
+    { name: "Revolut + XE", x: 285, y: 245, radius: 42 },
+    { name: "Wise + XE", x: 435, y: 245, radius: 42 },
+    { name: "Shared by all three", x: 360, y: 205, radius: 38 },
+  ];
+  const legend = [
+    { name: "Revolut", value: "122.1K keywords", color: "#f4b8c2" },
+    { name: "Wise", value: "248.1K keywords", color: "#acd4f6" },
+    { name: "XE", value: "114.9K keywords", color: "#b9e5d2" },
   ];
 
   const tooltip = activeSegment
@@ -83,93 +88,108 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
         {channel} keyword overlap
       </h4>
       <div className="mt-5 rounded-3xl border border-border bg-surface p-3 sm:p-6">
-        <svg
-          viewBox="0 0 720 390"
-          className="h-auto w-full"
-          role="img"
-          aria-labelledby={`${id}-overlap-title ${id}-overlap-description`}
-        >
-          <title id={`${id}-overlap-title`}>
-            {channel} keyword groups for Revolut, Wise and XE
-          </title>
-          <desc id={`${id}-overlap-description`}>
-            Three labelled, overlapping groups. The calculated overlap in the captured
-            dataset is {overlap}. Exact region counts could not be confidently transcribed
-            from the source image.
-          </desc>
-          <circle
-            cx="270"
-            cy="175"
-            r="125"
-            fill="#d97a86"
-            fillOpacity="0.58"
-            stroke="#b95f6d"
-            strokeWidth="3"
-            pointerEvents="none"
-          />
-          <circle
-            cx="450"
-            cy="175"
-            r="125"
-            fill="#6f9fd8"
-            fillOpacity="0.58"
-            stroke="#4f7fb8"
-            strokeWidth="3"
-            pointerEvents="none"
-          />
-          <circle
-            cx="360"
-            cy="265"
-            r="110"
-            fill="#5fae9a"
-            fillOpacity="0.58"
-            stroke="#3f8e7a"
-            strokeWidth="3"
-            pointerEvents="none"
-          />
-          {segments.map((segment) => (
+        <div className="grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_15rem]">
+          <svg
+            viewBox="0 0 720 390"
+            className="h-auto w-full"
+            role="img"
+            aria-labelledby={`${id}-overlap-title ${id}-overlap-description`}
+          >
+            <title id={`${id}-overlap-title`}>
+              {channel} keyword groups for Revolut, Wise and XE
+            </title>
+            <desc id={`${id}-overlap-description`}>
+              Three labelled, overlapping groups. The calculated overlap in the captured
+              dataset is {overlap}. Exact region counts could not be confidently
+              transcribed from the source image.
+            </desc>
             <circle
-              key={segment.name}
-              cx={segment.x}
-              cy={segment.y}
-              r={segment.radius}
-              fill="transparent"
-              stroke={activeSegment === segment.name ? "currentColor" : "transparent"}
-              strokeWidth="5"
-              className="cursor-pointer text-foreground outline-none focus-visible:stroke-current"
-              role="button"
-              tabIndex={0}
-              aria-label={`${segment.name}. Exact count not transcribed. Captured ${id} overlap rate ${overlap}.`}
-              onPointerEnter={() => setActiveSegment(segment.name)}
-              onPointerLeave={(event) => {
-                if (event.pointerType === "mouse") setActiveSegment(null);
-              }}
-              onFocus={() => setActiveSegment(segment.name)}
-              onBlur={() => setActiveSegment(null)}
-              onClick={(event) => {
-                event.currentTarget.focus();
-                setActiveSegment(segment.name);
-              }}
-              onKeyDown={(event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                  event.preventDefault();
-                  setActiveSegment(segment.name);
-                }
-              }}
+              cx="270"
+              cy="175"
+              r="125"
+              fill="#f4b8c2"
+              fillOpacity="0.66"
+              stroke="#d99aa6"
+              strokeWidth="1.5"
+              pointerEvents="none"
             />
-          ))}
-          <g className="pointer-events-none fill-foreground text-[22px] font-semibold">
-            <text x="165" y="80">
-              Revolut
-            </text>
-            <text x="500" y="80">
-              Wise
-            </text>
-            <text x="345" y="375">
-              XE
-            </text>
-          </g>
-        </svg>
+            <circle
+              cx="450"
+              cy="175"
+              r="125"
+              fill="#acd4f6"
+              fillOpacity="0.66"
+              stroke="#82b8e5"
+              strokeWidth="1.5"
+              pointerEvents="none"
+            />
+            <circle
+              cx="360"
+              cy="265"
+              r="110"
+              fill="#b9e5d2"
+              fillOpacity="0.66"
+              stroke="#8bcbb1"
+              strokeWidth="1.5"
+              pointerEvents="none"
+            />
+            {segments.map((segment) => (
+              <circle
+                key={segment.name}
+                cx={segment.x}
+                cy={segment.y}
+                r={segment.radius}
+                fill="transparent"
+                stroke="transparent"
+                className="cursor-pointer outline-none"
+                role="button"
+                tabIndex={0}
+                aria-label={`${segment.name}. Exact count not transcribed. Captured ${id} overlap rate ${overlap}.`}
+                onPointerEnter={() => setActiveSegment(segment.name)}
+                onPointerLeave={(event) => {
+                  if (event.pointerType === "mouse") setActiveSegment(null);
+                }}
+                onFocus={() => setActiveSegment(segment.name)}
+                onBlur={() => setActiveSegment(null)}
+                onClick={(event) => {
+                  event.currentTarget.focus();
+                  setActiveSegment(segment.name);
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    setActiveSegment(segment.name);
+                  }
+                }}
+              />
+            ))}
+          </svg>
+          <div
+            className="rounded-2xl border border-border bg-background p-4"
+            aria-label="Company keyword totals legend"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
+              Company totals
+            </p>
+            <ul className="mt-4 space-y-4">
+              {legend.map((item) => (
+                <li key={item.name} className="flex items-center gap-3">
+                  <span
+                    className="h-4 w-4 shrink-0 rounded-full border border-border"
+                    style={{ backgroundColor: item.color }}
+                    aria-hidden="true"
+                  />
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold text-foreground">
+                      {item.name}
+                    </span>
+                    <span className="block text-xs text-muted">{item.value}</span>
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
         <div
           className="mt-3 flex flex-wrap gap-2"
           aria-label={`${channel} overlap regions`}
