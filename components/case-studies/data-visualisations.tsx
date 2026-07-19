@@ -73,14 +73,25 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
     "Shared by all three",
   ];
   const legend = [
-    { name: "Revolut", value: "122.1K keywords", color: "#f4b8c2" },
-    { name: "Wise", value: "248.1K keywords", color: "#acd4f6" },
-    { name: "XE", value: "114.9K keywords", color: "#b9e5d2" },
+    {
+      name: "Revolut",
+      domain: "revolut.com",
+      value: "122.1K keywords",
+      color: "#f4b8c2",
+    },
+    {
+      name: "Wise",
+      domain: "wise.com",
+      value: "248.1K keywords",
+      color: "#acd4f6",
+    },
+    {
+      name: "XE",
+      domain: "xe.com",
+      value: "114.9K keywords",
+      color: "#b9e5d2",
+    },
   ];
-
-  const tooltip = activeSegment
-    ? `${activeSegment}. Exact segment count was not confidently transcribed from the source. Captured ${id} overlap rate: ${overlap}.`
-    : "Hover, focus or tap a region to inspect it.";
 
   function segmentAtPoint(event: React.PointerEvent<SVGSVGElement>) {
     const svg = event.currentTarget;
@@ -166,12 +177,9 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
           </svg>
           <div
             className="rounded-2xl border border-border bg-background p-4"
-            aria-label="Company keyword totals legend"
+            aria-label="Company legend"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-              Company totals
-            </p>
-            <ul className="mt-4 space-y-4">
+            <ul className="space-y-4">
               {legend.map((item) => (
                 <li key={item.name} className="flex items-center gap-3">
                   <span
@@ -212,14 +220,45 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
           ))}
         </div>
         <div
-          className="mt-3 min-h-20 rounded-2xl border border-border bg-background p-4 text-sm leading-6"
+          className="mt-4 min-h-40 rounded-2xl border border-border bg-surface p-5 text-sm shadow-soft"
           role="status"
           aria-live="polite"
         >
-          <span className="font-semibold text-foreground">
-            {activeSegment ?? "Explore the diagram"}
-          </span>
-          <p className="mt-1 text-muted">{tooltip}</p>
+          {activeSegment ? (
+            <>
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-semibold text-foreground">{activeSegment}</p>
+                  <p className="mt-1 text-xs text-muted">Captured {id} overlap rate</p>
+                </div>
+                <strong className="shrink-0 text-base tabular-nums text-foreground">
+                  {overlap}
+                </strong>
+              </div>
+              <div className="my-4 border-t border-border" />
+              <ul className="space-y-3">
+                {legend.map((item) => (
+                  <li key={item.domain} className="flex items-center gap-3">
+                    <span
+                      className="h-2.5 w-2.5 shrink-0 rounded-full"
+                      style={{ backgroundColor: item.color }}
+                      aria-hidden="true"
+                    />
+                    <span className="min-w-0 flex-1 text-foreground">{item.domain}</span>
+                    <span className="shrink-0 tabular-nums text-muted">{item.value}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-4 border-t border-border pt-3 text-xs leading-5 text-muted">
+                An exact count for this individual segment was not confidently transcribed
+                from the source and has not been guessed.
+              </p>
+            </>
+          ) : (
+            <div className="flex min-h-30 items-center justify-center text-center text-muted">
+              Hover, focus or tap a coloured region to inspect it.
+            </div>
+          )}
         </div>
       </div>
       <ResponsiveDataTable
