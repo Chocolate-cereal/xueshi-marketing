@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { Card } from "@/components/ui/card";
 
 export function FigureCaption({ children }: { children: React.ReactNode }) {
@@ -59,6 +62,20 @@ type OverlapDiagramProps = {
 
 export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps) {
   const id = channel.toLowerCase();
+  const [activeSegment, setActiveSegment] = useState<string | null>(null);
+  const segments = [
+    { name: "Revolut only", x: 225, y: 145, radius: 54 },
+    { name: "Wise only", x: 495, y: 145, radius: 54 },
+    { name: "XE only", x: 360, y: 320, radius: 42 },
+    { name: "Revolut + Wise", x: 360, y: 125, radius: 39 },
+    { name: "Revolut + XE", x: 285, y: 245, radius: 38 },
+    { name: "Wise + XE", x: 435, y: 245, radius: 38 },
+    { name: "Shared by all three", x: 360, y: 210, radius: 36 },
+  ];
+
+  const tooltip = activeSegment
+    ? `${activeSegment}. Exact segment count was not confidently transcribed from the source. Captured ${id} overlap rate: ${overlap}.`
+    : "Hover, focus or tap a region to inspect it.";
 
   return (
     <figure aria-labelledby={`${id}-overlap-heading`}>
@@ -80,82 +97,110 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
             dataset is {overlap}. Exact region counts could not be confidently transcribed
             from the source image.
           </desc>
-          <defs>
-            <pattern
-              id={`${id}-dots`}
-              width="12"
-              height="12"
-              patternUnits="userSpaceOnUse"
-            >
-              <circle cx="3" cy="3" r="2" className="fill-foreground/30" />
-            </pattern>
-            <pattern
-              id={`${id}-lines`}
-              width="12"
-              height="12"
-              patternUnits="userSpaceOnUse"
-              patternTransform="rotate(45)"
-            >
-              <line
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="12"
-                className="stroke-foreground/35"
-                strokeWidth="3"
-              />
-            </pattern>
-          </defs>
           <circle
             cx="270"
             cy="175"
             r="125"
-            className="fill-surface stroke-foreground"
-            strokeWidth="4"
+            fill="#d97a86"
+            fillOpacity="0.58"
+            stroke="#b95f6d"
+            strokeWidth="3"
+            pointerEvents="none"
           />
           <circle
             cx="450"
             cy="175"
             r="125"
-            fill={`url(#${id}-dots)`}
-            className="stroke-foreground"
-            strokeWidth="4"
-            strokeDasharray="12 8"
+            fill="#6f9fd8"
+            fillOpacity="0.58"
+            stroke="#4f7fb8"
+            strokeWidth="3"
+            pointerEvents="none"
           />
           <circle
             cx="360"
             cy="265"
             r="110"
-            fill={`url(#${id}-lines)`}
-            className="stroke-foreground"
-            strokeWidth="4"
-            strokeDasharray="3 8"
+            fill="#5fae9a"
+            fillOpacity="0.58"
+            stroke="#3f8e7a"
+            strokeWidth="3"
+            pointerEvents="none"
           />
-          <g className="fill-foreground text-[22px] font-semibold">
-            <text x="190" y="120">
+          {segments.map((segment) => (
+            <circle
+              key={segment.name}
+              cx={segment.x}
+              cy={segment.y}
+              r={segment.radius}
+              fill="transparent"
+              stroke={activeSegment === segment.name ? "currentColor" : "transparent"}
+              strokeWidth="5"
+              className="cursor-pointer text-foreground outline-none focus-visible:stroke-current"
+              role="button"
+              tabIndex={0}
+              aria-label={`${segment.name}. Exact count not transcribed. Captured ${id} overlap rate ${overlap}.`}
+              onPointerEnter={() => setActiveSegment(segment.name)}
+              onPointerLeave={(event) => {
+                if (event.pointerType === "mouse") setActiveSegment(null);
+              }}
+              onFocus={() => setActiveSegment(segment.name)}
+              onBlur={() => setActiveSegment(null)}
+              onClick={(event) => {
+                event.currentTarget.focus();
+                setActiveSegment(segment.name);
+              }}
+              onKeyDown={(event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  setActiveSegment(segment.name);
+                }
+              }}
+            />
+          ))}
+          <g className="pointer-events-none fill-foreground text-[22px] font-semibold">
+            <text x="165" y="80">
               Revolut
             </text>
-            <text x="485" y="120">
+            <text x="500" y="80">
               Wise
             </text>
-            <text x="340" y="340">
+            <text x="345" y="375">
               XE
             </text>
           </g>
-          <g className="fill-foreground text-center">
-            <text
-              x="360"
-              y="185"
-              textAnchor="middle"
-              className="text-[34px] font-semibold"
-            >
-              {overlap}
-            </text>
-            <text x="360" y="215" textAnchor="middle" className="text-[17px]">
-              calculated overlap
-            </text>
-          </g>
         </svg>
+        <div
+          className="mt-3 flex flex-wrap gap-2"
+          aria-label={`${channel} overlap regions`}
+        >
+          {segments.map((segment) => (
+            <button
+              key={segment.name}
+              type="button"
+              className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-foreground transition hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              aria-pressed={activeSegment === segment.name}
+              onPointerEnter={() => setActiveSegment(segment.name)}
+              onPointerLeave={(event) => {
+                if (event.pointerType === "mouse") setActiveSegment(null);
+              }}
+              onFocus={() => setActiveSegment(segment.name)}
+              onClick={() => setActiveSegment(segment.name)}
+            >
+              {segment.name}
+            </button>
+          ))}
+        </div>
+        <div
+          className="mt-3 min-h-20 rounded-2xl border border-border bg-background p-4 text-sm leading-6"
+          role="status"
+          aria-live="polite"
+        >
+          <span className="font-semibold text-foreground">
+            {activeSegment ?? "Explore the diagram"}
+          </span>
+          <p className="mt-1 text-muted">{tooltip}</p>
+        </div>
       </div>
       <ResponsiveDataTable
         caption={`${channel} keyword overlap values available from the captured comparison`}
@@ -174,9 +219,10 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
         ]}
       />
       <FigureCaption>
-        The diagram is supplementary to the semantic table. Brands are differentiated by
-        labels, borders and patterns as well as fill. The percentage is a calculation from
-        one captured dataset, not a universal or permanent market fact.
+        Hover with a pointer, move focus with the keyboard or tap a region to reveal its
+        label and the supported overlap rate. The diagram is supplementary to the semantic
+        table. The percentage is a calculation from one captured dataset, not a universal
+        or permanent market fact.
       </FigureCaption>
     </figure>
   );
