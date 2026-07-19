@@ -1,4 +1,9 @@
-import Image from "next/image";
+import {
+  ChannelComparison,
+  KeywordFootprintComparison,
+  KeywordOverlapDiagram,
+  ResponsiveDataTable,
+} from "@/components/case-studies/data-visualisations";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -22,75 +27,11 @@ const observations = [
   "The figures are third-party estimates captured on one date and are not account-level performance data.",
 ];
 
-const figures = {
-  paidOverlap: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/paid-diagram.png",
-    alt: "Semrush paid keyword overlap diagram for Revolut, Wise and XE in the UK market.",
-    caption:
-      "Paid keyword overlap snapshot from the captured Semrush comparison. The 18.3% paid overlap figure is a calculation from this captured overlap dataset, not a permanent market fact.",
-  },
-  paidBreakdown: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/wise-xe.png",
-    alt: "Paid keyword overlap breakdown comparing Revolut with Wise and XE.",
-    caption:
-      "Paid overlap breakdown used to assess how differentiated Revolut’s observed paid keyword footprint appeared against Wise and XE.",
-  },
-  organicOverlap: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/diagram.png",
-    alt: "Semrush organic keyword overlap diagram for Revolut, Wise and XE in the UK market.",
-    caption:
-      "Organic keyword overlap snapshot from the captured Semrush comparison. The 70.7% organic overlap figure is a calculation from this dataset, not a universal or permanent figure.",
-  },
-  organicBreakdown: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/wise-xe-2.png",
-    alt: "Organic keyword overlap breakdown comparing Revolut with Wise and XE.",
-    caption:
-      "Organic overlap breakdown showing more direct competition around common currency and exchange-rate topics.",
-  },
-  organicExamples: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/wise-xe-3.png",
-    alt: "Examples of observed organic keywords related to currency conversion and exchange rates.",
-    caption:
-      "Observed organic keyword examples were primarily utility-led. Results in Semrush refer to approximate organic search results, not conversions.",
-  },
-  paidExamples: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/wise-xe-3-1.png",
-    alt: "Examples of observed paid keywords related to business accounts, comparisons and money transfer.",
-    caption:
-      "Observed paid keyword examples leaned toward business, comparison and international transfer themes. Competitive Density is measured from 0 to 1 and indicates advertiser competition.",
-  },
-  channelComparison: {
-    src: "https://xueshimarketing.wordpress.com/wp-content/uploads/2026/07/wise-xe-4.png",
-    alt: "Comparison of Revolut organic and paid keyword roles in the captured Semrush dataset.",
-    caption:
-      "Organic and paid visibility appear to serve different strategic roles in the captured snapshot and require first-party validation before budget decisions.",
-  },
-};
-
 export const metadata = {
   title: "Google Ads Acquisition Audit — Revolut | Xueshi Marketing",
   description:
     "Independent portfolio audit of Revolut’s UK organic and paid search acquisition footprint using third-party Semrush data captured on 26 June 2026.",
 };
-
-function Figure({ figure }: { figure: { src: string; alt: string; caption: string } }) {
-  return (
-    <figure className="overflow-hidden rounded-3xl border border-border bg-background shadow-soft">
-      <div className="overflow-x-auto">
-        <Image
-          src={figure.src}
-          alt={figure.alt}
-          width={1200}
-          height={720}
-          className="h-auto min-w-[680px] max-w-none"
-        />
-      </div>
-      <figcaption className="border-t border-border px-5 py-4 text-sm leading-6 text-muted">
-        {figure.caption}
-      </figcaption>
-    </figure>
-  );
-}
 
 function CopyBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -229,21 +170,7 @@ export default function RevolutGoogleAdsAuditPage() {
                 keyword quantity alone does not establish campaign quality or business
                 performance.
               </p>
-              <div className="grid gap-4 sm:grid-cols-3">
-                {[
-                  ["Wise", "≈248.1K keywords"],
-                  ["Revolut", "≈122.1K keywords"],
-                  ["XE", "≈114.9K keywords"],
-                ].map(([brand, value]) => (
-                  <div
-                    key={brand}
-                    className="rounded-2xl border border-border bg-surface p-5"
-                  >
-                    <p className="text-sm text-muted">{brand}</p>
-                    <p className="mt-2 text-2xl font-semibold text-foreground">{value}</p>
-                  </div>
-                ))}
-              </div>
+              <KeywordFootprintComparison />
               <h3 className="text-xl font-semibold text-foreground">
                 2. Paid keyword overlap
               </h3>
@@ -254,10 +181,7 @@ export default function RevolutGoogleAdsAuditPage() {
                 effectiveness or profitability.
               </p>
             </CopyBlock>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <Figure figure={figures.paidOverlap} />
-              <Figure figure={figures.paidBreakdown} />
-            </div>
+            <KeywordOverlapDiagram channel="Paid" overlap="18.3%" />
             <CopyBlock title="3. Organic keyword overlap">
               <p>
                 Revolut’s organic portfolio had considerably more overlap with Wise and XE
@@ -265,10 +189,7 @@ export default function RevolutGoogleAdsAuditPage() {
                 organic visibility around common currency and exchange-rate topics.
               </p>
             </CopyBlock>
-            <div className="grid gap-6 lg:grid-cols-2">
-              <Figure figure={figures.organicOverlap} />
-              <Figure figure={figures.organicBreakdown} />
-            </div>
+            <KeywordOverlapDiagram channel="Organic" overlap="70.7%" />
             <CopyBlock title="4. Organic keyword themes">
               <p>
                 Revolut’s observed organic rankings were strongly represented by utility
@@ -278,7 +199,29 @@ export default function RevolutGoogleAdsAuditPage() {
                 cannot be determined without first-party conversion data.
               </p>
             </CopyBlock>
-            <Figure figure={figures.organicExamples} />
+            <ResponsiveDataTable
+              caption="Organic keyword examples in the captured Semrush source"
+              columns={[
+                "Keyword",
+                "Position",
+                "Search volume",
+                "Competitive Density",
+                "Results",
+              ]}
+              rows={[
+                [
+                  "Source rows not transcribed",
+                  "—",
+                  "—",
+                  "—",
+                  "The original screenshot values could not be read with sufficient confidence, so no values have been guessed.",
+                ],
+              ]}
+              notes={[
+                "Competitive Density is a Semrush estimate from 0 to 1 indicating how strongly advertisers compete for a keyword. It is not a conversion rate.",
+                "Results represents the approximate number of organic search results reported for the keyword. It does not represent conversions.",
+              ]}
+            />
             <CopyBlock title="5. Paid keyword themes">
               <p>
                 The observed paid keyword portfolio focused more strongly on business
@@ -288,7 +231,29 @@ export default function RevolutGoogleAdsAuditPage() {
                 them.
               </p>
             </CopyBlock>
-            <Figure figure={figures.paidExamples} />
+            <ResponsiveDataTable
+              caption="Paid keyword examples in the captured Semrush source"
+              columns={[
+                "Keyword",
+                "Search volume",
+                "Competitive Density",
+                "Estimated CPC",
+                "Observed position or traffic",
+              ]}
+              rows={[
+                [
+                  "Source rows not transcribed",
+                  "—",
+                  "—",
+                  "—",
+                  "The original screenshot values could not be read with sufficient confidence, so no values have been guessed.",
+                ],
+              ]}
+              notes={[
+                "Competitive Density is a Semrush estimate from 0 to 1 indicating how strongly advertisers compete for a keyword. It is not a conversion rate.",
+                "No figure in this table represents verified conversions or account-level performance.",
+              ]}
+            />
             <CopyBlock title="6. Organic versus paid role">
               <ul className="list-disc space-y-2 pl-5">
                 <li>
@@ -306,7 +271,7 @@ export default function RevolutGoogleAdsAuditPage() {
                 </li>
               </ul>
             </CopyBlock>
-            <Figure figure={figures.channelComparison} />
+            <ChannelComparison />
           </div>
 
           <CopyBlock title="Strategic recommendations">
