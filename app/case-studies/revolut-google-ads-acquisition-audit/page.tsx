@@ -35,11 +35,11 @@ export const metadata = {
 
 function CopyBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="max-w-3xl">
+    <div className="mx-auto w-full max-w-[80rem]">
       <Heading as="h2" className="text-2xl sm:text-3xl">
         {title}
       </Heading>
-      <div className="mt-5 space-y-5 text-base leading-8 text-muted [&>p]:hyphens-auto [&>p]:text-justify [&>p]:[text-justify:inter-word]">
+      <div className="mt-5 space-y-5 text-base leading-8 text-muted [&>p]:hyphens-none [&>p]:text-left [&>p]:[hyphens:none] [&>p]:[letter-spacing:normal] [&>p]:[overflow-wrap:normal] [&>p]:[word-break:normal] [&>p]:[word-spacing:normal] sm:[&>p]:text-justify sm:[&>p]:[text-align-last:left] sm:[&>p]:[text-justify:inter-word]">
         {children}
       </div>
     </div>
@@ -79,7 +79,7 @@ export default function RevolutGoogleAdsAuditPage() {
               </dl>
             </Card>
           </div>
-          <div className="mt-8 rounded-3xl border border-border bg-surface p-6 text-justify text-sm leading-7 text-muted hyphens-auto [text-justify:inter-word]">
+          <div className="mt-8 rounded-3xl border border-border bg-surface p-6 text-left text-sm leading-7 text-muted hyphens-none [hyphens:none] [letter-spacing:normal] [overflow-wrap:normal] [word-break:normal] [word-spacing:normal] sm:text-justify sm:[text-align-last:left] sm:[text-justify:inter-word]">
             This independent portfolio project uses publicly available third-party data.
             It is not affiliated with, commissioned by or endorsed by Revolut, Wise or XE.
           </div>
@@ -87,7 +87,7 @@ export default function RevolutGoogleAdsAuditPage() {
       </Section>
 
       <Section className="pt-8">
-        <Container className="space-y-16">
+        <Container className="max-w-[80rem] space-y-16">
           <CopyBlock title="Executive summary">
             <p>
               The analysis identified a substantial difference between Revolut’s organic
@@ -329,7 +329,7 @@ export default function RevolutGoogleAdsAuditPage() {
 
           <Card className="p-8 sm:p-10">
             <Heading as="h2">Conclusion</Heading>
-            <p className="mt-5 max-w-3xl text-justify text-base leading-8 text-muted hyphens-auto [text-justify:inter-word]">
+            <p className="mt-5 text-left text-base leading-8 text-muted hyphens-none [hyphens:none] [letter-spacing:normal] [overflow-wrap:normal] [word-break:normal] [word-spacing:normal] sm:text-justify sm:[text-align-last:left] sm:[text-justify:inter-word]">
               The dataset suggests that Revolut’s organic and paid search visibility serve
               different purposes. Organic visibility appears strongest around broad
               currency utility searches, while paid activity is more concentrated around

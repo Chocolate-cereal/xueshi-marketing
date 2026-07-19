@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 
 export function FigureCaption({ children }: { children: React.ReactNode }) {
   return (
-    <p className="mt-4 text-justify text-sm leading-6 text-muted hyphens-auto [text-justify:inter-word]">
+    <p className="mt-4 text-left text-sm leading-6 text-muted hyphens-none [hyphens:none] [letter-spacing:normal] [overflow-wrap:normal] [word-break:normal] [word-spacing:normal] sm:text-justify sm:[text-align-last:left] sm:[text-justify:inter-word]">
       {children}
     </p>
   );
