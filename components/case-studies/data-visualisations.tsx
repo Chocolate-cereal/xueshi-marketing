@@ -64,13 +64,13 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
   const id = channel.toLowerCase();
   const [activeSegment, setActiveSegment] = useState<string | null>(null);
   const segments = [
-    { name: "Revolut only", x: 225, y: 145, radius: 62 },
-    { name: "Wise only", x: 495, y: 145, radius: 62 },
-    { name: "XE only", x: 360, y: 320, radius: 45 },
-    { name: "Revolut + Wise", x: 360, y: 112, radius: 42 },
-    { name: "Revolut + XE", x: 285, y: 245, radius: 42 },
-    { name: "Wise + XE", x: 435, y: 245, radius: 42 },
-    { name: "Shared by all three", x: 360, y: 205, radius: 38 },
+    "Revolut only",
+    "Wise only",
+    "XE only",
+    "Revolut + Wise",
+    "Revolut + XE",
+    "Wise + XE",
+    "Shared by all three",
   ];
   const legend = [
     { name: "Revolut", value: "122.1K keywords", color: "#f4b8c2" },
@@ -82,6 +82,30 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
     ? `${activeSegment}. Exact segment count was not confidently transcribed from the source. Captured ${id} overlap rate: ${overlap}.`
     : "Hover, focus or tap a region to inspect it.";
 
+  function segmentAtPoint(event: React.PointerEvent<SVGSVGElement>) {
+    const svg = event.currentTarget;
+    const matrix = svg.getScreenCTM();
+    if (!matrix) return null;
+
+    const point = new DOMPoint(event.clientX, event.clientY).matrixTransform(
+      matrix.inverse(),
+    );
+    const inside = (cx: number, cy: number, radius: number) =>
+      Math.hypot(point.x - cx, point.y - cy) <= radius;
+    const revolut = inside(270, 175, 125);
+    const wise = inside(450, 175, 125);
+    const xe = inside(360, 265, 110);
+
+    if (revolut && wise && xe) return "Shared by all three";
+    if (revolut && wise) return "Revolut + Wise";
+    if (revolut && xe) return "Revolut + XE";
+    if (wise && xe) return "Wise + XE";
+    if (revolut) return "Revolut only";
+    if (wise) return "Wise only";
+    if (xe) return "XE only";
+    return null;
+  }
+
   return (
     <figure aria-labelledby={`${id}-overlap-heading`}>
       <h4 id={`${id}-overlap-heading`} className="text-lg font-semibold text-foreground">
@@ -91,9 +115,15 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
         <div className="grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_15rem]">
           <svg
             viewBox="0 0 720 390"
-            className="h-auto w-full"
+            className="h-auto w-full cursor-pointer"
             role="img"
             aria-labelledby={`${id}-overlap-title ${id}-overlap-description`}
+            onPointerMove={(event) => setActiveSegment(segmentAtPoint(event))}
+            onPointerDown={(event) => setActiveSegment(segmentAtPoint(event))}
+            onPointerLeave={(event) => {
+              if (event.pointerType === "mouse") setActiveSegment(null);
+            }}
+            style={{ touchAction: "manipulation" }}
           >
             <title id={`${id}-overlap-title`}>
               {channel} keyword groups for Revolut, Wise and XE
@@ -133,36 +163,6 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
               strokeWidth="1.5"
               pointerEvents="none"
             />
-            {segments.map((segment) => (
-              <circle
-                key={segment.name}
-                cx={segment.x}
-                cy={segment.y}
-                r={segment.radius}
-                fill="transparent"
-                stroke="transparent"
-                className="cursor-pointer outline-none"
-                role="button"
-                tabIndex={0}
-                aria-label={`${segment.name}. Exact count not transcribed. Captured ${id} overlap rate ${overlap}.`}
-                onPointerEnter={() => setActiveSegment(segment.name)}
-                onPointerLeave={(event) => {
-                  if (event.pointerType === "mouse") setActiveSegment(null);
-                }}
-                onFocus={() => setActiveSegment(segment.name)}
-                onBlur={() => setActiveSegment(null)}
-                onClick={(event) => {
-                  event.currentTarget.focus();
-                  setActiveSegment(segment.name);
-                }}
-                onKeyDown={(event) => {
-                  if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    setActiveSegment(segment.name);
-                  }
-                }}
-              />
-            ))}
           </svg>
           <div
             className="rounded-2xl border border-border bg-background p-4"
@@ -196,18 +196,18 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
         >
           {segments.map((segment) => (
             <button
-              key={segment.name}
+              key={segment}
               type="button"
               className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-foreground transition hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              aria-pressed={activeSegment === segment.name}
-              onPointerEnter={() => setActiveSegment(segment.name)}
+              aria-pressed={activeSegment === segment}
+              onPointerEnter={() => setActiveSegment(segment)}
               onPointerLeave={(event) => {
                 if (event.pointerType === "mouse") setActiveSegment(null);
               }}
-              onFocus={() => setActiveSegment(segment.name)}
-              onClick={() => setActiveSegment(segment.name)}
+              onFocus={() => setActiveSegment(segment)}
+              onClick={() => setActiveSegment(segment)}
             >
-              {segment.name}
+              {segment}
             </button>
           ))}
         </div>
