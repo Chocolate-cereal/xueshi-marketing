@@ -39,7 +39,9 @@ function CopyBlock({ title, children }: { title: string; children: React.ReactNo
       <Heading as="h2" className="text-2xl sm:text-3xl">
         {title}
       </Heading>
-      <div className="mt-5 space-y-5 text-base leading-8 text-muted">{children}</div>
+      <div className="mt-5 space-y-5 text-base leading-8 text-muted [&>p]:hyphens-auto [&>p]:text-justify [&>p]:[text-justify:inter-word]">
+        {children}
+      </div>
     </div>
   );
 }
@@ -77,7 +79,7 @@ export default function RevolutGoogleAdsAuditPage() {
               </dl>
             </Card>
           </div>
-          <div className="mt-8 rounded-3xl border border-border bg-surface p-6 text-sm leading-7 text-muted">
+          <div className="mt-8 rounded-3xl border border-border bg-surface p-6 text-justify text-sm leading-7 text-muted hyphens-auto [text-justify:inter-word]">
             This independent portfolio project uses publicly available third-party data.
             It is not affiliated with, commissioned by or endorsed by Revolut, Wise or XE.
           </div>
@@ -327,7 +329,7 @@ export default function RevolutGoogleAdsAuditPage() {
 
           <Card className="p-8 sm:p-10">
             <Heading as="h2">Conclusion</Heading>
-            <p className="mt-5 max-w-3xl text-base leading-8 text-muted">
+            <p className="mt-5 max-w-3xl text-justify text-base leading-8 text-muted hyphens-auto [text-justify:inter-word]">
               The dataset suggests that Revolut’s organic and paid search visibility serve
               different purposes. Organic visibility appears strongest around broad
               currency utility searches, while paid activity is more concentrated around

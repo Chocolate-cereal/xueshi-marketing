@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 
 export function FigureCaption({ children }: { children: React.ReactNode }) {
-  return <p className="mt-4 text-sm leading-6 text-muted">{children}</p>;
+  return (
+    <p className="mt-4 text-justify text-sm leading-6 text-muted hyphens-auto [text-justify:inter-word]">
+      {children}
+    </p>
+  );
 }
 
 const footprints = [
