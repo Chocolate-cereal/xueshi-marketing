@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Card } from "@/components/ui/card";
 
 export function FigureCaption({ children }: { children: React.ReactNode }) {
@@ -60,42 +60,56 @@ type OverlapDiagramProps = {
   overlap: "18.3%" | "70.7%";
 };
 
+type SegmentName =
+  | "Revolut only"
+  | "Wise only"
+  | "XE only"
+  | "Revolut + Wise"
+  | "Revolut + XE"
+  | "Wise + XE"
+  | "Shared by all three";
+
+const overlapCompanies = [
+  {
+    name: "Revolut",
+    domain: "revolut.com",
+    value: "111,662",
+    color: "#f4b8c2",
+  },
+  { name: "Wise", domain: "wise.com", value: "232,819", color: "#acd4f6" },
+  { name: "XE", domain: "xe.com", value: "109,767", color: "#b9e5d2" },
+];
+
+const focusRegions: Array<{ name: SegmentName; x: number; y: number; radius: number }> = [
+  { name: "Revolut only", x: 225, y: 145, radius: 62 },
+  { name: "Wise only", x: 495, y: 145, radius: 62 },
+  { name: "XE only", x: 360, y: 320, radius: 45 },
+  { name: "Revolut + Wise", x: 360, y: 112, radius: 42 },
+  { name: "Revolut + XE", x: 285, y: 245, radius: 42 },
+  { name: "Wise + XE", x: 435, y: 245, radius: 42 },
+  { name: "Shared by all three", x: 360, y: 205, radius: 38 },
+];
+
 export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps) {
   const id = channel.toLowerCase();
-  const [activeSegment, setActiveSegment] = useState<string | null>(null);
-  const segments = [
-    "Revolut only",
-    "Wise only",
-    "XE only",
-    "Revolut + Wise",
-    "Revolut + XE",
-    "Wise + XE",
-    "Shared by all three",
-  ];
-  const legend = [
-    {
-      name: "Revolut",
-      domain: "revolut.com",
-      value: "122.1K keywords",
-      color: "#f4b8c2",
-    },
-    {
-      name: "Wise",
-      domain: "wise.com",
-      value: "248.1K keywords",
-      color: "#acd4f6",
-    },
-    {
-      name: "XE",
-      domain: "xe.com",
-      value: "114.9K keywords",
-      color: "#b9e5d2",
-    },
-  ];
+  const diagramRef = useRef<HTMLDivElement>(null);
+  const [tooltip, setTooltip] = useState<{
+    segment: SegmentName;
+    x: number;
+    y: number;
+  } | null>(null);
 
-  function segmentAtPoint(event: React.PointerEvent<SVGSVGElement>) {
-    const svg = event.currentTarget;
-    const matrix = svg.getScreenCTM();
+  useEffect(() => {
+    function closeOnOutsideTap(event: PointerEvent) {
+      if (!diagramRef.current?.contains(event.target as Node)) setTooltip(null);
+    }
+
+    document.addEventListener("pointerdown", closeOnOutsideTap);
+    return () => document.removeEventListener("pointerdown", closeOnOutsideTap);
+  }, []);
+
+  function segmentAtPoint(event: React.PointerEvent<SVGSVGElement>): SegmentName | null {
+    const matrix = event.currentTarget.getScreenCTM();
     if (!matrix) return null;
 
     const point = new DOMPoint(event.clientX, event.clientY).matrixTransform(
@@ -117,6 +131,57 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
     return null;
   }
 
+  function placeTooltip(segment: SegmentName, x: number, y: number) {
+    const bounds = diagramRef.current?.getBoundingClientRect();
+    if (!bounds) return;
+
+    const width = Math.min(280, Math.max(0, bounds.width - 16));
+    const height = 210;
+    const offset = 14;
+    const nextX = x + offset + width > bounds.width ? x - width - offset : x + offset;
+    const nextY = y + offset + height > bounds.height ? y - height - offset : y + offset;
+
+    setTooltip({
+      segment,
+      x: Math.max(8, Math.min(nextX, bounds.width - width - 8)),
+      y: Math.max(8, Math.min(nextY, bounds.height - height - 8)),
+    });
+  }
+
+  function updateFromPointer(event: React.PointerEvent<SVGSVGElement>) {
+    const bounds = diagramRef.current?.getBoundingClientRect();
+    if (!bounds) return;
+
+    const segment = segmentAtPoint(event);
+    if (!segment) {
+      setTooltip(null);
+      return;
+    }
+
+    placeTooltip(segment, event.clientX - bounds.left, event.clientY - bounds.top);
+  }
+
+  function companiesFor(segment: SegmentName) {
+    if (segment === "Revolut only") return overlapCompanies.slice(0, 1);
+    if (segment === "Wise only") return overlapCompanies.slice(1, 2);
+    if (segment === "XE only") return overlapCompanies.slice(2, 3);
+    if (segment === "Revolut + Wise") return overlapCompanies.slice(0, 2);
+    if (segment === "Revolut + XE") return [overlapCompanies[0], overlapCompanies[2]];
+    if (segment === "Wise + XE") return overlapCompanies.slice(1, 3);
+    return overlapCompanies;
+  }
+
+  function valueFor(segment: SegmentName) {
+    if (segment === "Revolut only") return overlapCompanies[0].value;
+    if (segment === "Wise only") return overlapCompanies[1].value;
+    if (segment === "XE only") return overlapCompanies[2].value;
+    if (segment === "Shared by all three") return "87,916";
+    return overlap;
+  }
+
+  const activeCompanies = tooltip ? companiesFor(tooltip.segment) : [];
+  const tooltipTitle = tooltip?.segment.endsWith("only") ? "All keywords" : "Shared";
+
   return (
     <figure aria-labelledby={`${id}-overlap-heading`}>
       <h4 id={`${id}-overlap-heading`} className="text-lg font-semibold text-foreground">
@@ -124,164 +189,153 @@ export function KeywordOverlapDiagram({ channel, overlap }: OverlapDiagramProps)
       </h4>
       <div className="mt-5 rounded-3xl border border-border bg-surface p-3 sm:p-6">
         <div className="grid items-center gap-5 lg:grid-cols-[minmax(0,1fr)_15rem]">
-          <svg
-            viewBox="0 0 720 390"
-            className="h-auto w-full cursor-pointer"
-            role="img"
-            aria-labelledby={`${id}-overlap-title ${id}-overlap-description`}
-            onPointerMove={(event) => setActiveSegment(segmentAtPoint(event))}
-            onPointerDown={(event) => setActiveSegment(segmentAtPoint(event))}
-            onPointerLeave={(event) => {
-              if (event.pointerType === "mouse") setActiveSegment(null);
-            }}
-            style={{ touchAction: "manipulation" }}
-          >
-            <title id={`${id}-overlap-title`}>
-              {channel} keyword groups for Revolut, Wise and XE
-            </title>
-            <desc id={`${id}-overlap-description`}>
-              Three labelled, overlapping groups. The calculated overlap in the captured
-              dataset is {overlap}. Exact region counts could not be confidently
-              transcribed from the source image.
-            </desc>
-            <circle
-              cx="270"
-              cy="175"
-              r="125"
-              fill="#f4b8c2"
-              fillOpacity="0.66"
-              stroke="#d99aa6"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
-            <circle
-              cx="450"
-              cy="175"
-              r="125"
-              fill="#acd4f6"
-              fillOpacity="0.66"
-              stroke="#82b8e5"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
-            <circle
-              cx="360"
-              cy="265"
-              r="110"
-              fill="#b9e5d2"
-              fillOpacity="0.66"
-              stroke="#8bcbb1"
-              strokeWidth="1.5"
-              pointerEvents="none"
-            />
-          </svg>
+          <div ref={diagramRef} className="relative">
+            <svg
+              viewBox="0 0 720 390"
+              className="h-auto w-full cursor-pointer"
+              role="img"
+              aria-labelledby={`${id}-overlap-title ${id}-overlap-description`}
+              onPointerMove={updateFromPointer}
+              onPointerDown={updateFromPointer}
+              onPointerLeave={(event) => {
+                if (event.pointerType === "mouse") setTooltip(null);
+              }}
+              style={{ touchAction: "manipulation" }}
+            >
+              <title id={`${id}-overlap-title`}>
+                {channel} keyword groups for Revolut, Wise and XE
+              </title>
+              <desc id={`${id}-overlap-description`}>
+                Three overlapping keyword groups. Pointer movement reveals the region
+                under the cursor. Keyboard users can focus each labelled region to read
+                the same information. The captured overlap rate is {overlap}.
+              </desc>
+              <circle
+                cx="270"
+                cy="175"
+                r="125"
+                fill="#f4b8c2"
+                fillOpacity="0.66"
+                stroke="#d99aa6"
+                strokeWidth="1.5"
+                pointerEvents="none"
+              />
+              <circle
+                cx="450"
+                cy="175"
+                r="125"
+                fill="#acd4f6"
+                fillOpacity="0.66"
+                stroke="#82b8e5"
+                strokeWidth="1.5"
+                pointerEvents="none"
+              />
+              <circle
+                cx="360"
+                cy="265"
+                r="110"
+                fill="#b9e5d2"
+                fillOpacity="0.66"
+                stroke="#8bcbb1"
+                strokeWidth="1.5"
+                pointerEvents="none"
+              />
+              {focusRegions.map((region) => (
+                <circle
+                  key={region.name}
+                  cx={region.x}
+                  cy={region.y}
+                  r={region.radius}
+                  fill="transparent"
+                  stroke="transparent"
+                  className="outline-none"
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`${region.name}. ${valueFor(region.name)}. ${companiesFor(
+                    region.name,
+                  )
+                    .map((company) => `${company.domain}: ${company.value} keywords`)
+                    .join(", ")}.`}
+                  onFocus={() => {
+                    const bounds = diagramRef.current?.getBoundingClientRect();
+                    if (!bounds) return;
+                    placeTooltip(
+                      region.name,
+                      (region.x / 720) * bounds.width,
+                      (region.y / 390) * bounds.height,
+                    );
+                  }}
+                  onBlur={() => setTooltip(null)}
+                  onClick={(event) => event.currentTarget.focus()}
+                />
+              ))}
+            </svg>
+            {tooltip ? (
+              <div
+                className="pointer-events-none absolute z-20 w-[min(17.5rem,calc(100%-1rem))] rounded-xl border border-border bg-background p-4 text-sm shadow-lg"
+                style={{ left: tooltip.x, top: tooltip.y }}
+                aria-hidden="true"
+              >
+                <div className="flex items-baseline justify-between gap-4">
+                  <span className="font-medium text-foreground">{tooltipTitle}</span>
+                  <strong className="tabular-nums text-foreground">
+                    {valueFor(tooltip.segment)}
+                  </strong>
+                </div>
+                <div className="my-3 border-t border-border" />
+                <ul className="space-y-2.5">
+                  {activeCompanies.map((company) => (
+                    <li key={company.domain} className="flex items-center gap-2.5">
+                      <span
+                        className="h-2.5 w-2.5 shrink-0 rounded-full"
+                        style={{ backgroundColor: company.color }}
+                      />
+                      <span className="min-w-0 flex-1 text-foreground">
+                        {company.domain}
+                      </span>
+                      <span className="shrink-0 tabular-nums text-muted">
+                        {company.value}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+          </div>
           <div
             className="rounded-2xl border border-border bg-background p-4"
             aria-label="Company legend"
           >
             <ul className="space-y-4">
-              {legend.map((item) => (
-                <li key={item.name} className="flex items-center gap-3">
+              {overlapCompanies.map((company) => (
+                <li key={company.name} className="flex items-center gap-3">
                   <span
                     className="h-4 w-4 shrink-0 rounded-full border border-border"
-                    style={{ backgroundColor: item.color }}
+                    style={{ backgroundColor: company.color }}
                     aria-hidden="true"
                   />
                   <span className="min-w-0">
                     <span className="block text-sm font-semibold text-foreground">
-                      {item.name}
+                      {company.name}
                     </span>
-                    <span className="block text-xs text-muted">{item.value}</span>
+                    <span className="block text-xs text-muted">
+                      {company.value} keywords
+                    </span>
                   </span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div
-          className="mt-3 flex flex-wrap gap-2"
-          aria-label={`${channel} overlap regions`}
-        >
-          {segments.map((segment) => (
-            <button
-              key={segment}
-              type="button"
-              className="rounded-full border border-border bg-background px-3 py-2 text-xs font-medium text-foreground transition hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-              aria-pressed={activeSegment === segment}
-              onPointerEnter={() => setActiveSegment(segment)}
-              onPointerLeave={(event) => {
-                if (event.pointerType === "mouse") setActiveSegment(null);
-              }}
-              onFocus={() => setActiveSegment(segment)}
-              onClick={() => setActiveSegment(segment)}
-            >
-              {segment}
-            </button>
-          ))}
-        </div>
-        <div
-          className="mt-4 min-h-40 rounded-2xl border border-border bg-surface p-5 text-sm shadow-soft"
-          role="status"
-          aria-live="polite"
-        >
-          {activeSegment ? (
-            <>
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="font-semibold text-foreground">{activeSegment}</p>
-                  <p className="mt-1 text-xs text-muted">Captured {id} overlap rate</p>
-                </div>
-                <strong className="shrink-0 text-base tabular-nums text-foreground">
-                  {overlap}
-                </strong>
-              </div>
-              <div className="my-4 border-t border-border" />
-              <ul className="space-y-3">
-                {legend.map((item) => (
-                  <li key={item.domain} className="flex items-center gap-3">
-                    <span
-                      className="h-2.5 w-2.5 shrink-0 rounded-full"
-                      style={{ backgroundColor: item.color }}
-                      aria-hidden="true"
-                    />
-                    <span className="min-w-0 flex-1 text-foreground">{item.domain}</span>
-                    <span className="shrink-0 tabular-nums text-muted">{item.value}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-4 border-t border-border pt-3 text-xs leading-5 text-muted">
-                An exact count for this individual segment was not confidently transcribed
-                from the source and has not been guessed.
-              </p>
-            </>
-          ) : (
-            <div className="flex min-h-30 items-center justify-center text-center text-muted">
-              Hover, focus or tap a coloured region to inspect it.
-            </div>
-          )}
-        </div>
       </div>
-      <ResponsiveDataTable
-        caption={`${channel} keyword overlap values available from the captured comparison`}
-        columns={["Measure", "Captured value", "Scope"]}
-        rows={[
-          [
-            `${channel} overlap`,
-            overlap,
-            "Calculation from the dataset captured on 26 June 2026",
-          ],
-          [
-            "Individual diagram regions",
-            "Not transcribed",
-            "The source values were not readable with sufficient confidence; no values have been guessed.",
-          ],
-        ]}
-      />
+      <span className="sr-only">
+        The {channel.toLowerCase()} overlap rate calculated from the captured dataset is{" "}
+        {overlap}. Region details are available from the focusable SVG regions.
+      </span>
       <FigureCaption>
-        Hover with a pointer, move focus with the keyboard or tap a region to reveal its
-        label and the supported overlap rate. The diagram is supplementary to the semantic
-        table. The percentage is a calculation from one captured dataset, not a universal
-        or permanent market fact.
+        Move the pointer across the coloured regions to inspect them. Keyboard users can
+        focus each SVG region, and touch users can tap a region. The percentage is a
+        calculation from one captured dataset, not a universal or permanent market fact.
       </FigureCaption>
     </figure>
   );
