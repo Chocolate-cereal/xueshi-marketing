@@ -4,6 +4,7 @@ import {
   KeywordOverlapDiagram,
   ResponsiveDataTable,
 } from "@/components/case-studies/data-visualisations";
+import { MethodologySection } from "@/components/case-studies/methodology-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -268,41 +269,7 @@ export default function RevolutGoogleAdsAuditPage() {
             </Card>
           </section>
 
-          <CopyBlock title="Methodology">
-            <h3 className="text-xl font-semibold text-foreground">
-              Data source and scope
-            </h3>
-            <p>
-              The analysis used Semrush competitive intelligence to compare Revolut, Wise
-              and XE in the UK search market. The dataset included observed organic
-              keyword rankings, paid keyword visibility, search volume, competitive
-              density and keyword overlap.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">Analysis approach</h3>
-            <p>
-              The project compared total keyword footprint, unique and shared keywords,
-              organic versus paid keyword themes, search volume, Competitive Density,
-              estimated search visibility and potential gaps between utility, comparison
-              and business-focused searches.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">Limitations</h3>
-            <ul className="list-disc space-y-2 pl-5">
-              <li>Only publicly available and limited-access Semrush data was used.</li>
-              <li>No Google Ads account or Google Analytics data was available.</li>
-              <li>
-                No verified CTR, conversion rate, CPA, ROAS or revenue data was available.
-              </li>
-              <li>
-                Semrush figures are estimates and may not represent the complete active
-                keyword portfolio.
-              </li>
-              <li>The snapshot was captured on one date and rankings may change.</li>
-              <li>
-                Recommendations are strategic hypotheses requiring validation against
-                first-party data.
-              </li>
-            </ul>
-          </CopyBlock>
+          <MethodologySection />
 
           <div className="space-y-12">
             <CopyBlock title="Findings">
