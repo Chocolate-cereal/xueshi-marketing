@@ -20,11 +20,48 @@ const metadataItems = [
 ];
 
 const observations = [
-  "Wise showed approximately 248.1K keywords in the captured comparison, compared with approximately 122.1K for Revolut and 114.9K for XE.",
-  "Revolut’s observed paid keyword portfolio had less competitor overlap than its organic portfolio.",
-  "Organic visibility was concentrated around high-volume currency utility searches.",
-  "Paid visibility was more concentrated around business and comparison terms.",
-  "The figures are third-party estimates captured on one date and are not account-level performance data.",
+  {
+    title: "Organic visibility is utility-led",
+    copy: "Revolut’s observed organic keyword footprint was strongly represented by high-volume currency conversion, exchange-rate and currency-pair searches. These terms may support reach, brand discovery and topical authority, although their acquisition value cannot be verified without first-party data.",
+    accent: "bg-blue-500/10 text-blue-700 dark:text-blue-300",
+    number: "text-blue-700 dark:text-blue-300",
+    rule: "bg-blue-500/60",
+  },
+  {
+    title: "Wise showed broader coverage",
+    copy: "Wise displayed the largest total keyword footprint in the captured comparison: approximately 248.1K keywords, compared with approximately 122.1K for Revolut and 114.9K for XE. Keyword volume alone does not establish campaign quality or commercial performance.",
+    accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
+    number: "text-emerald-700 dark:text-emerald-300",
+    rule: "bg-emerald-500/60",
+  },
+  {
+    title: "Organic competition was higher",
+    copy: "Revolut’s observed organic portfolio showed substantially more competitor overlap than its paid portfolio. The 70.7% figure is a calculation from the captured overlap dataset and should not be treated as a permanent market measure.",
+    accent: "bg-violet-500/10 text-violet-700 dark:text-violet-300",
+    number: "text-violet-700 dark:text-violet-300",
+    rule: "bg-violet-500/60",
+  },
+  {
+    title: "Paid visibility was more commercially focused",
+    copy: "The observed paid keyword portfolio concentrated more heavily on business accounts, provider comparisons and international money-transfer themes. Higher Competitive Density indicates stronger advertiser competition, not verified conversion intent.",
+    accent: "bg-rose-500/10 text-rose-700 dark:text-rose-300",
+    number: "text-rose-700 dark:text-rose-300",
+    rule: "bg-rose-500/60",
+  },
+  {
+    title: "Paid keywords appeared more differentiated",
+    copy: "The paid keyword portfolio showed less overlap with Wise and XE than the organic portfolio. The calculated 18.3% overlap may indicate a more differentiated keyword set, but it does not demonstrate profitability or campaign effectiveness.",
+    accent: "bg-teal-500/10 text-teal-700 dark:text-teal-300",
+    number: "text-teal-700 dark:text-teal-300",
+    rule: "bg-teal-500/60",
+  },
+];
+
+const readingNotes = [
+  "The analysis uses third-party Semrush data captured on 26 June 2026.",
+  "Competitive Density measures advertiser competition from 0 to 1; it is not a conversion rate.",
+  "Results refers to the approximate number of organic search results, not conversions.",
+  "Recommendations are strategic hypotheses and require validation with first-party data.",
 ];
 
 export const metadata = {
@@ -43,6 +80,31 @@ function CopyBlock({ title, children }: { title: string; children: React.ReactNo
         {children}
       </div>
     </div>
+  );
+}
+
+function ObservationIcon({ index }: { index: number }) {
+  const paths = [
+    <path key="utility" d="m5 12 4 4L19 6M5 6h5M5 18h4" />,
+    <path key="coverage" d="M5 19V9m7 10V5m7 14v-7" />,
+    <path key="organic" d="M9.5 15a5 5 0 1 1 0-6M14.5 9a5 5 0 1 1 0 6" />,
+    <path key="paid" d="M4 8h16v11H4zM8 8V5h8v3m-4 4v3" />,
+    <path key="different" d="M5 5v5a4 4 0 0 0 4 4h10m-5-5 5 5-5 5" />,
+  ];
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className="h-5 w-5"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {paths[index]}
+    </svg>
   );
 }
 
@@ -110,20 +172,101 @@ export default function RevolutGoogleAdsAuditPage() {
             </p>
           </CopyBlock>
 
-          <Card className="p-8 sm:p-10">
-            <Badge>Key observations</Badge>
-            <div className="mt-7 grid gap-4 md:grid-cols-2">
+          <section aria-labelledby="key-observations-heading">
+            <Heading
+              as="h2"
+              id="key-observations-heading"
+              className="text-2xl sm:text-3xl"
+            >
+              Key observations
+            </Heading>
+            <p className="mt-5 max-w-5xl text-left text-base leading-8 text-muted hyphens-none [hyphens:none] [letter-spacing:normal] [overflow-wrap:normal] [word-break:normal] [word-spacing:normal] sm:text-justify sm:[text-align-last:left] sm:[text-justify:inter-word]">
+              The captured data revealed distinct patterns in keyword coverage, competitor
+              overlap and the different roles of Revolut’s organic and paid search
+              visibility.
+            </p>
+
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
               {observations.map((observation, index) => (
-                <div
-                  key={observation}
-                  className="rounded-2xl border border-border bg-background p-5"
+                <Card
+                  key={observation.title}
+                  className="flex h-full flex-col p-6 hover:translate-y-0"
                 >
-                  <span className="text-sm font-semibold text-muted">0{index + 1}</span>
-                  <p className="mt-3 text-sm leading-7 text-foreground">{observation}</p>
-                </div>
+                  <div className="flex items-center justify-between gap-4">
+                    <span
+                      className={`flex h-10 w-10 items-center justify-center rounded-xl ${observation.accent}`}
+                    >
+                      <ObservationIcon index={index} />
+                    </span>
+                    <span
+                      className={`text-sm font-semibold tabular-nums ${observation.number}`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 text-lg font-semibold leading-7 text-foreground">
+                    {observation.title}
+                  </h3>
+                  <span
+                    className={`mt-4 h-0.5 w-10 rounded-full ${observation.rule}`}
+                    aria-hidden="true"
+                  />
+                  <p className="mt-4 text-left text-sm leading-7 text-muted hyphens-none [hyphens:none] [overflow-wrap:normal] [word-break:normal]">
+                    {observation.copy}
+                  </p>
+                </Card>
               ))}
             </div>
-          </Card>
+
+            <Card className="mt-6 p-7 hover:translate-y-0 sm:p-9">
+              <div className="grid gap-9 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
+                <div>
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-ring/10 text-ring">
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-5 w-5"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M12 3a7 7 0 0 0-4 12.75V19h8v-3.25A7 7 0 0 0 12 3Z" />
+                      <path d="M9 22h6M9.5 15h5" />
+                    </svg>
+                  </span>
+                  <h3 className="mt-5 text-xl font-semibold text-foreground">
+                    Overall takeaway
+                  </h3>
+                  <p className="mt-4 text-left text-base leading-8 text-muted hyphens-none [hyphens:none] [letter-spacing:normal] [overflow-wrap:normal] [word-break:normal] [word-spacing:normal] sm:text-justify sm:[text-align-last:left] sm:[text-justify:inter-word]">
+                    The dataset suggests that Revolut’s organic and paid visibility serve
+                    different purposes. Organic visibility appears strongest around broad
+                    currency utility searches, while paid visibility is more concentrated
+                    around business and comparison themes. The most useful next step is
+                    not simply to increase keyword volume, but to validate which search
+                    themes produce commercially valuable behaviour using first-party
+                    campaign and customer data.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border bg-background p-5 sm:p-6">
+                  <h3 className="text-base font-semibold text-foreground">
+                    How to read this
+                  </h3>
+                  <ul className="mt-5 space-y-4">
+                    {readingNotes.map((note, index) => (
+                      <li key={note} className="flex items-start gap-3 text-left">
+                        <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-ring/10 text-xs font-semibold text-ring">
+                          {index + 1}
+                        </span>
+                        <span className="text-sm leading-6 text-muted">{note}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Card>
+          </section>
 
           <CopyBlock title="Methodology">
             <h3 className="text-xl font-semibold text-foreground">
