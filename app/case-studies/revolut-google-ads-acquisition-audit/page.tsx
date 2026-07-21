@@ -1,5 +1,6 @@
 import { FindingsSection } from "@/components/case-studies/findings-section";
 import { MethodologySection } from "@/components/case-studies/methodology-section";
+import { RecommendationsSection } from "@/components/case-studies/recommendations-section";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -268,56 +269,7 @@ export default function RevolutGoogleAdsAuditPage() {
 
           <FindingsSection />
 
-          <CopyBlock title="Strategic recommendations">
-            <h3 className="text-xl font-semibold text-foreground">
-              1. Maintain useful organic visibility
-            </h3>
-            <p>
-              Protect useful currency-conversion and exchange-rate content where it
-              supports user needs, brand discovery and topical relevance, without assuming
-              every high-volume utility keyword should automatically be prioritised.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">
-              2. Validate paid-search intent using first-party data
-            </h3>
-            <p>
-              Evaluate paid keywords using conversion rate, cost per acquisition, lead or
-              customer quality, revenue contribution, search-term relevance and
-              landing-page alignment. These metrics were unavailable for this audit.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">
-              3. Review low-intent paid search terms
-            </h3>
-            <p>
-              Review currency-converter and informational search terms in Google Ads
-              search-term reports. They may become negative-keyword candidates only when
-              first-party evidence shows poor relevance or inefficient acquisition.
-            </p>
-            <p>
-              Example themes to review include currency converter, convert pounds,
-              exchange rate, currency conversion, free converter, GBP to INR, USD to GBP
-              and pound to euro.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">
-              4. Organise campaigns by search intent
-            </h3>
-            <p>
-              A possible framework is to separate brand and high-intent business terms,
-              competitor and provider-comparison terms, and problem-aware
-              international-transfer terms. Separate campaign or ad-group structures can
-              support differentiated messaging, landing pages, budgets and bidding
-              decisions.
-            </p>
-            <h3 className="text-xl font-semibold text-foreground">
-              5. Investigate competitor keyword gaps
-            </h3>
-            <p>
-              Review relevant keywords where Wise appeared but Revolut did not, filtering
-              by business relevance, search intent, location, product availability,
-              estimated cost, landing-page suitability, regulatory considerations and
-              brand considerations.
-            </p>
-          </CopyBlock>
+          <RecommendationsSection />
 
           <Card className="p-8 sm:p-10">
             <Heading as="h2">Conclusion</Heading>
