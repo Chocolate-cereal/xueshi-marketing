@@ -8,9 +8,9 @@ import { Heading } from "@/components/ui/heading";
 type AnalysisItem = { label: string; copy: string };
 
 const footprints = [
-  { brand: "Wise", value: 248100, label: "Approximately 248.1K keywords" },
-  { brand: "Revolut", value: 122100, label: "Approximately 122.1K keywords" },
-  { brand: "XE", value: 114900, label: "Approximately 114.9K keywords" },
+  { brand: "Wise", value: 248100, display: "248.1K", color: "#acd4f6" },
+  { brand: "Revolut", value: 122100, display: "122.1K", color: "#f4b8c2" },
+  { brand: "XE", value: 114900, display: "114.9K", color: "#b9e5d2" },
 ];
 
 const organicAnalysis: AnalysisItem[] = [
@@ -125,30 +125,93 @@ function MetricHighlight({ label, value }: { label: string; value: string }) {
 }
 
 function FootprintVisual() {
-  const largest = footprints[0].value;
+  const scaleMaximum = 300000;
+  const plotTop = 24;
+  const plotBottom = 240;
+  const plotHeight = plotBottom - plotTop;
+  const ticks = [0, 50000, 100000, 150000, 200000, 250000, 300000];
 
   return (
     <div className="rounded-3xl border border-border bg-surface/70 p-5 sm:p-6">
       <p className="text-xs font-semibold uppercase tracking-[0.14em] text-muted">
         Total observed keywords — captured dataset
       </p>
-      <div className="mt-6 space-y-5">
-        {footprints.map((item) => (
-          <div key={item.brand}>
-            <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <span className="font-semibold text-foreground">{item.brand}</span>
-              <span className="text-sm tabular-nums text-muted">{item.label}</span>
-            </div>
-            <div className="mt-2 h-3 rounded-full border border-border bg-background">
-              <div
-                className="h-full rounded-full bg-violet-500/60"
-                style={{ width: `${(item.value / largest) * 100}%` }}
-                aria-hidden="true"
+      <svg
+        viewBox="0 0 420 290"
+        className="mt-4 h-72 w-full"
+        role="img"
+        aria-labelledby="keyword-footprint-chart-title keyword-footprint-chart-description"
+      >
+        <title id="keyword-footprint-chart-title">
+          Total observed keyword comparison
+        </title>
+        <desc id="keyword-footprint-chart-description">
+          Vertical bar chart showing Wise with 248,100 keywords, Revolut with 122,100
+          keywords and XE with 114,900 keywords. The vertical scale runs from zero to
+          300,000 keywords.
+        </desc>
+        {ticks.map((tick) => {
+          const y = plotBottom - (tick / scaleMaximum) * plotHeight;
+          return (
+            <g key={tick}>
+              <line
+                x1="48"
+                x2="404"
+                y1={y}
+                y2={y}
+                className="stroke-border"
+                strokeWidth="1"
               />
-            </div>
-          </div>
-        ))}
-      </div>
+              <text
+                x="40"
+                y={y + 4}
+                textAnchor="end"
+                className="fill-muted text-[10px] tabular-nums"
+              >
+                {tick === 0 ? "0" : `${tick / 1000}K`}
+              </text>
+            </g>
+          );
+        })}
+        {footprints.map((item, index) => {
+          const height = (item.value / scaleMaximum) * plotHeight;
+          const x = 82 + index * 112;
+          const center = x + 64 / 2;
+          return (
+            <g key={item.brand}>
+              <rect
+                x={x}
+                y={plotBottom - height}
+                width="64"
+                height={height}
+                rx="7"
+                fill={item.color}
+                className="stroke-foreground/20"
+                strokeWidth="1"
+              />
+              <text
+                x={center}
+                y={plotBottom - height - 9}
+                textAnchor="middle"
+                className="fill-foreground text-[11px] font-semibold tabular-nums"
+              >
+                {item.display}
+              </text>
+              <text
+                x={center}
+                y="263"
+                textAnchor="middle"
+                className="fill-foreground text-[12px] font-semibold"
+              >
+                {item.brand}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+      <p className="mt-2 text-left text-xs leading-5 text-muted">
+        Approximate keyword totals reported in the captured Semrush comparison.
+      </p>
     </div>
   );
 }
