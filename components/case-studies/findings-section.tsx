@@ -1,7 +1,4 @@
-import {
-  KeywordOverlapDiagram,
-  ResponsiveDataTable,
-} from "@/components/case-studies/data-visualisations";
+import { KeywordOverlapDiagram } from "@/components/case-studies/data-visualisations";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 
@@ -15,31 +12,76 @@ const footprints = [
 
 const organicAnalysis: AnalysisItem[] = [
   {
-    label: "Observed theme",
-    copy: "Currency conversion, exchange-rate calculations, currency-pair lookups and related informational utility searches.",
+    label: "Evidence",
+    copy: "The captured Semrush snapshot showed that Revolut’s organic visibility was strongly represented by currency-conversion, exchange-rate and currency-pair searches.",
   },
   {
-    label: "Possible strategic role",
-    copy: "These searches may support reach, brand discovery, user utility and topical authority.",
+    label: "Interpretation",
+    copy: "These themes may support broad reach, brand discovery, recurring user utility and topical authority.",
   },
   {
     label: "Limitation",
-    copy: "Their direct acquisition value cannot be determined without first-party conversion and customer data.",
+    copy: "The audit cannot determine whether these searches generated accounts, revenue or other commercial outcomes because first-party conversion data was unavailable.",
   },
 ];
 
 const paidAnalysis: AnalysisItem[] = [
   {
-    label: "Observed theme",
-    copy: "Business accounts, provider comparisons, international transfers and problem-aware searches.",
+    label: "Evidence",
+    copy: "The observed paid keyword examples focused more heavily on business, provider comparison and international money-transfer themes than the organic examples.",
   },
   {
-    label: "Possible strategic role",
+    label: "Interpretation",
     copy: "These themes may be more suitable for targeted acquisition messaging and dedicated landing-page journeys.",
   },
   {
     label: "Limitation",
-    copy: "The audit cannot determine which terms produced profitable customers because CTR, conversion rate, CPA, ROAS and revenue data were unavailable.",
+    copy: "No verified CTR, conversion rate, CPA, ROAS, revenue or customer-quality data was available, so the commercial performance of these themes cannot be established.",
+  },
+];
+
+const organicThemes = [
+  {
+    title: "Currency conversion",
+    description:
+      "Queries relating to converting money between currencies and using currency-conversion tools.",
+  },
+  {
+    title: "Exchange rates",
+    description: "Searches for current or calculated exchange rates between currencies.",
+  },
+  {
+    title: "Currency-pair lookups",
+    description:
+      "Queries focused on specific currency pairs, such as GBP, EUR, USD and INR combinations.",
+  },
+  {
+    title: "Informational utility",
+    description:
+      "Practical searches where users are seeking a calculation, reference value or currency information rather than clearly expressing purchase intent.",
+  },
+];
+
+const paidThemes = [
+  {
+    title: "Business accounts",
+    description:
+      "Queries relating to business banking, business accounts and financial services for companies.",
+  },
+  {
+    title: "Provider comparisons",
+    description:
+      "Searches comparing Revolut with other financial-service or money-transfer providers.",
+  },
+  {
+    title: "International transfers",
+    description:
+      "Queries focused on sending money internationally, transfer services and cross-border payments.",
+  },
+  {
+    title: "Problem-aware searches",
+    description:
+      "Searches from users exploring costs, transfer options or solutions to an international payment need.",
   },
 ];
 
@@ -255,12 +297,53 @@ function OverlapFinding({
   );
 }
 
-function ThemeAnalysisPanel({ items, note }: { items: AnalysisItem[]; note: string }) {
+function ThemeGrid({
+  themes,
+  accent,
+}: {
+  themes: Array<{ title: string; description: string }>;
+  accent: string;
+}) {
+  const iconPaths = [
+    "M5 12h14M12 5v14",
+    "M4 8h16M6 12h12M8 16h8",
+    "M7 7h4v4H7zM13 13h4v4h-4zM11 9l2 2m-2 4 2-2",
+    "M12 3a7 7 0 0 0-4 12.75V18h8v-2.25A7 7 0 0 0 12 3Zm-2 18h4",
+  ];
+
   return (
-    <div className="space-y-4">
-      <AnalysisRows items={items} />
-      <p className="rounded-2xl border border-border bg-background p-4 text-left text-xs leading-6 text-muted">
-        {note}
+    <div>
+      <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {themes.map((theme, index) => (
+          <Card key={theme.title} className="h-full p-5 hover:translate-y-0">
+            <span
+              className={`flex h-9 w-9 items-center justify-center rounded-xl ${accent}`}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d={iconPaths[index]} />
+              </svg>
+            </span>
+            <h4 className="mt-4 text-base font-semibold text-foreground">
+              {theme.title}
+            </h4>
+            <p className="mt-2 text-left text-sm leading-6 text-muted">
+              {theme.description}
+            </p>
+          </Card>
+        ))}
+      </div>
+      <p className="mt-4 text-left text-xs leading-6 text-muted">
+        Observed thematic grouping from a third-party Semrush snapshot; it is not a
+        measured campaign outcome or proof of search intent or profitability.
       </p>
     </div>
   );
@@ -404,35 +487,11 @@ export function FindingsSection() {
           lead="Revolut’s observed organic visibility was concentrated around utility-led currency searches."
           numberClass="text-amber-600 dark:text-amber-300"
         />
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] xl:items-start">
-          <ResponsiveDataTable
-            caption="Organic keyword examples in the captured Semrush source"
-            columns={[
-              "Keyword",
-              "Position",
-              "Search volume",
-              "Competitive Density",
-              "Results",
-            ]}
-            rows={[
-              [
-                "Source rows not transcribed",
-                "—",
-                "—",
-                "—",
-                "The original screenshot values could not be read with sufficient confidence, so no values have been guessed.",
-              ],
-            ]}
-            notes={[
-              "Competitive Density is a Semrush estimate from 0 to 1 indicating how strongly advertisers compete for a keyword. It is not a conversion rate.",
-              "Results represents the approximate number of organic search results reported for the keyword. It does not represent conversions.",
-            ]}
-          />
-          <ThemeAnalysisPanel
-            items={organicAnalysis}
-            note="Competitive Density is a Semrush estimate from 0 to 1 indicating advertiser competition. It is not a conversion rate."
-          />
-        </div>
+        <ThemeGrid
+          themes={organicThemes}
+          accent="bg-amber-500/10 text-amber-700 dark:text-amber-300"
+        />
+        <AnalysisRows items={organicAnalysis} />
       </section>
 
       <section className="space-y-7">
@@ -442,35 +501,11 @@ export function FindingsSection() {
           lead="The observed paid keyword portfolio was more concentrated around business, provider comparison and international money-transfer searches."
           numberClass="text-rose-600 dark:text-rose-300"
         />
-        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] xl:items-start">
-          <ResponsiveDataTable
-            caption="Paid keyword examples in the captured Semrush source"
-            columns={[
-              "Keyword",
-              "Search volume",
-              "Competitive Density",
-              "Estimated CPC",
-              "Observed position or traffic",
-            ]}
-            rows={[
-              [
-                "Source rows not transcribed",
-                "—",
-                "—",
-                "—",
-                "The original screenshot values could not be read with sufficient confidence, so no values have been guessed.",
-              ],
-            ]}
-            notes={[
-              "Competitive Density is a Semrush estimate from 0 to 1 indicating how strongly advertisers compete for a keyword. It is not a conversion rate.",
-              "No figure in this table represents verified conversions or account-level performance.",
-            ]}
-          />
-          <ThemeAnalysisPanel
-            items={paidAnalysis}
-            note="Higher Competitive Density means more advertisers were competing for a keyword. It does not directly measure conversion intent or campaign performance."
-          />
-        </div>
+        <ThemeGrid
+          themes={paidThemes}
+          accent="bg-rose-500/10 text-rose-700 dark:text-rose-300"
+        />
+        <AnalysisRows items={paidAnalysis} />
       </section>
 
       <section className="space-y-7">
