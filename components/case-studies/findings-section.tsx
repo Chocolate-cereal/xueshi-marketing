@@ -90,21 +90,21 @@ const channelRoles = [
     title: "Organic search",
     items: [
       "Utility-led and informational keyword themes",
-      "Broader awareness and user-utility role",
+      "Currency conversion, exchange-rate and currency-pair searches",
       "Higher competitor overlap in the captured dataset",
-      "Potential support for brand discovery and topical authority",
-      "Requires first-party conversion validation",
+      "Possible contribution to reach, brand discovery and user utility",
+      "Commercial contribution was not verified",
     ],
     accent: "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300",
   },
   {
     title: "Paid search",
     items: [
-      "Business, comparison and money-transfer themes",
+      "Business, provider-comparison and international-transfer themes",
+      "Lower competitor overlap in the captured dataset",
       "More differentiated observed keyword portfolio",
-      "Potential support for selective acquisition",
-      "Requires cost, conversion and customer-quality validation",
-      "No verified profitability conclusions are available",
+      "Possible suitability for targeted acquisition activity",
+      "Performance and profitability were not verified",
     ],
     accent: "bg-blue-500/10 text-blue-700 dark:text-blue-300",
   },
@@ -511,8 +511,8 @@ export function FindingsSection() {
       <section className="space-y-7">
         <FindingHeader
           number="06"
-          title="Organic versus paid: different strategic roles"
-          lead="The two observed keyword portfolios suggest different roles, but first-party evidence is required before changing acquisition strategy."
+          title="Organic versus paid: different observed search patterns"
+          lead="The captured dataset showed different keyword themes and competitor-overlap patterns across Revolut’s organic and paid search visibility. These observations suggest possible channel roles, but they do not establish performance or commercial impact."
           numberClass="text-teal-600 dark:text-teal-300"
         />
         <div className="grid gap-5 lg:grid-cols-3">
@@ -543,11 +543,12 @@ export function FindingsSection() {
             <h4 className="text-base font-semibold text-foreground">Key takeaway</h4>
             <p className="mt-4 text-left text-sm leading-7 text-muted">
               The captured dataset suggests that Revolut’s organic and paid visibility
-              serve different strategic purposes. Organic visibility appears strongest
-              around broad currency utility searches, while paid visibility is more
-              concentrated around business and comparison themes. First-party campaign and
-              customer data is required before changing bids, budgets or campaign
-              structure.
+              were concentrated around different types of searches. Organic visibility
+              appeared more utility-led and showed greater competitor overlap, while paid
+              visibility focused more heavily on business, comparison and money-transfer
+              themes. First-party campaign, conversion, cost and customer data would be
+              required to determine the actual strategic and commercial role of each
+              channel.
             </p>
           </Card>
         </div>
