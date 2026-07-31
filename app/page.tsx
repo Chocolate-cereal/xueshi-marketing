@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+import { SectionHeader } from "@/components/sections/section-header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CallToAction } from "@/components/ui/call-to-action";
@@ -269,25 +270,5 @@ export default function HomePage() {
         </Container>
       </Section>
     </>
-  );
-}
-
-function SectionHeader({
-  eyebrow,
-  title,
-  description,
-}: {
-  eyebrow: string;
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="max-w-3xl">
-      <Badge>{eyebrow}</Badge>
-      <Heading as="h2" className="mt-5">
-        {title}
-      </Heading>
-      <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{description}</p>
-    </div>
   );
 }
