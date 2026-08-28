@@ -1,4 +1,3 @@
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { cn } from "@/lib/utils";
@@ -83,57 +82,24 @@ export function ResearchStep({
 }
 
 export function FindingBlock({
+  number,
   title,
-  observation,
-  significance,
-  response,
-  placeholder = false,
+  children,
 }: {
+  number: string;
   title: string;
-  observation?: string;
-  significance?: string;
-  response?: string;
-  placeholder?: boolean;
+  children: React.ReactNode;
 }) {
-  if (placeholder) {
-    return (
-      <Card className="border-dashed bg-surface/55 p-7 shadow-none">
-        <Badge>Finding to be added</Badge>
-        <h3 className="mt-5 text-lg font-semibold text-muted">{title}</h3>
-        <p className="mt-3 text-sm leading-7 text-muted">
-          Reserved for a supported finding and its evidence.
-        </p>
-      </Card>
-    );
-  }
-
-  const layers = [
-    { label: "Observation", value: observation },
-    { label: "Why it matters", value: significance },
-    { label: "My response", value: response },
-  ];
   return (
-    <Card className="overflow-hidden p-0">
-      <div className="border-b border-border p-7 sm:p-8">
+    <div className="grid gap-5 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8 sm:py-10">
+      <p className="text-sm font-semibold tracking-[0.18em] text-accent">{number}</p>
+      <div className="max-w-3xl">
         <Heading as="h3">{title}</Heading>
+        <p className="mt-4 text-sm leading-7 text-muted sm:text-base sm:leading-8">
+          {children}
+        </p>
       </div>
-      <div className="grid md:grid-cols-3">
-        {layers.map((layer, index) => (
-          <div
-            key={layer.label}
-            className={cn(
-              "p-7",
-              index > 0 && "border-t border-border md:border-l md:border-t-0",
-            )}
-          >
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-              {layer.label}
-            </p>
-            <p className="mt-4 text-sm leading-7 text-muted">{layer.value}</p>
-          </div>
-        ))}
-      </div>
-    </Card>
+    </div>
   );
 }
 

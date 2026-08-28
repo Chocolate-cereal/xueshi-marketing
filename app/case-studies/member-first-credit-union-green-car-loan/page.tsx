@@ -216,19 +216,48 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         <NumberedSectionHeader
           number="03"
           title="Key findings"
-          description="Findings separate what I observed from why it may matter and the response I proposed. Unsupported conclusions remain intentionally unfilled."
+          description="Five issues stood out across the landing-page experience, information hierarchy and search content."
         />
-        <div className="mt-12 space-y-5">
+        <div className="mt-12">
           <FindingBlock
-            title="Repayment calculation should play a more prominent role"
-            observation="The existing journey presented an application path while several pieces of financial information competed for attention."
-            significance="For a loan product, affordability is likely to be an important consideration before a prospective borrower is ready to apply."
-            response="I made “Calculate Your Payments” the primary hero CTA and moved repayment calculation earlier in the proposed journey."
-          />
-          <div className="grid gap-5 md:grid-cols-2">
-            <FindingBlock title="Additional evidence-led finding" placeholder />
-            <FindingBlock title="Additional evidence-led finding" placeholder />
-          </div>
+            number="01"
+            title="The repayment calculator was difficult to reach"
+          >
+            The calculator appeared too far down the page, even though repayment cost is
+            likely to be one of the main questions users have when considering the loan.
+          </FindingBlock>
+          <FindingBlock
+            number="02"
+            title="Financial information lacked clarity and consistency"
+          >
+            The page presented the promotional rate, APR, calculator and repayment tables
+            without a clear hierarchy. Some examples, including the 10-year term, appeared
+            inconsistent with information elsewhere on the page.
+          </FindingBlock>
+          <FindingBlock
+            number="03"
+            title="The journey from research to application was unclear"
+          >
+            Eligibility, loan benefits, repayment details and application steps appeared
+            in separate sections. Their order did not clearly guide users from exploring
+            the loan to checking eligibility and applying.
+          </FindingBlock>
+          <FindingBlock
+            number="04"
+            title="Search content did not fully address user questions"
+          >
+            The page provided limited answers to likely search queries about qualifying
+            vehicles, eligibility, repayment calculations and the difference between the
+            interest rate and APR.
+          </FindingBlock>
+          <FindingBlock
+            number="05"
+            title="A distinctive sustainability benefit was easy to overlook"
+          >
+            MFCU’s tree-planting initiative helped distinguish the Green Car Loan, but its
+            placement and presentation gave it limited prominence compared with other page
+            content.
+          </FindingBlock>
         </div>
       </ContentSection>
 
