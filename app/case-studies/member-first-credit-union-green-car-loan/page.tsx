@@ -47,9 +47,9 @@ const objectives = [
       "Make the product, financial information and benefits easier to understand.",
   },
   {
-    title: "Support affordability decisions",
+    title: "Increase visibility for relevant local search queries",
     description:
-      "Give greater prominence to repayment calculation before asking users to begin an application.",
+      "Identify realistic opportunities to reach Dublin-based users searching for green car finance through conventional and AI-powered search.",
   },
   {
     title: "Create a clearer journey",
