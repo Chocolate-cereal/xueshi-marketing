@@ -22,13 +22,20 @@ export default function CaseStudiesPage() {
     <>
       <PageIntro
         eyebrow="Case Studies"
-        title="Evidence-led thinking, from research to recommendation."
-        description="Independent portfolio projects that show how research, user experience and campaign planning can work together to support clearer marketing decisions."
+        title="The thinking behind the recommendation."
+        description="Independent projects showing the research, trade-offs and decisions behind each proposed strategy."
       />
       <ContentSection className="pt-0">
         <div className="grid gap-6 lg:grid-cols-2">
           {caseStudies.map((study) => (
-            <Card key={study.href} className="flex min-h-96 flex-col p-7 sm:p-9">
+            <Card
+              key={study.href}
+              className="relative flex min-h-96 flex-col overflow-hidden p-7 sm:p-9"
+            >
+              <span
+                className="abstract-drift pointer-events-none absolute -right-16 -top-20 size-64 rounded-[40%_60%_52%_48%] border border-accent/20 bg-accent-soft/25"
+                aria-hidden="true"
+              />
               <Badge className="self-start">{study.eyebrow}</Badge>
               <p className="mt-8 text-sm font-semibold text-accent">
                 {study.organisation}
