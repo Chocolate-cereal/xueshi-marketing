@@ -11,8 +11,8 @@ export function Footer() {
             Xueshi Marketing
           </p>
           <p className="mt-3 max-w-md text-sm leading-7 text-muted">
-            A personal digital marketing portfolio focused on evidence-led analysis and
-            clear growth recommendations.
+            Digital marketing research, landing-page thinking and search strategy by Xue
+            Shi.
           </p>
         </div>
         <nav className="flex flex-wrap gap-x-5 gap-y-3" aria-label="Footer navigation">
@@ -27,7 +27,7 @@ export function Footer() {
           ))}
         </nav>
         <p className="border-t border-border pt-6 text-xs text-muted lg:col-span-2">
-          © {new Date().getFullYear()} Xueshi Marketing. Built with care and clear intent.
+          © {new Date().getFullYear()} Xueshi Marketing.
         </p>
       </Container>
     </footer>
