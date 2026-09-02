@@ -21,7 +21,16 @@ export function CallToAction({
   className,
 }: CallToActionProps) {
   return (
-    <Card className={cn("overflow-hidden p-8 sm:p-10", className)}>
+    <Card
+      className={cn(
+        "relative overflow-hidden border-accent/30 p-8 hover:translate-y-0 sm:p-10",
+        className,
+      )}
+    >
+      <span
+        className="abstract-drift pointer-events-none absolute -right-16 -top-20 size-64 rounded-[42%_58%_64%_36%] border border-accent/20 bg-accent-soft/35"
+        aria-hidden="true"
+      />
       <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
         <div className="max-w-2xl">
           {eyebrow ? (
