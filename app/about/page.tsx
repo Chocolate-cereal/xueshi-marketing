@@ -8,17 +8,17 @@ const principles = [
   {
     title: "Evidence before assumptions",
     description:
-      "Research, analytics and direct observation form the starting point for every recommendation.",
+      "I start with what can be observed or measured, and label assumptions when the evidence runs out.",
   },
   {
     title: "Clarity over volume",
     description:
-      "The goal is a focused set of priorities that a team can understand, discuss and act on.",
+      "A short, ranked set of priorities is more useful than a long audit that leaves the decision to the reader.",
   },
   {
     title: "Practical next steps",
     description:
-      "Recommendations account for context and constraints rather than relying on generic best-practice lists.",
+      "Recommendations should fit the team, the available data and the size of the opportunity.",
   },
 ];
 
@@ -27,16 +27,16 @@ export default function AboutPage() {
     <>
       <PageIntro
         eyebrow="About Xue"
-        title="Thoughtful marketing analysis, communicated with clarity."
-        description="I approach digital marketing as a structured process: understand the question, examine the available evidence and turn the findings into useful decisions."
-        supportingText="This portfolio will continue to document my working approach, learning and selected project work as it develops."
+        title="I like marketing questions with evidence behind them."
+        description="My background is in digital marketing and campaign optimisation. I now focus on SEO, landing-page experience and research that helps teams make clearer choices."
+        supportingText="This portfolio documents how I work: the question I started with, what I found and why I recommended a particular direction."
         actions={[{ label: "Start a conversation", href: "/contact" }]}
       />
       <ContentSection className="pt-0">
         <SectionHeader
           eyebrow="Working principles"
-          title="A professional approach for teams that value clear reasoning."
-          description="These principles shape how I investigate marketing questions and present recommendations."
+          title="Three principles I use in every project."
+          description="They keep the work honest, focused and easier to act on."
         />
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {principles.map((principle, index) => (
@@ -55,8 +55,8 @@ export default function AboutPage() {
       <ContentSection className="pt-0">
         <CallToAction
           eyebrow="Work with me"
-          title="Looking for a considered view of a marketing challenge?"
-          description="Share the context and the decision you are working toward. I’ll use that information to make the first conversation focused and useful."
+          title="Need a second view of a marketing problem?"
+          description="Tell me what you are trying to decide and what evidence you already have."
           primaryAction={{ label: "Contact me", href: "/contact" }}
           secondaryAction={{ label: "Explore services", href: "/services" }}
         />
