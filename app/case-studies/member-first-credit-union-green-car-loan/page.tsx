@@ -171,10 +171,10 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="context" className="bg-surface/35 py-14 sm:py-16">
-        <p className="text-[0.8125rem] font-medium text-accent sm:text-sm">
+        <p className="text-[0.8125rem] font-medium text-[#E74432] sm:text-sm">
           01 — Context &amp; objectives
         </p>
-        <span className="mt-2 block h-px w-10 bg-accent/55" aria-hidden="true" />
+        <span className="mt-2 block h-px w-10 bg-[#E74432]/55" aria-hidden="true" />
         <h2
           className="mt-2 max-w-[43.75rem] text-[2rem] font-normal leading-[1.06] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-[2.75rem]"
           style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
@@ -231,7 +231,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   }`}
                 >
                   <p
-                    className="text-[1.625rem] font-normal leading-none text-accent"
+                    className="text-[1.625rem] font-normal leading-none text-[#E74432]"
                     style={{
                       fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
                     }}
