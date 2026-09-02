@@ -9,19 +9,19 @@ const services = [
   {
     title: "SEO audits",
     description:
-      "A structured review of search visibility, technical foundations, content alignment and priority opportunities.",
+      "A review of search visibility, technical signals, content alignment and the opportunities worth prioritising.",
     areas: ["Technical signals", "Search intent", "Content gaps"],
   },
   {
     title: "Landing page optimisation",
     description:
-      "An evidence-led assessment of message clarity, user journeys, page experience and conversion friction.",
+      "A close look at message hierarchy, the visitor journey and the points that may slow a conversion.",
     areas: ["Message hierarchy", "Conversion paths", "Page experience"],
   },
   {
     title: "Competitor research",
     description:
-      "A focused comparison of positioning, search presence and digital experience to identify useful opportunities.",
+      "A comparison of positioning, search presence and page experience to find gaps your brand can credibly own.",
     areas: ["Market patterns", "Content coverage", "Experience review"],
   },
 ];
@@ -31,15 +31,15 @@ export default function ServicesPage() {
     <>
       <PageIntro
         eyebrow="Services"
-        title="Focused analysis for clearer digital marketing priorities."
-        description="Each service is designed to turn a broad marketing question into a structured review, a clear set of findings and practical next steps."
+        title="Digital marketing research with a clear next step."
+        description="I turn a broad question into a defined review, supported findings and a ranked set of recommendations."
         actions={[{ label: "Discuss a project", href: "/contact" }]}
       />
       <ContentSection className="pt-0">
         <SectionHeader
           eyebrow="Core services"
-          title="Choose the review that fits the decision in front of you."
-          description="Scopes can be shaped around the available evidence, business context and the questions your team needs to answer."
+          title="Start with the decision you need to make."
+          description="The scope can then be shaped around your question, available evidence and constraints."
         />
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           {services.map((service) => (
@@ -67,8 +67,8 @@ export default function ServicesPage() {
       <ContentSection className="pt-0">
         <CallToAction
           eyebrow="A useful starting point"
-          title="Not sure which type of review you need?"
-          description="Describe the marketing question, the evidence you already have and the decision that needs to follow. The right scope can be clarified from there."
+          title="Unsure where the problem sits?"
+          description="Describe what is happening and what you need to decide. I can help define the right review."
           primaryAction={{ label: "Contact me", href: "/contact" }}
           secondaryAction={{ label: "View case studies", href: "/case-studies" }}
         />
