@@ -9,7 +9,6 @@ import {
   FindingBlock,
   MeasurementGroup,
   NumberedSectionHeader,
-  ObjectiveCard,
   ProjectMeta,
   ResearchStep,
   VisualPlaceholder,
@@ -171,25 +170,75 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </aside>
       </ContentSection>
 
-      <ContentSection id="context" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="01"
-          title="Context & objectives"
-          description="This case study examines the digital journey around a green car loan product, from initial search and product discovery through repayment consideration and application. The project explored how the landing page, search presence and campaign strategy could work together to make the journey clearer and more useful for prospective borrowers."
-        />
-        <p className="mt-10 text-xs font-semibold uppercase tracking-[0.16em] text-muted">
-          Project objectives — not measured outcomes
+      <ContentSection id="context" className="bg-surface/35 py-24 sm:py-28">
+        <p className="text-sm font-semibold tracking-[0.08em] text-accent">
+          01 — Context &amp; objectives
         </p>
-        <div className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {objectives.map((objective, index) => (
-            <ObjectiveCard
-              key={objective.title}
-              index={`0${index + 1}`}
-              title={objective.title}
-            >
-              {objective.description}
-            </ObjectiveCard>
-          ))}
+        <Heading className="mt-10 max-w-4xl text-[2.5rem] leading-[1.12] sm:text-[3.25rem] lg:text-[4.25rem]">
+          Making a complex loan page easier to understand and act on.
+        </Heading>
+
+        <div className="mt-16 grid items-start gap-12 lg:mt-20 lg:grid-cols-[minmax(0,0.37fr)_minmax(0,0.63fr)] lg:gap-16">
+          <aside className="border border-border bg-accent-soft/35 px-6 py-8 sm:px-8 sm:py-10">
+            <dl>
+              {[
+                ["Organisation", "Member First Credit Union"],
+                ["Page", "Green Car Loan landing page"],
+                [
+                  "Focus",
+                  "Landing-page experience, search visibility and paid acquisition",
+                ],
+                ["Project type", "Independent portfolio case study"],
+              ].map(([label, value], index) => (
+                <div
+                  key={label}
+                  className={index === 0 ? "pb-5" : "border-t border-border py-5"}
+                >
+                  <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+                    {label}
+                  </dt>
+                  <dd className="mt-2 text-sm leading-7 text-foreground">{value}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="border-t border-border pt-7 text-sm leading-7 text-muted">
+              This independent case study reviews Member First Credit Union’s Green Car
+              Loan journey and explores how clearer information architecture, stronger
+              search relevance and a more focused acquisition approach could support
+              prospective borrowers.
+            </p>
+          </aside>
+
+          <div>
+            <Heading as="h2" className="text-2xl sm:text-3xl">
+              What the project needed to do
+            </Heading>
+            <div className="mt-7 grid border-t border-border lg:grid-cols-2">
+              {objectives.map((objective, index) => (
+                <div
+                  key={objective.title}
+                  className={`py-8 sm:py-10 lg:p-9 ${
+                    index > 0 ? "border-t border-border" : ""
+                  } ${index === 1 ? "lg:border-l lg:border-t-0" : ""} ${
+                    index === 3 ? "lg:border-l" : ""
+                  }`}
+                >
+                  <p className="text-xs font-semibold tracking-[0.18em] text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </p>
+                  <Heading
+                    as="h3"
+                    className="mt-5 max-w-sm text-[1.4rem] sm:text-[1.65rem]"
+                  >
+                    {objective.title}
+                  </Heading>
+                  <p className="mt-4 max-w-md text-sm leading-7 text-muted sm:text-base sm:leading-8">
+                    {objective.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </ContentSection>
 

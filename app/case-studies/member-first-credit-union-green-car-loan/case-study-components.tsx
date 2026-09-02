@@ -43,24 +43,6 @@ export function ProjectMeta({
   );
 }
 
-export function ObjectiveCard({
-  index,
-  title,
-  children,
-}: {
-  index: string;
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <Card className="p-6">
-      <span className="text-xs font-semibold tracking-[0.18em] text-accent">{index}</span>
-      <h3 className="mt-5 text-lg font-semibold text-foreground">{title}</h3>
-      <p className="mt-3 text-sm leading-7 text-muted">{children}</p>
-    </Card>
-  );
-}
-
 export function ResearchStep({
   number,
   title,
