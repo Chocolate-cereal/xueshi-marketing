@@ -170,19 +170,20 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </aside>
       </ContentSection>
 
-      <ContentSection id="context" className="bg-surface/35 py-16 sm:py-20">
+      <ContentSection id="context" className="bg-surface/35 py-14 sm:py-16">
         <p className="text-[0.8125rem] font-medium text-accent sm:text-sm">
           01 — Context &amp; objectives
         </p>
+        <span className="mt-2 block h-px w-10 bg-accent/55" aria-hidden="true" />
         <h2
-          className="mt-3 max-w-[47.5rem] text-[2.125rem] font-normal leading-[1.06] tracking-[-0.02em] text-foreground sm:text-[2.625rem] lg:text-[3.125rem]"
+          className="mt-2 max-w-[43.75rem] text-[2rem] font-normal leading-[1.06] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-[2.75rem]"
           style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
         >
           Making a complex loan page easier to understand and act on.
         </h2>
 
-        <div className="mt-9 grid items-start gap-10 lg:mt-10 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] lg:gap-12">
-          <aside className="border border-border bg-accent-soft/35 px-6 py-7 sm:px-7 sm:py-8">
+        <div className="mt-8 grid items-start gap-9 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10">
+          <aside className="border border-border bg-accent-soft/35 p-6">
             <dl>
               {[
                 ["Organisation", "Member First Credit Union"],
@@ -195,18 +196,16 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               ].map(([label, value], index) => (
                 <div
                   key={label}
-                  className={index === 0 ? "pb-4" : "border-t border-border py-4"}
+                  className={index === 0 ? "pb-3.5" : "border-t border-border py-3.5"}
                 >
-                  <dt className="text-[0.8125rem] font-semibold leading-5 text-accent">
-                    {label}
-                  </dt>
-                  <dd className="mt-1.5 text-[0.8125rem] font-normal leading-5 text-foreground sm:text-sm sm:leading-6">
+                  <dt className="text-xs font-medium leading-5 text-accent">{label}</dt>
+                  <dd className="mt-1 text-[0.8125rem] font-normal leading-[1.55] text-foreground">
                     {value}
                   </dd>
                 </div>
               ))}
             </dl>
-            <p className="border-t border-border pt-5 text-[0.8125rem] leading-[1.6] text-muted sm:text-sm">
+            <p className="border-t border-border pt-4 text-[0.8125rem] leading-[1.6] text-muted">
               This independent case study reviews Member First Credit Union’s Green Car
               Loan journey and explores how clearer information architecture, stronger
               search relevance and a more focused acquisition approach could support
@@ -216,7 +215,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
           <div>
             <h3
-              className="text-[1.375rem] font-normal leading-[1.15] text-foreground"
+              className="text-xl font-normal leading-[1.15] text-foreground"
               style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
               What the project needed to do
@@ -225,24 +224,29 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               {objectives.map((objective, index) => (
                 <div
                   key={objective.title}
-                  className={`py-6 sm:py-7 lg:px-6 lg:py-7 ${
+                  className={`py-5 lg:px-5 lg:py-5 ${
                     index > 0 ? "border-t border-border" : ""
                   } ${index === 1 ? "lg:border-l lg:border-t-0" : ""} ${
                     index === 3 ? "lg:border-l" : ""
                   }`}
                 >
-                  <p className="text-sm font-medium text-accent">
+                  <p
+                    className="text-[1.625rem] font-normal leading-none text-accent"
+                    style={{
+                      fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                    }}
+                  >
                     {String(index + 1).padStart(2, "0")}
                   </p>
                   <h4
-                    className="mt-3 max-w-sm text-[1.375rem] font-normal leading-[1.15] text-foreground sm:text-2xl"
+                    className="mt-3 max-w-sm text-xl font-normal leading-[1.12] text-foreground lg:text-[1.3125rem]"
                     style={{
                       fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
                     }}
                   >
                     {objective.title}
                   </h4>
-                  <p className="mt-3 max-w-sm text-[0.8125rem] leading-[1.6] text-muted sm:text-sm">
+                  <p className="mt-2.5 max-w-xs text-[0.8125rem] leading-[1.6] text-muted">
                     {objective.description}
                   </p>
                 </div>
