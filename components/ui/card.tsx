@@ -4,7 +4,7 @@ export function Card({ className, children, ...props }: React.ComponentProps<"ar
   return (
     <article
       className={cn(
-        "rounded-2xl border border-border bg-surface p-6 shadow-soft transition hover:border-accent/45",
+        "group border border-border bg-surface/70 p-6 transition duration-500 hover:-translate-y-1 hover:border-accent/45 hover:bg-surface hover:shadow-soft motion-reduce:transform-none",
         className,
       )}
       {...props}
