@@ -12,11 +12,11 @@ export function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/88 backdrop-blur-xl">
       <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6 lg:px-8">
         <Link
           href="/"
-          className="font-semibold tracking-[-0.02em] text-foreground transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          className="font-serif text-lg tracking-[-0.025em] text-foreground transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
         >
           Xueshi<span className="font-medium text-muted"> Marketing</span>
         </Link>
@@ -29,8 +29,8 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium text-muted transition hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                  active && "bg-accent-soft text-accent",
+                  "relative px-3 py-2 text-sm font-medium text-muted transition after:absolute after:inset-x-3 after:bottom-0 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform hover:text-foreground hover:after:scale-x-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
+                  active && "text-foreground after:scale-x-100",
                 )}
                 aria-current={active ? "page" : undefined}
               >
