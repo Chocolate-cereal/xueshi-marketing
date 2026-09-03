@@ -198,87 +198,93 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="context" className="bg-surface/35 py-14 sm:py-16">
-        <p className="text-[0.8125rem] font-medium text-[#E74432] sm:text-sm">
+        <p className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#E74432] sm:text-xs">
           01 — Context &amp; objectives
         </p>
-        <span className="mt-2 block h-px w-10 bg-[#E74432]/55" aria-hidden="true" />
         <h2
-          className="mt-2 max-w-[43.75rem] text-[2rem] font-normal leading-[1.06] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-[2.75rem]"
+          className="mt-4 max-w-[44rem] text-[2rem] font-normal leading-[1.05] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-5xl"
           style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
         >
-          Making a complex loan page easier to understand and act on.
+          Understanding the original experience
         </h2>
 
-        <div className="mt-8 grid items-start gap-9 lg:grid-cols-[minmax(0,0.35fr)_minmax(0,0.65fr)] lg:gap-10">
-          <aside className="border border-border bg-accent-soft/35 p-6">
-            <dl>
-              {[
-                ["Organisation", "Member First Credit Union"],
-                ["Page", "Green Car Loan landing page"],
-                [
-                  "Focus",
-                  "Landing-page experience, search visibility and paid acquisition",
-                ],
-                ["Project type", "Independent portfolio case study"],
-              ].map(([label, value], index) => (
-                <div
-                  key={label}
-                  className={index === 0 ? "pb-3.5" : "border-t border-border py-3.5"}
-                >
-                  <dt className="text-xs font-medium leading-5 text-accent">{label}</dt>
-                  <dd className="mt-1 text-[0.8125rem] font-normal leading-[1.55] text-foreground">
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-            <p className="border-t border-border pt-4 text-[0.8125rem] leading-[1.6] text-muted">
-              This independent case study reviews Member First Credit Union’s Green Car
-              Loan journey and explores how clearer information architecture, stronger
-              search relevance and a more focused acquisition approach could support
-              prospective borrowers.
-            </p>
-          </aside>
-
-          <div>
+        <div className="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] lg:gap-14">
+          <div className="max-w-sm">
             <h3
-              className="text-xl font-normal leading-[1.15] text-foreground"
+              className="text-2xl font-normal leading-[1.15] text-foreground"
               style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
-              What the project needed to do
+              Project context
             </h3>
-            <div className="mt-2 grid border-t border-border lg:grid-cols-2">
-              {objectives.map((objective, index) => (
-                <div
-                  key={objective.title}
-                  className={`py-5 lg:px-5 lg:py-5 ${
-                    index > 0 ? "border-t border-border" : ""
-                  } ${index === 1 ? "lg:border-l lg:border-t-0" : ""} ${
-                    index === 3 ? "lg:border-l" : ""
-                  }`}
+            <p className="mt-5 text-[0.8125rem] leading-[1.7] text-muted sm:text-sm">
+              This independent case study examines the Green Car Loan digital journey and
+              how the page communicates the offer, supports decision-making and guides
+              prospective borrowers towards application.
+            </p>
+            <p className="mt-4 text-[0.8125rem] leading-[1.7] text-muted sm:text-sm">
+              The review considers the landing-page experience, information hierarchy,
+              search visibility and paid-media alignment, with recommendations based on
+              publicly available information and independent analysis.
+            </p>
+            <div className="mt-8">
+              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-[#E74432]">
+                Scope
+              </p>
+              <p className="mt-2 text-[0.8125rem] leading-6 text-foreground">
+                UX · Content · SEO · Paid media
+              </p>
+            </div>
+          </div>
+
+          <figure>
+            <div className="flex aspect-[16/10] w-full items-center justify-center overflow-hidden border border-border bg-surface/65 px-8 text-center">
+              <p className="max-w-xs text-xs leading-6 text-muted">
+                Original MFCU Green Car Loan webpage — image to be added
+              </p>
+            </div>
+            <figcaption className="mt-3 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
+              <span>Original MFCU Green Car Loan webpage, captured for analysis.</span>
+              <span className="text-muted/60" aria-disabled="true">
+                View full original page ↗
+              </span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div className="mt-12 border-t border-border pt-5 sm:mt-14 sm:pt-6">
+          <div className="grid md:grid-cols-2">
+            {objectives.map((objective, index) => (
+              <div
+                key={objective.title}
+                className={`grid grid-cols-[3rem_minmax(0,1fr)] gap-4 py-6 sm:grid-cols-[3.5rem_minmax(0,1fr)] sm:gap-5 md:px-6 ${
+                  index > 0 ? "border-t border-border" : ""
+                } ${index === 1 ? "md:border-l md:border-t-0" : ""} ${
+                  index === 3 ? "md:border-l" : ""
+                }`}
+              >
+                <p
+                  className="text-[1.625rem] font-normal leading-none text-[#E74432] sm:text-[1.875rem]"
+                  style={{
+                    fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                  }}
                 >
-                  <p
-                    className="text-[1.625rem] font-normal leading-none text-[#E74432]"
-                    style={{
-                      fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
-                    }}
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </p>
-                  <h4
-                    className="mt-3 max-w-sm text-xl font-normal leading-[1.12] text-foreground lg:text-[1.3125rem]"
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <div>
+                  <h3
+                    className="max-w-sm text-lg font-normal leading-[1.15] text-foreground sm:text-xl"
                     style={{
                       fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
                     }}
                   >
                     {objective.title}
-                  </h4>
-                  <p className="mt-2.5 max-w-xs text-[0.8125rem] leading-[1.6] text-muted">
+                  </h3>
+                  <p className="mt-2.5 max-w-sm text-[0.8125rem] leading-[1.6] text-muted">
                     {objective.description}
                   </p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
       </ContentSection>
