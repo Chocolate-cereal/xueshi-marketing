@@ -2,14 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ContentSection } from "@/components/sections/content-section";
-import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import {
   FindingBlock,
   MeasurementGroup,
   NumberedSectionHeader,
-  ProjectMeta,
   ResearchStep,
   VisualPlaceholder,
 } from "./case-study-components";
@@ -139,31 +137,60 @@ const mediaPlan = [
 export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
     <article>
-      <ContentSection className="pb-14 pt-10 sm:pb-20 sm:pt-14">
-        <Link
-          href="/case-studies"
-          className="inline-flex text-sm font-semibold text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-        >
-          ← Back to Case Studies
-        </Link>
-        <div className="mt-12 max-w-5xl">
-          <Badge>Independent portfolio case study</Badge>
-          <p className="mt-7 text-sm font-semibold text-accent">
-            Member First Credit Union
-          </p>
-          <Heading className="mt-4 max-w-4xl">
-            Green Car Loan Landing Page &amp; Campaign Strategy
-          </Heading>
-          <p className="mt-7 max-w-3xl text-lg leading-8 text-muted sm:text-xl sm:leading-9">
-            An independent digital marketing case study exploring how a credit union could
-            improve the online journey for a green car loan through landing-page
-            optimisation, search research, paid-media planning and campaign creative.
-          </p>
+      <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
+        <div className="relative isolate">
+          <div
+            className="pointer-events-none absolute -right-52 -top-52 -z-10 hidden size-[38rem] rounded-full bg-[#E8D0C7] md:block lg:-right-40 lg:-top-64 lg:size-[46rem]"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute right-10 top-48 hidden h-28 w-32 md:block lg:right-16 lg:top-44"
+            aria-hidden="true"
+          >
+            <span className="absolute left-0 top-0 size-20 border border-[#B85C4B] lg:size-24" />
+            <span className="absolute left-8 top-7 size-20 border border-[#B85C4B] lg:left-10 lg:top-8 lg:size-24" />
+            <span className="absolute bottom-0 right-0 size-3 bg-[#B85C4B]" />
+          </div>
+
+          <Link
+            href="/case-studies"
+            className="relative z-10 inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-[#B85C4B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
+          >
+            ← Back to Case Studies
+          </Link>
+
+          <div className="relative z-10 mt-11 max-w-[47rem] pb-14 sm:mt-14 sm:pb-16 lg:pb-20">
+            <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
+              Independent portfolio case study
+            </span>
+            <p className="mt-7 text-sm font-medium text-[#B85C4B]">
+              Member First Credit Union
+            </p>
+            <h1
+              className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.02] tracking-[-0.025em] text-foreground sm:text-[3.25rem] lg:text-[3.75rem]"
+              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
+            >
+              Green Car Loan Landing Page &amp; Campaign Strategy
+            </h1>
+            <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
+              An independent digital marketing case study exploring how a credit union
+              could improve the online journey for a green car loan through landing-page
+              optimisation, search research, paid-media planning and campaign creative.
+            </p>
+          </div>
         </div>
-        <div className="mt-12">
-          <ProjectMeta items={projectMeta} />
-        </div>
-        <aside className="mt-6 rounded-xl border border-border bg-accent-soft/45 px-5 py-4 text-sm leading-7 text-muted sm:px-6">
+
+        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+          {projectMeta.map((item) => (
+            <div key={item.label} className="min-w-0 bg-background px-4 py-5">
+              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-[#B85C4B]">
+                {item.label}
+              </dt>
+              <dd className="mt-2 text-xs leading-[1.6] text-foreground">{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <aside className="border-b border-border px-4 py-4 text-[0.6875rem] leading-[1.65] text-muted sm:px-5 sm:text-xs">
           This is an independent portfolio project based on publicly available information
           and my own analysis. It was not commissioned by or produced on behalf of Member
           First Credit Union.
