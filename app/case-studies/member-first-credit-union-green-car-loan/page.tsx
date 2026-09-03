@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { ContentSection } from "@/components/sections/content-section";
@@ -237,16 +238,33 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           </div>
 
           <figure>
-            <div className="flex aspect-[16/10] w-full items-center justify-center overflow-hidden border border-border bg-surface/65 px-8 text-center">
-              <p className="max-w-xs text-xs leading-6 text-muted">
-                Original MFCU Green Car Loan webpage — image to be added
-              </p>
+            <div
+              className="h-96 w-full overflow-x-hidden overflow-y-auto border border-border bg-surface/65 md:h-[440px] lg:h-[480px]"
+              aria-label="Original Member First Credit Union Green Car Loan landing page"
+              tabIndex={0}
+            >
+              <Image
+                src="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
+                alt="Original Member First Credit Union Green Car Loan landing page"
+                width={896}
+                height={1900}
+                sizes="(min-width: 1024px) 64vw, 100vw"
+                className="block h-auto w-full"
+              />
             </div>
-            <figcaption className="mt-3 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
+            <p className="mt-2 text-[0.6875rem] leading-5 text-muted">
+              Scroll to explore the original page ↓
+            </p>
+            <figcaption className="mt-1 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
               <span>Original MFCU Green Car Loan webpage, captured for analysis.</span>
-              <span className="text-muted/60" aria-disabled="true">
+              <Link
+                href="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:text-[#E74432] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+              >
                 View full original page ↗
-              </span>
+              </Link>
             </figcaption>
           </figure>
         </div>
