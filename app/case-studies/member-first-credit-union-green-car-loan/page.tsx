@@ -244,7 +244,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               tabIndex={0}
             >
               <Image
-                src="/case-studies/member-first-credit-union-green-car-loan/original-page.webp"
+                src="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
                 alt="Original Member First Credit Union Green Car Loan landing page"
                 width={896}
                 height={1900}
@@ -258,7 +258,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             <figcaption className="mt-1 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
               <span>Original MFCU Green Car Loan webpage, captured for analysis.</span>
               <Link
-                href="/case-studies/member-first-credit-union-green-car-loan/original-page.webp"
+                href="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition hover:text-[#E74432] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
