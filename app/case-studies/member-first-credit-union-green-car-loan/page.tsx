@@ -9,7 +9,6 @@ import {
   FindingBlock,
   MeasurementGroup,
   NumberedSectionHeader,
-  ResearchStep,
   VisualPlaceholder,
 } from "./case-study-components";
 
@@ -312,22 +311,83 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="research">
-        <NumberedSectionHeader
-          number="02"
-          title="Research approach"
-          description="A seven-stage process connected discovery and analysis to the proposed experience and campaign execution."
-        />
-        <ol className="mt-12 grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-y-10">
-          {researchSteps.map(([title, description], index) => (
-            <ResearchStep
-              key={title}
-              number={String(index + 1).padStart(2, "0")}
-              title={title}
+        <header className="grid gap-5 border-y border-border py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10">
+          <p className="text-sm font-semibold tracking-[0.18em] text-[#B85C4B]">02</p>
+          <div className="max-w-3xl">
+            <h2
+              className="text-[2.625rem] font-normal leading-[1.08] tracking-[-0.02em] text-foreground sm:text-5xl"
+              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
-              {description}
-            </ResearchStep>
-          ))}
-        </ol>
+              Research approach
+            </h2>
+            <p className="mt-4 max-w-2xl text-[0.9375rem] leading-[1.65] text-muted sm:text-base">
+              A seven-stage process connected discovery and analysis to the proposed
+              experience and campaign execution.
+            </p>
+          </div>
+        </header>
+
+        {[
+          { title: "Discover", steps: researchSteps.slice(0, 2) },
+          { title: "Analyse", steps: researchSteps.slice(2, 4) },
+          { title: "Develop", steps: researchSteps.slice(4, 7) },
+        ].map((phase, phaseIndex) => {
+          const stepOffset = phaseIndex * 2;
+          const isDevelop = phase.title === "Develop";
+
+          return (
+            <div
+              key={phase.title}
+              className={`grid border-b border-border px-0 py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10 ${
+                phase.title === "Analyse" ? "bg-accent-soft/25" : ""
+              }`}
+            >
+              <div className="pb-7 md:pb-0">
+                <span className="block h-0.5 w-12 bg-[#B85C4B]" aria-hidden="true" />
+                <h3
+                  className="mt-4 text-[2rem] font-normal leading-none text-foreground sm:text-[2.5rem]"
+                  style={{
+                    fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                  }}
+                >
+                  {phase.title}
+                </h3>
+              </div>
+
+              <ol
+                className={`grid ${
+                  isDevelop ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
+                }`}
+              >
+                {phase.steps.map(([title, description], stepIndex) => (
+                  <li
+                    key={title}
+                    className={`border-t border-border py-6 first:border-t-0 md:border-l md:border-t-0 md:px-7 md:py-0 md:first:border-l-0 md:first:pl-0 md:last:pr-0 ${
+                      isDevelop && stepIndex === 2
+                        ? "md:col-span-2 md:mt-7 md:border-l-0 md:border-t md:pt-7 lg:col-span-1 lg:mt-0 lg:border-l lg:border-t-0 lg:pt-0"
+                        : ""
+                    }`}
+                  >
+                    <p
+                      className="text-[1.0625rem] font-medium leading-none text-[#B85C4B]"
+                      style={{
+                        fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                      }}
+                    >
+                      {String(stepOffset + stepIndex + 1).padStart(2, "0")}
+                    </p>
+                    <h4 className="mt-4 text-base font-semibold leading-snug text-foreground sm:text-[1.0625rem]">
+                      {title}
+                    </h4>
+                    <p className="mt-3 max-w-sm text-[0.8125rem] leading-[1.6] text-muted sm:text-sm">
+                      {description}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          );
+        })}
       </ContentSection>
 
       <ContentSection id="findings" className="bg-surface/35">
