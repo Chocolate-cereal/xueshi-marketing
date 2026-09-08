@@ -6,7 +6,6 @@ import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import {
-  FindingBlock,
   MeasurementGroup,
   NumberedSectionHeader,
   VisualPlaceholder,
@@ -391,51 +390,110 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="findings" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="03"
-          title="Key findings"
-          description="Five issues stood out across the landing-page experience, information hierarchy and search content."
-        />
-        <div className="mt-12">
-          <FindingBlock
-            number="01"
-            title="The repayment calculator was difficult to reach"
-          >
-            The calculator appeared too far down the page, even though repayment cost is
-            likely to be one of the main questions users have when considering the loan.
-          </FindingBlock>
-          <FindingBlock
-            number="02"
-            title="Financial information lacked clarity and consistency"
-          >
-            The page presented the promotional rate, APR, calculator and repayment tables
-            without a clear hierarchy. Some examples, including the 10-year term, appeared
-            inconsistent with information elsewhere on the page.
-          </FindingBlock>
-          <FindingBlock
-            number="03"
-            title="The journey from research to application was unclear"
-          >
-            Eligibility, loan benefits, repayment details and application steps appeared
-            in separate sections. Their order did not clearly guide users from exploring
-            the loan to checking eligibility and applying.
-          </FindingBlock>
-          <FindingBlock
-            number="04"
-            title="Search content did not fully address user questions"
-          >
-            The page provided limited answers to likely search queries about qualifying
-            vehicles, eligibility, repayment calculations and the difference between the
-            interest rate and APR.
-          </FindingBlock>
-          <FindingBlock
-            number="05"
-            title="A distinctive sustainability benefit was easy to overlook"
-          >
-            MFCU’s tree-planting initiative helped distinguish the Green Car Loan, but its
-            placement and presentation gave it limited prominence compared with other page
-            content.
-          </FindingBlock>
+        <div className="grid lg:grid-cols-[minmax(0,0.63fr)_minmax(18rem,0.37fr)]">
+          <div className="min-w-0 lg:pr-12">
+            <div className="grid gap-5 border-t border-border pt-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
+              <div>
+                <Heading as="h2">Key findings</Heading>
+                <p className="mt-5 max-w-2xl text-base leading-[1.6] text-muted">
+                  Five issues stood out across the landing-page experience, information
+                  hierarchy and search content.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">01</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    The repayment calculator was difficult to reach
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The calculator appeared too far down the page, even though repayment
+                    cost is likely to be one of the main questions users have when
+                    considering the loan.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">02</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    Financial information lacked clarity and consistency
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The page presented the promotional rate, APR, calculator and repayment
+                    tables without a clear hierarchy. Some examples, including the 10-year
+                    term, appeared inconsistent with information elsewhere on the page.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    The journey from research to application was unclear
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    Eligibility, loan benefits, repayment details and application steps
+                    appeared in separate sections. Their order did not clearly guide users
+                    from exploring the loan to checking eligibility and applying.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">04</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    Search content did not fully address user questions
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The page provided limited answers to likely search queries about
+                    qualifying vehicles, eligibility, repayment calculations and the
+                    difference between the interest rate and APR.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">05</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    A distinctive sustainability benefit was easy to overlook
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    MFCU’s tree-planting initiative helped distinguish the Green Car Loan,
+                    but its placement and presentation gave it limited prominence compared
+                    with other page content.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside className="mt-12 min-w-0 border-t border-border pt-10 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-8">
+            <h3 className="font-serif text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
+              Supporting evidence
+            </h3>
+            <p className="mt-4 text-sm leading-[1.6] text-muted">
+              Layout placeholders — replace with original-page crops
+            </p>
+            <div className="mt-8 grid gap-6">
+              {[
+                "Screenshot crop: calculator position",
+                "Screenshot crop: repayment tables",
+                "Screenshot crop: tree-planting section",
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="flex aspect-[1.45/1] items-center justify-center border border-accent/50 bg-accent-soft/40 p-6 text-center text-sm leading-[1.6] text-muted"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
       </ContentSection>
 
