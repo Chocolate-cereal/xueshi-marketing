@@ -139,52 +139,56 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
     <article>
       <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
-        <div className="relative isolate">
-          <div
-            className="pointer-events-none absolute -right-52 -top-52 -z-10 hidden size-[38rem] rounded-full bg-[#E8D0C7] md:block lg:-right-40 lg:-top-64 lg:size-[46rem]"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute right-10 top-48 hidden h-28 w-32 md:block lg:right-16 lg:top-44"
-            aria-hidden="true"
-          >
-            <span className="absolute left-0 top-0 size-20 border border-[#B85C4B] lg:size-24" />
-            <span className="absolute left-8 top-7 size-20 border border-[#B85C4B] lg:left-10 lg:top-8 lg:size-24" />
-            <span className="absolute bottom-0 right-0 size-3 bg-[#B85C4B]" />
-          </div>
-
+        <div>
           <Link
             href="/case-studies"
-            className="relative z-10 inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-[#B85C4B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
+            className="inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
           >
             ← Back to Case Studies
           </Link>
 
-          <div className="relative z-10 mt-11 max-w-[47rem] pb-14 sm:mt-14 sm:pb-16 lg:pb-20">
-            <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
-              Independent portfolio case study
-            </span>
-            <p className="mt-7 text-sm font-medium text-[#B85C4B]">
-              Member First Credit Union
-            </p>
-            <h1
-              className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.02] tracking-[-0.025em] text-foreground sm:text-[3.25rem] lg:text-[3.75rem]"
-              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
+          <div className="mt-11 grid items-center gap-12 pb-14 sm:mt-14 sm:pb-16 lg:grid-cols-[minmax(0,1.85fr)_minmax(15rem,1fr)] lg:gap-16 lg:pb-20">
+            <div className="min-w-0">
+              <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                Independent portfolio case study
+              </span>
+              <p className="mt-7 text-sm font-medium text-accent">
+                Member First Credit Union
+              </p>
+              <Heading className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.04] sm:text-[3.25rem] lg:text-[3.75rem]">
+                Green Car Loan Landing Page &amp; Campaign Strategy
+              </Heading>
+              <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
+                An independent digital marketing case study exploring how a credit union
+                could improve the online journey for a green car loan through landing-page
+                optimisation, search research, paid-media planning and campaign creative.
+              </p>
+            </div>
+
+            <div
+              className="mx-auto flex h-[19rem] w-full max-w-[17rem] items-center justify-center bg-accent-soft p-7 sm:h-[22rem] sm:max-w-[19rem] sm:p-8 lg:mx-0 lg:ml-auto lg:h-[25rem] lg:max-w-none"
+              aria-hidden="true"
             >
-              Green Car Loan Landing Page &amp; Campaign Strategy
-            </h1>
-            <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
-              An independent digital marketing case study exploring how a credit union
-              could improve the online journey for a green car loan through landing-page
-              optimisation, search research, paid-media planning and campaign creative.
-            </p>
+              <div className="w-full max-w-[13rem]">
+                <div className="flex h-24 flex-col justify-center gap-3 bg-surface px-5">
+                  <span className="block h-1.5 w-full bg-accent" />
+                  <span className="block h-1.5 w-3/5 bg-accent" />
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-4">
+                  <span className="aspect-square border border-accent" />
+                  <span className="aspect-square bg-accent" />
+                  <span className="aspect-square border border-accent" />
+                  <span className="aspect-square border border-accent" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {projectMeta.map((item) => (
-            <div key={item.label} className="min-w-0 bg-background px-4 py-5">
-              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-[#B85C4B]">
+            <div key={item.label} className="min-w-0 bg-background px-5 py-6">
+              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
                 {item.label}
               </dt>
               <dd className="mt-2 text-xs leading-[1.6] text-foreground">{item.value}</dd>
