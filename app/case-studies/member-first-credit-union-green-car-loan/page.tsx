@@ -6,10 +6,8 @@ import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import {
-  FindingBlock,
   MeasurementGroup,
   NumberedSectionHeader,
-  ResearchStep,
   VisualPlaceholder,
 } from "./case-study-components";
 
@@ -139,52 +137,56 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
     <article>
       <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
-        <div className="relative isolate">
-          <div
-            className="pointer-events-none absolute -right-52 -top-52 -z-10 hidden size-[38rem] rounded-full bg-[#E8D0C7] md:block lg:-right-40 lg:-top-64 lg:size-[46rem]"
-            aria-hidden="true"
-          />
-          <div
-            className="pointer-events-none absolute right-10 top-48 hidden h-28 w-32 md:block lg:right-16 lg:top-44"
-            aria-hidden="true"
-          >
-            <span className="absolute left-0 top-0 size-20 border border-[#B85C4B] lg:size-24" />
-            <span className="absolute left-8 top-7 size-20 border border-[#B85C4B] lg:left-10 lg:top-8 lg:size-24" />
-            <span className="absolute bottom-0 right-0 size-3 bg-[#B85C4B]" />
-          </div>
-
+        <div>
           <Link
             href="/case-studies"
-            className="relative z-10 inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-[#B85C4B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
+            className="inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
           >
             ← Back to Case Studies
           </Link>
 
-          <div className="relative z-10 mt-11 max-w-[47rem] pb-14 sm:mt-14 sm:pb-16 lg:pb-20">
-            <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
-              Independent portfolio case study
-            </span>
-            <p className="mt-7 text-sm font-medium text-[#B85C4B]">
-              Member First Credit Union
-            </p>
-            <h1
-              className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.02] tracking-[-0.025em] text-foreground sm:text-[3.25rem] lg:text-[3.75rem]"
-              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
+          <div className="mt-11 grid items-center gap-12 pb-14 sm:mt-14 sm:pb-16 lg:grid-cols-[minmax(0,1.85fr)_minmax(15rem,1fr)] lg:gap-16 lg:pb-20">
+            <div className="min-w-0">
+              <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
+                Independent portfolio case study
+              </span>
+              <p className="mt-7 text-sm font-medium text-accent">
+                Member First Credit Union
+              </p>
+              <Heading className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.04] sm:text-[3.25rem] lg:text-[3.75rem]">
+                Green Car Loan Landing Page &amp; Campaign Strategy
+              </Heading>
+              <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
+                An independent digital marketing case study exploring how a credit union
+                could improve the online journey for a green car loan through landing-page
+                optimisation, search research, paid-media planning and campaign creative.
+              </p>
+            </div>
+
+            <div
+              className="mx-auto flex h-[19rem] w-full max-w-[17rem] items-center justify-center bg-accent-soft p-7 sm:h-[22rem] sm:max-w-[19rem] sm:p-8 lg:mx-0 lg:ml-auto lg:h-[25rem] lg:max-w-none"
+              aria-hidden="true"
             >
-              Green Car Loan Landing Page &amp; Campaign Strategy
-            </h1>
-            <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
-              An independent digital marketing case study exploring how a credit union
-              could improve the online journey for a green car loan through landing-page
-              optimisation, search research, paid-media planning and campaign creative.
-            </p>
+              <div className="w-full max-w-[13rem]">
+                <div className="flex h-24 flex-col justify-center gap-3 bg-surface px-5">
+                  <span className="block h-1.5 w-full bg-accent" />
+                  <span className="block h-1.5 w-3/5 bg-accent" />
+                </div>
+                <div className="mt-5 grid grid-cols-2 gap-4">
+                  <span className="aspect-square border border-accent" />
+                  <span className="aspect-square bg-accent" />
+                  <span className="aspect-square border border-accent" />
+                  <span className="aspect-square border border-accent" />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6">
+        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {projectMeta.map((item) => (
-            <div key={item.label} className="min-w-0 bg-background px-4 py-5">
-              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-[#B85C4B]">
+            <div key={item.label} className="min-w-0 bg-background px-5 py-6">
+              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
                 {item.label}
               </dt>
               <dd className="mt-2 text-xs leading-[1.6] text-foreground">{item.value}</dd>
@@ -244,10 +246,10 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               tabIndex={0}
             >
               <Image
-                src="/case-studies/member-first-credit-union-green-car-loan/original-page.webp"
+                src="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
                 alt="Original Member First Credit Union Green Car Loan landing page"
-                width={896}
-                height={1900}
+                width={854}
+                height={1842}
                 sizes="(min-width: 1024px) 64vw, 100vw"
                 className="block h-auto w-full"
               />
@@ -258,7 +260,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             <figcaption className="mt-1 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
               <span>Original MFCU Green Car Loan webpage, captured for analysis.</span>
               <Link
-                href="/case-studies/member-first-credit-union-green-car-loan/original-page.webp"
+                href="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition hover:text-[#E74432] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
@@ -308,70 +310,216 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="research">
-        <NumberedSectionHeader
-          number="02"
-          title="Research approach"
-          description="A seven-stage process connected discovery and analysis to the proposed experience and campaign execution."
-        />
-        <ol className="mt-12 grid gap-x-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-y-10">
-          {researchSteps.map(([title, description], index) => (
-            <ResearchStep
-              key={title}
-              number={String(index + 1).padStart(2, "0")}
-              title={title}
+        <header className="grid gap-5 border-y border-border py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10">
+          <p className="text-sm font-semibold tracking-[0.18em] text-[#B85C4B]">02</p>
+          <div className="max-w-3xl">
+            <h2
+              className="text-[2.625rem] font-normal leading-[1.08] tracking-[-0.02em] text-foreground sm:text-5xl"
+              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
-              {description}
-            </ResearchStep>
-          ))}
-        </ol>
+              Research approach
+            </h2>
+            <p className="mt-4 max-w-2xl text-[0.9375rem] leading-[1.65] text-muted sm:text-base">
+              A seven-stage process connected discovery and analysis to the proposed
+              experience and campaign execution.
+            </p>
+          </div>
+        </header>
+
+        {[
+          { title: "Discover", steps: researchSteps.slice(0, 2) },
+          { title: "Analyse", steps: researchSteps.slice(2, 4) },
+          { title: "Develop", steps: researchSteps.slice(4, 7) },
+        ].map((phase, phaseIndex) => {
+          const stepOffset = phaseIndex * 2;
+          const isDevelop = phase.title === "Develop";
+
+          return (
+            <div
+              key={phase.title}
+              className={`grid border-b border-border px-0 py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10 ${
+                phase.title === "Analyse" ? "bg-accent-soft/25" : ""
+              }`}
+            >
+              <div className="pb-7 md:pb-0">
+                <span className="block h-0.5 w-12 bg-[#B85C4B]" aria-hidden="true" />
+                <h3
+                  className="mt-4 text-[2rem] font-normal leading-none text-foreground sm:text-[2.5rem]"
+                  style={{
+                    fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                  }}
+                >
+                  {phase.title}
+                </h3>
+              </div>
+
+              <ol
+                className={`grid ${
+                  isDevelop ? "md:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
+                }`}
+              >
+                {phase.steps.map(([title, description], stepIndex) => (
+                  <li
+                    key={title}
+                    className={`border-t border-border py-6 first:border-t-0 md:border-l md:border-t-0 md:px-7 md:py-0 md:first:border-l-0 md:first:pl-0 md:last:pr-0 ${
+                      isDevelop && stepIndex === 2
+                        ? "md:col-span-2 md:mt-7 md:border-l-0 md:border-t md:pt-7 lg:col-span-1 lg:mt-0 lg:border-l lg:border-t-0 lg:pt-0"
+                        : ""
+                    }`}
+                  >
+                    <p
+                      className="text-[1.0625rem] font-medium leading-none text-[#B85C4B]"
+                      style={{
+                        fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
+                      }}
+                    >
+                      {String(stepOffset + stepIndex + 1).padStart(2, "0")}
+                    </p>
+                    <h4 className="mt-4 text-base font-semibold leading-snug text-foreground sm:text-[1.0625rem]">
+                      {title}
+                    </h4>
+                    <p className="mt-3 max-w-sm text-[0.8125rem] leading-[1.6] text-muted sm:text-sm">
+                      {description}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          );
+        })}
       </ContentSection>
 
       <ContentSection id="findings" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="03"
-          title="Key findings"
-          description="Five issues stood out across the landing-page experience, information hierarchy and search content."
-        />
-        <div className="mt-12">
-          <FindingBlock
-            number="01"
-            title="The repayment calculator was difficult to reach"
-          >
-            The calculator appeared too far down the page, even though repayment cost is
-            likely to be one of the main questions users have when considering the loan.
-          </FindingBlock>
-          <FindingBlock
-            number="02"
-            title="Financial information lacked clarity and consistency"
-          >
-            The page presented the promotional rate, APR, calculator and repayment tables
-            without a clear hierarchy. Some examples, including the 10-year term, appeared
-            inconsistent with information elsewhere on the page.
-          </FindingBlock>
-          <FindingBlock
-            number="03"
-            title="The journey from research to application was unclear"
-          >
-            Eligibility, loan benefits, repayment details and application steps appeared
-            in separate sections. Their order did not clearly guide users from exploring
-            the loan to checking eligibility and applying.
-          </FindingBlock>
-          <FindingBlock
-            number="04"
-            title="Search content did not fully address user questions"
-          >
-            The page provided limited answers to likely search queries about qualifying
-            vehicles, eligibility, repayment calculations and the difference between the
-            interest rate and APR.
-          </FindingBlock>
-          <FindingBlock
-            number="05"
-            title="A distinctive sustainability benefit was easy to overlook"
-          >
-            MFCU’s tree-planting initiative helped distinguish the Green Car Loan, but its
-            placement and presentation gave it limited prominence compared with other page
-            content.
-          </FindingBlock>
+        <div className="grid lg:grid-cols-[minmax(0,0.63fr)_minmax(18rem,0.37fr)]">
+          <div className="min-w-0 lg:pr-12">
+            <div className="grid gap-5 border-t border-border pt-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
+              <div>
+                <Heading as="h2">Key findings</Heading>
+                <p className="mt-5 max-w-2xl text-base leading-[1.6] text-muted">
+                  Five issues stood out across the landing-page experience, information
+                  hierarchy and search content.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">01</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    The repayment calculator was difficult to reach
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The calculator appeared too far down the page, even though repayment
+                    cost is likely to be one of the main questions users have when
+                    considering the loan.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">02</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    Financial information lacked clarity and consistency
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The page presented the promotional rate, APR, calculator and repayment
+                    tables without a clear hierarchy. Some examples, including the 10-year
+                    term, appeared inconsistent with information elsewhere on the page.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    The journey from research to application was unclear
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    Eligibility, loan benefits, repayment details and application steps
+                    appeared in separate sections. Their order did not clearly guide users
+                    from exploring the loan to checking eligibility and applying.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">04</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    Search content did not fully address user questions
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    The page provided limited answers to likely search queries about
+                    qualifying vehicles, eligibility, repayment calculations and the
+                    difference between the interest rate and APR.
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+                <p className="text-sm font-semibold tracking-[0.18em] text-accent">05</p>
+                <div>
+                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                    A distinctive sustainability benefit was easy to overlook
+                  </h3>
+                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                    MFCU’s tree-planting initiative helped distinguish the Green Car Loan,
+                    but its placement and presentation gave it limited prominence compared
+                    with other page content.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside className="mt-12 min-w-0 border-t border-border pt-10 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-8">
+            <h3 className="font-serif text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
+              Supporting evidence
+            </h3>
+            <div className="mt-8 grid gap-6">
+              <figure className="min-w-0">
+                <a
+                  href="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  aria-label="View calculator position image at full resolution (opens in a new tab)"
+                >
+                  <Image
+                    src="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
+                    alt="Annotated MFCU Green Car Loan page showing the hero, rate highlights and repayment table above the loan calculator."
+                    width={1202}
+                    height={1309}
+                    sizes="(min-width: 1024px) 37vw, 100vw"
+                    className="block h-auto w-full border border-border"
+                  />
+                </a>
+                <figcaption className="mt-3 text-sm leading-[1.6] text-muted">
+                  Calculator position below the hero, rate highlights and repayment
+                  table. Calculator outlined for emphasis.
+                </figcaption>
+                <a
+                  href="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex text-sm text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                >
+                  View larger image ↗
+                </a>
+              </figure>
+              {[
+                "Screenshot crop: repayment tables",
+                "Screenshot crop: tree-planting section",
+              ].map((label) => (
+                <div
+                  key={label}
+                  className="flex aspect-[1.45/1] items-center justify-center border border-accent/50 bg-accent-soft/40 p-6 text-center text-sm leading-[1.6] text-muted"
+                >
+                  {label}
+                </div>
+              ))}
+            </div>
+          </aside>
         </div>
       </ContentSection>
 
