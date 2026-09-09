@@ -476,7 +476,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             <h3 className="font-serif text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
               Supporting evidence
             </h3>
-            <div className="mt-8 grid gap-6">
+            <div className="mt-8 grid gap-8">
               <figure className="min-w-0">
                 <a
                   href="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
@@ -494,29 +494,51 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                     className="block h-auto w-full border border-border"
                   />
                 </a>
-                <figcaption className="mt-3 text-sm leading-[1.6] text-muted">
-                  Calculator position below the hero, rate highlights and repayment
-                  table. Calculator outlined for emphasis.
+                <figcaption className="mt-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
+                    Finding 01 · Calculator position
+                  </p>
+                  <p className="mt-1 text-sm leading-[1.6] text-muted">
+                    The calculator sits below the hero, offer highlights and repayment
+                    table.
+                  </p>
                 </figcaption>
                 <a
                   href="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex text-sm text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  className="mt-2 inline-flex text-sm text-[#B85C4B] underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
                   View larger image ↗
                 </a>
               </figure>
               {[
-                "Screenshot crop: repayment tables",
-                "Screenshot crop: tree-planting section",
-              ].map((label) => (
-                <div
-                  key={label}
-                  className="flex aspect-[1.45/1] items-center justify-center border border-accent/50 bg-accent-soft/40 p-6 text-center text-sm leading-[1.6] text-muted"
-                >
-                  {label}
-                </div>
+                {
+                  placeholder: "Repayment comparison crop — placeholder",
+                  label: "Finding 02 · Repayment information",
+                  caption:
+                    "Compare this table example with the loan-term wording elsewhere on the page.",
+                },
+                {
+                  placeholder: "Tree-planting crop — placeholder",
+                  label: "Finding 05 · Sustainability message",
+                  caption:
+                    "Original placement of the tree-planting message within the page.",
+                },
+              ].map((item) => (
+                <figure key={item.label} className="min-w-0">
+                  <div className="flex aspect-[1.45/1] items-center justify-center border border-accent/50 bg-accent-soft/40 p-6 text-center text-sm leading-[1.6] text-muted">
+                    {item.placeholder}
+                  </div>
+                  <figcaption className="mt-3">
+                    <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
+                      {item.label}
+                    </p>
+                    <p className="mt-1 text-sm leading-[1.6] text-muted">
+                      {item.caption}
+                    </p>
+                  </figcaption>
+                </figure>
               ))}
             </div>
           </aside>
