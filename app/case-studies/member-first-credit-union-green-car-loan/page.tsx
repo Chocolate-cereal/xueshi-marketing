@@ -101,27 +101,159 @@ const journey = [
 ];
 
 const strategyPoints = [
-  [
-    "Calculator-led primary action",
-    "Shift the initial emphasis from immediate application toward repayment exploration.",
-  ],
-  [
-    "Clearer financial hierarchy",
-    "Reduce visual competition between multiple financial figures and prioritise the information most useful for decision-making.",
-  ],
-  [
-    "Benefits closer to consideration",
-    "Position key product benefits closer to the calculator and decision stage.",
-  ],
-  [
-    "Eligibility connected to application",
-    "Connect qualification information more clearly with the steps required to apply.",
-  ],
-  [
-    "Distinct sustainability story",
-    "Keep the tree-planting initiative visually distinct rather than absorbing it into a generic benefits list.",
-  ],
+  {
+    title: "Prioritise",
+    description:
+      "Place the repayment calculator directly after the hero and make it the primary action.",
+  },
+  {
+    title: "Simplify",
+    description:
+      "Give essential financial information a clearer hierarchy and reduce competing figures.",
+  },
+  {
+    title: "Connect",
+    description:
+      "Keep benefits close to repayment exploration, then link eligibility with application steps.",
+  },
+  {
+    title: "Distinguish",
+    description:
+      "Give the environmental initiative a separate place within the proposed page.",
+  },
 ];
+
+function StrategyIcon({
+  kind,
+}: {
+  kind: "calculator" | "gift" | "document" | "arrow" | "leaf";
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="size-5 shrink-0"
+      aria-hidden="true"
+    >
+      {kind === "calculator" && (
+        <>
+          <rect x="5" y="2" width="14" height="20" rx="1" />
+          <path d="M8 5h8v4H8zM8 12h1m3 0h1m3 0h0M8 15h1m3 0h1m3 0h0M8 18h1m3 0h1m3 0h0" />
+        </>
+      )}
+      {kind === "gift" && (
+        <>
+          <path d="M4 11h16v10H4zM3 7h18v4H3zM12 7v14" />
+          <path d="M12 7H8a2.5 2.5 0 1 1 2.5-2.5L12 7Zm0 0h4a2.5 2.5 0 1 0-2.5-2.5L12 7Z" />
+        </>
+      )}
+      {kind === "document" && (
+        <>
+          <rect x="5" y="2" width="14" height="20" rx="1" />
+          <path d="M8 6h8M8 10h8M8 14h5M8 18h3" />
+        </>
+      )}
+      {kind === "arrow" && <path d="M3 12h17m-6-6 6 6-6 6" />}
+      {kind === "leaf" && (
+        <>
+          <path d="M20 3C9 3 3 8 5 15c2 6 14 6 15-12Z" />
+          <path d="m3 22 12-14m-8 9-1-6m5 2 5 1" />
+        </>
+      )}
+    </svg>
+  );
+}
+
+function StrategyLines() {
+  return (
+    <div className="mt-2 space-y-1.5">
+      <span className="block h-1 w-4/5 rounded-sm bg-foreground/15" />
+      <span className="block h-1 w-1/2 rounded-sm bg-foreground/10" />
+    </div>
+  );
+}
+
+function StrategyVisual({ index }: { index: number }) {
+  const panel = "rounded-[3px] border border-border bg-surface/65";
+  if (index === 0)
+    return (
+      <div aria-hidden="true" className={`${panel} w-full p-2.5`}>
+        <div className="mb-2.5 flex gap-1">
+          <span className="size-1 rounded-full bg-[#B85C4B]/70" />
+          <span className="size-1 rounded-full bg-foreground/30" />
+          <span className="size-1 rounded-full bg-foreground/20" />
+        </div>
+        <div className="rounded-[2px] bg-surface px-3 py-2.5">
+          <p className="text-[10px] font-semibold">Hero</p>
+          <StrategyLines />
+        </div>
+        <div className="mt-2 flex items-center gap-2.5 rounded-[2px] bg-[#B85C4B]/10 px-3 py-2.5 text-[#B85C4B]">
+          <StrategyIcon kind="calculator" />
+          <div className="min-w-0 flex-1">
+            <p className="text-[10px] font-semibold">Calculator</p>
+            <StrategyLines />
+          </div>
+          <span className="text-lg">›</span>
+        </div>
+      </div>
+    );
+  if (index === 1)
+    return (
+      <div aria-hidden="true" className="w-full space-y-1.5">
+        {["Monthly repayments", "Total cost", "Representative example"].map((label) => (
+          <div key={label} className={`${panel} flex items-center gap-3 px-2.5 py-2`}>
+            <span className="shrink-0 text-[8px] text-muted">{label}</span>
+            <span className="h-1 w-1/3 rounded-sm bg-foreground/10" />
+          </div>
+        ))}
+        <div className="flex items-center justify-between gap-3 rounded-[3px] bg-[#B85C4B]/20 px-3 py-3 text-[#B85C4B]">
+          <div className="flex-1">
+            <p className="text-[10px] font-semibold">Your monthly repayment</p>
+            <StrategyLines />
+          </div>
+          <StrategyIcon kind="calculator" />
+        </div>
+      </div>
+    );
+  if (index === 2)
+    return (
+      <div aria-hidden="true" className="flex w-full items-center">
+        {(["Benefits", "Eligibility", "Apply"] as const).map((label, i) => (
+          <div key={label} className="flex min-w-0 flex-1 items-center">
+            {i > 0 && <span className="h-px w-3 shrink-0 bg-[#B85C4B]/65" />}
+            <div className={`${panel} min-w-0 flex-1 px-2 py-3`}>
+              <span className="flex justify-center text-[#B85C4B]">
+                <StrategyIcon kind={i === 0 ? "gift" : i === 1 ? "document" : "arrow"} />
+              </span>
+              <p className="mt-2 text-center text-[9px] font-semibold">{label}</p>
+              <StrategyLines />
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+  return (
+    <div aria-hidden="true" className={`${panel} w-full p-2.5`}>
+      <div className="space-y-1.5 pb-3">
+        <span className="block h-1.5 w-11/12 rounded-sm bg-foreground/15" />
+        <span className="block h-1.5 w-3/4 rounded-sm bg-foreground/15" />
+        <span className="block h-1.5 w-1/2 rounded-sm bg-foreground/15" />
+        <span className="block h-1.5 w-4/5 rounded-sm bg-foreground/15" />
+      </div>
+      <div className="flex items-center gap-2.5 rounded-[2px] bg-[#B85C4B]/10 px-2.5 py-3 text-[#B85C4B]">
+        <StrategyIcon kind="leaf" />
+        <div className="min-w-0 flex-1">
+          <p className="text-[9px] font-semibold">Environmental initiative</p>
+          <StrategyLines />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const mediaPlan = [
   ["Platforms", "Facebook and Instagram"],
@@ -539,39 +671,86 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </div>
       </ContentSection>
 
-      <ContentSection id="strategy">
-        <NumberedSectionHeader
-          number="04"
-          title="Landing-page strategy"
-          description="The proposed hierarchy moves from proposition and affordability through product consideration, qualification and application."
-        />
-        <div className="mt-12 grid gap-10 lg:grid-cols-[0.65fr_1fr] lg:gap-16">
-          <ol className="rounded-2xl border border-border bg-surface p-6 shadow-soft sm:p-8">
+      <ContentSection id="strategy" className="bg-background">
+        <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
+          <div className="flex items-baseline gap-6 sm:gap-12">
+            <p className="text-sm font-medium text-[#B85C4B]">04</p>
+            <Heading
+              as="h2"
+              className="text-[2rem] font-bold leading-tight sm:text-[2.5rem]"
+            >
+              Landing-page strategy
+            </Heading>
+          </div>
+          <p className="text-[0.625rem] font-semibold uppercase tracking-[0.24em] text-[#B85C4B]">
+            Decisions first
+          </p>
+        </header>
+
+        <div className="my-10 grid gap-6 sm:my-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
+          <h3 className="font-serif text-[2.25rem] font-bold leading-[1.08] tracking-[-0.03em] sm:text-[3rem] lg:text-[3.5rem]">
+            Make <span className="text-[#B85C4B]">affordability</span> the starting point.
+          </h3>
+          <p className="max-w-md border-l border-border py-2 pl-6 text-base leading-[1.7] text-muted lg:py-6 lg:pl-8">
+            A calculator-led journey that helps visitors understand the offer before
+            applying.
+          </p>
+        </div>
+
+        <ol className="grid md:grid-cols-2">
+          {strategyPoints.map((point, index) => (
+            <li
+              key={point.title}
+              className={`grid items-center gap-6 py-8 min-[420px]:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] md:grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] ${
+                index > 0 ? "border-t border-border" : ""
+              } ${index === 1 ? "md:border-t-0" : ""} ${
+                index % 2 === 1 ? "md:border-l md:pl-7" : "md:pr-7"
+              }`}
+            >
+              <div className="min-w-0 self-start">
+                <p className="text-xs font-medium text-[#B85C4B]">
+                  {String(index + 1).padStart(2, "0")}
+                </p>
+                <h4 className="mt-2 font-serif text-[2rem] font-bold leading-tight tracking-[-0.02em] lg:text-[2.25rem]">
+                  {point.title}
+                </h4>
+                <p className="mt-3 text-sm leading-[1.6] text-muted">
+                  {point.description}
+                </p>
+              </div>
+              <div className="mx-auto w-full max-w-[16rem] min-[420px]:max-w-none md:max-w-[16rem] lg:max-w-none">
+                <StrategyVisual index={index} />
+              </div>
+            </li>
+          ))}
+        </ol>
+
+        <div className="flex flex-wrap items-baseline gap-x-2 gap-y-2 border-t border-border pt-5 text-xs leading-6 text-muted">
+          <p className="font-semibold">Proposed order:</p>
+          <ol className="flex flex-wrap items-baseline gap-x-2">
             {journey.map((item, index) => (
-              <li key={item} className="flex items-stretch gap-4">
-                <div className="flex w-7 shrink-0 flex-col items-center">
-                  <span className="flex size-7 items-center justify-center rounded-full bg-accent-soft text-xs font-bold text-accent">
-                    {index + 1}
+              <li key={item} className="flex items-baseline gap-2">
+                {index > 0 && (
+                  <span aria-hidden="true" className="text-[#B85C4B]/60">
+                    ·
                   </span>
-                  {index < journey.length - 1 ? (
-                    <span
-                      className="my-1 min-h-7 w-px flex-1 bg-border"
-                      aria-hidden="true"
-                    />
-                  ) : null}
-                </div>
-                <p className="pb-7 pt-1 text-sm font-semibold text-foreground">{item}</p>
+                )}
+                <span>
+                  {
+                    [
+                      "Hero",
+                      "Calculator",
+                      "Benefits",
+                      "Eligibility",
+                      "How to apply",
+                      "Environmental initiative",
+                      "Final CTA",
+                    ][index]
+                  }
+                </span>
               </li>
             ))}
           </ol>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {strategyPoints.map(([title, description]) => (
-              <Card key={title} className="p-6 shadow-none">
-                <h3 className="text-base font-semibold text-foreground">{title}</h3>
-                <p className="mt-3 text-sm leading-7 text-muted">{description}</p>
-              </Card>
-            ))}
-          </div>
         </div>
       </ContentSection>
 
