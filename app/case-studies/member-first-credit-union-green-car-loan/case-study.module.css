@@ -1,0 +1,19 @@
+/* One type pairing for this case study, including its shared navigation. */
+:global(body):has(.page) {
+  --mfcu-heading-font: "Times New Roman", Times, "Liberation Serif", serif;
+  --mfcu-body-font: Arial, Helvetica, sans-serif;
+  font-family: var(--mfcu-body-font);
+}
+
+.page {
+  font-family: var(--mfcu-body-font);
+}
+
+/* Override font classes supplied by shared heading components locally. */
+.page :is(h1, h2, h3, h4, h5, h6) {
+  font-family: var(--mfcu-heading-font);
+}
+
+.page :is(p, li, dt, dd, figcaption, a, button, input, select, textarea) {
+  font-family: var(--mfcu-body-font);
+}

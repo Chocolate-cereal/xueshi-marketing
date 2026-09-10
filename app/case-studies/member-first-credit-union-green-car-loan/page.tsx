@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import styles from "./case-study.module.css";
+
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
@@ -267,7 +269,7 @@ const mediaPlan = [
 
 export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
-    <article>
+    <article className={styles.page}>
       <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
         <div>
           <Link
@@ -338,7 +340,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </p>
         <h2
           className="mt-4 max-w-[44rem] text-[2rem] font-normal leading-[1.05] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-5xl"
-          style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
         >
           Understanding the original experience
         </h2>
@@ -347,7 +348,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           <div className="max-w-sm">
             <h3
               className="text-2xl font-normal leading-[1.15] text-foreground"
-              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
               Project context
             </h3>
@@ -416,18 +416,12 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               >
                 <p
                   className="text-[1.625rem] font-normal leading-none text-[#E74432] sm:text-[1.875rem]"
-                  style={{
-                    fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
-                  }}
                 >
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <div>
                   <h3
                     className="max-w-sm text-lg font-normal leading-[1.15] text-foreground sm:text-xl"
-                    style={{
-                      fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
-                    }}
                   >
                     {objective.title}
                   </h3>
@@ -447,7 +441,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           <div className="max-w-3xl">
             <h2
               className="text-[2.625rem] font-normal leading-[1.08] tracking-[-0.02em] text-foreground sm:text-5xl"
-              style={{ fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif' }}
             >
               Research approach
             </h2>
@@ -477,9 +470,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 <span className="block h-0.5 w-12 bg-[#B85C4B]" aria-hidden="true" />
                 <h3
                   className="mt-4 text-[2rem] font-normal leading-none text-foreground sm:text-[2.5rem]"
-                  style={{
-                    fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
-                  }}
                 >
                   {phase.title}
                 </h3>
@@ -501,9 +491,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   >
                     <p
                       className="text-[1.0625rem] font-medium leading-none text-[#B85C4B]"
-                      style={{
-                        fontFamily: '"Baskerville", "Iowan Old Style", Georgia, serif',
-                      }}
                     >
                       {String(stepOffset + stepIndex + 1).padStart(2, "0")}
                     </p>
@@ -539,7 +526,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">01</p>
                 <div>
-                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                  <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     The repayment calculator was difficult to reach
                   </h3>
                   <p className="mt-4 text-base leading-[1.6] text-muted">
@@ -552,7 +539,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">02</p>
                 <div>
-                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                  <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     Financial information lacked clarity and consistency
                   </h3>
                   <p className="mt-4 text-base leading-[1.6] text-muted">
@@ -565,7 +552,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
                 <div>
-                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                  <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     The journey from research to application was unclear
                   </h3>
                   <p className="mt-4 text-base leading-[1.6] text-muted">
@@ -578,7 +565,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">04</p>
                 <div>
-                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
+                  <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     Search content did not fully address user questions
                   </h3>
                   <p className="mt-4 text-base leading-[1.6] text-muted">
@@ -592,7 +579,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           </div>
 
           <aside className="mt-12 min-w-0 border-t border-border pt-10 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-8">
-            <h3 className="font-serif text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
+            <h3 className="text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
               Supporting evidence
             </h3>
             <div className="mt-8 grid gap-8">
@@ -674,14 +661,12 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       <ContentSection
         id="strategy"
         className="bg-background"
-        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
       >
         <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
           <div className="flex items-baseline gap-6 sm:gap-12">
             <p className="text-sm font-medium text-[#B85C4B]">04</p>
             <h2
               className="text-[2rem] font-bold leading-tight sm:text-[2.5rem]"
-              style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
             >
               Landing-page strategy
             </h2>
@@ -694,7 +679,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         <div className="my-10 grid gap-6 sm:my-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
           <h3
             className="text-[2.25rem] font-bold leading-[1.08] tracking-[-0.02em] sm:text-[3rem] lg:text-[3.5rem]"
-            style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
           >
             Make <span className="text-[#B85C4B]">affordability</span> the starting point.
           </h3>
@@ -720,7 +704,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 </p>
                 <h4
                   className="mt-2 text-[2rem] font-bold leading-tight tracking-[-0.02em] lg:text-[2.25rem]"
-                  style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
                 >
                   {point.title}
                 </h4>
@@ -990,7 +973,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             </ul>
           </Card>
           <div className="flex items-center rounded-2xl border border-border bg-surface p-7 sm:p-9">
-            <p className="font-serif text-xl leading-9 text-foreground sm:text-2xl sm:leading-10">
+            <p className="text-xl leading-9 text-foreground sm:text-2xl sm:leading-10">
               This project reinforced the importance of connecting search research, user
               experience and campaign planning rather than treating each channel in
               isolation. The strongest recommendations were those that could be traced
