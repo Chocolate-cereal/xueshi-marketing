@@ -671,16 +671,20 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </div>
       </ContentSection>
 
-      <ContentSection id="strategy" className="bg-background">
+      <ContentSection
+        id="strategy"
+        className="bg-background"
+        style={{ fontFamily: 'Arial, Helvetica, sans-serif' }}
+      >
         <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
           <div className="flex items-baseline gap-6 sm:gap-12">
             <p className="text-sm font-medium text-[#B85C4B]">04</p>
-            <Heading
-              as="h2"
+            <h2
               className="text-[2rem] font-bold leading-tight sm:text-[2.5rem]"
+              style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
             >
               Landing-page strategy
-            </Heading>
+            </h2>
           </div>
           <p className="text-[0.625rem] font-semibold uppercase tracking-[0.24em] text-[#B85C4B]">
             Decisions first
@@ -688,7 +692,10 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </header>
 
         <div className="my-10 grid gap-6 sm:my-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
-          <h3 className="font-serif text-[2.25rem] font-bold leading-[1.08] tracking-[-0.03em] sm:text-[3rem] lg:text-[3.5rem]">
+          <h3
+            className="text-[2.25rem] font-bold leading-[1.08] tracking-[-0.02em] sm:text-[3rem] lg:text-[3.5rem]"
+            style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
+          >
             Make <span className="text-[#B85C4B]">affordability</span> the starting point.
           </h3>
           <p className="max-w-md border-l border-border py-2 pl-6 text-base leading-[1.7] text-muted lg:py-6 lg:pl-8">
@@ -711,7 +718,10 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 <p className="text-xs font-medium text-[#B85C4B]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <h4 className="mt-2 font-serif text-[2rem] font-bold leading-tight tracking-[-0.02em] lg:text-[2.25rem]">
+                <h4
+                  className="mt-2 text-[2rem] font-bold leading-tight tracking-[-0.02em] lg:text-[2.25rem]"
+                  style={{ fontFamily: '"Times New Roman", Times, "Liberation Serif", serif' }}
+                >
                   {point.title}
                 </h4>
                 <p className="mt-3 text-sm leading-[1.6] text-muted">
