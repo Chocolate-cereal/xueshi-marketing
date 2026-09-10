@@ -512,13 +512,42 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   View larger image ↗
                 </a>
               </figure>
+              <figure className="min-w-0">
+                <a
+                  href="/case-studies/member-first-credit-union-green-car-loan/repayment-tables.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  aria-label="View repayment tables image at full resolution (opens in a new tab)"
+                >
+                  <Image
+                    src="/case-studies/member-first-credit-union-green-car-loan/repayment-tables.png"
+                    alt="Comparison of the MFCU repayment tables above and below the calculator, showing different labels and financial details."
+                    width={614}
+                    height={370}
+                    sizes="(min-width: 1024px) 37vw, 100vw"
+                    className="block h-auto w-full border border-border"
+                  />
+                </a>
+                <figcaption className="mt-3">
+                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
+                    Finding 02 · Repayment information
+                  </p>
+                  <p className="mt-1 text-sm leading-[1.6] text-muted">
+                    Compare the labels and financial details in the repayment tables
+                    above and below the calculator.
+                  </p>
+                </figcaption>
+                <a
+                  href="/case-studies/member-first-credit-union-green-car-loan/repayment-tables.png"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-2 inline-flex text-sm text-[#B85C4B] underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                >
+                  View larger image ↗
+                </a>
+              </figure>
               {[
-                {
-                  placeholder: "Repayment comparison crop — placeholder",
-                  label: "Finding 02 · Repayment information",
-                  caption:
-                    "Compare this table example with the loan-term wording elsewhere on the page.",
-                },
                 {
                   placeholder: "Tree-planting crop — placeholder",
                   label: "Finding 05 · Sustainability message",
