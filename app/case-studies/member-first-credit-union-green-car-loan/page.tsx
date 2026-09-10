@@ -397,7 +397,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div>
                 <Heading as="h2">Key findings</Heading>
                 <p className="mt-5 max-w-2xl text-base leading-[1.6] text-muted">
-                  Five issues stood out across the landing-page experience, information
+                  Four issues stood out across the landing-page experience, information
                   hierarchy and search content.
                 </p>
               </div>
@@ -443,7 +443,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">04</p>
                 <div>
                   <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
@@ -453,19 +453,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                     The page provided limited answers to likely search queries about
                     qualifying vehicles, eligibility, repayment calculations and the
                     difference between the interest rate and APR.
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
-                <p className="text-sm font-semibold tracking-[0.18em] text-accent">05</p>
-                <div>
-                  <h3 className="font-serif text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
-                    A distinctive sustainability benefit was easy to overlook
-                  </h3>
-                  <p className="mt-4 text-base leading-[1.6] text-muted">
-                    MFCU’s tree-planting initiative helped distinguish the Green Car Loan,
-                    but its placement and presentation gave it limited prominence compared
-                    with other page content.
                   </p>
                 </div>
               </div>
@@ -547,28 +534,6 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   View larger image ↗
                 </a>
               </figure>
-              {[
-                {
-                  placeholder: "Tree-planting crop — placeholder",
-                  label: "Finding 05 · Sustainability message",
-                  caption:
-                    "Original placement of the tree-planting message within the page.",
-                },
-              ].map((item) => (
-                <figure key={item.label} className="min-w-0">
-                  <div className="flex aspect-[1.45/1] items-center justify-center border border-accent/50 bg-accent-soft/40 p-6 text-center text-sm leading-[1.6] text-muted">
-                    {item.placeholder}
-                  </div>
-                  <figcaption className="mt-3">
-                    <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
-                      {item.label}
-                    </p>
-                    <p className="mt-1 text-sm leading-[1.6] text-muted">
-                      {item.caption}
-                    </p>
-                  </figcaption>
-                </figure>
-              ))}
             </div>
           </aside>
         </div>
