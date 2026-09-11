@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./case-study.module.css";
+import { KeywordResearch } from "./keyword-research";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
@@ -497,11 +498,13 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         })}
       </ContentSection>
 
+      <KeywordResearch />
+
       <ContentSection id="findings" className="bg-surface/35">
         <div className="grid lg:grid-cols-[minmax(0,0.63fr)_minmax(18rem,0.37fr)]">
           <div className="min-w-0 lg:pr-12">
             <NumberedSectionHeader
-              number="03"
+              number="04"
               title="Key findings"
               description="Four issues stood out across the landing-page experience, information hierarchy and search content."
             />
@@ -647,7 +650,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         className="bg-background"
       >
         <NumberedSectionHeader
-          number="04"
+          number="05"
           title="Landing-page strategy"
           note="Decisions first"
         />
@@ -725,7 +728,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="redesign" className="bg-surface/35">
         <NumberedSectionHeader
-          number="05"
+          number="06"
           title="Landing-page redesign"
           description="The wireframe is a major project deliverable and will be presented here when the final Figma export is ready."
         />
@@ -755,7 +758,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="search">
         <NumberedSectionHeader
-          number="06"
+          number="07"
           title="Search & AI visibility"
           description="The research considered how relevant product information could be discovered and interpreted across traditional and AI-assisted search experiences."
         />
@@ -763,8 +766,9 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           <Card>
             <Heading as="h3">Keyword research</Heading>
             <p className="mt-4 text-base leading-[1.7] text-muted">
-              I investigated product-related search demand and relevant search themes.
-              Keyword evidence and prioritisation will be added in a later iteration.
+              I compared product and repayment-related terms using relevance, search
+              demand, competition and bid ranges. The 13-term shortlist is presented
+              in the keyword research section above.
             </p>
           </Card>
           <Card>
@@ -796,7 +800,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="media" className="bg-surface/35">
         <NumberedSectionHeader
-          number="07"
+          number="08"
           title="Paid-media plan"
           description="A focused strategic summary connects the landing-page proposition to a locally relevant acquisition concept."
         />
@@ -841,7 +845,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="creative">
         <NumberedSectionHeader
-          number="08"
+          number="09"
           title="Creative concept"
           description="The campaign presentation will connect product positioning and repayment planning to a focused advertising concept."
         />
@@ -870,7 +874,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="measurement" className="bg-surface/35">
         <NumberedSectionHeader
-          number="09"
+          number="10"
           title="How I would measure success"
           description="These are proposed metrics for validating the experience and campaign, not existing performance results."
         />
@@ -913,7 +917,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="limitations">
-        <NumberedSectionHeader number="10" title="Limitations" />
+        <NumberedSectionHeader number="11" title="Limitations" />
         <aside className="mt-10 rounded-2xl border border-border bg-accent-soft/40 p-6 text-base leading-[1.7] text-muted sm:p-8">
           This was a strategic portfolio project rather than an implemented campaign. I
           did not have access to first-party analytics, customer research, campaign
@@ -925,7 +929,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="reflection" className="bg-surface/35">
-        <NumberedSectionHeader number="11" title="Reflection & next steps" />
+        <NumberedSectionHeader number="12" title="Reflection & next steps" />
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Card className="p-7 sm:p-8">
             <Heading as="h3">With first-party access, my next steps would be to:</Heading>

@@ -88,3 +88,173 @@
   font-size: clamp(2rem, 1.75rem + 1vw, 2.25rem);
   line-height: 1.12;
 }
+
+/* Keyword evidence: narrow selection sidebar and a readable, grouped table. */
+.keywordLayout {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.keywordSidebar {
+  min-width: 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.keywordCount {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-foreground);
+}
+
+.keywordCount > span {
+  display: block;
+  font-family: var(--mfcu-heading-font);
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.keywordLegend {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.keywordLegend li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.keywordLegend li > span {
+  width: 1.75rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  background: #c58a7d;
+}
+
+.keywordLegend li:last-child > span {
+  background: #ddbbb2;
+}
+
+.keywordCriteria {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.keywordCriteria ol {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.keywordCriteria li {
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 0.75rem;
+}
+
+.keywordCriterionNumber {
+  color: #b85c4b;
+  font-variant-numeric: tabular-nums;
+}
+
+.keywordContext {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.keywordTableScroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin-top: 1rem;
+}
+
+.keywordTableScroll:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+.keywordTable {
+  width: 100%;
+  min-width: 46rem;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-variant-numeric: tabular-nums;
+  color: var(--color-foreground);
+}
+
+.keywordTable :is(th, td) {
+  padding: 0.625rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+
+.keywordTable thead th {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.keywordTable tbody th[scope="row"] {
+  min-width: 14rem;
+  font-weight: 400;
+}
+
+.keywordTable td:last-child {
+  white-space: nowrap;
+}
+
+.keywordRowNumber {
+  display: inline-block;
+  min-width: 1.5rem;
+  color: var(--color-muted);
+}
+
+.keywordTable .keywordGroup th {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a84f40;
+  background: #eadbd640;
+}
+
+.keywordTable tbody:first-of-type .keywordGroup th,
+.keywordHighRelevance {
+  background: #eadbd680;
+}
+
+.keywordHighRelevance {
+  color: #a84f40;
+}
+
+.keywordTakeaway {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+@media (min-width: 64rem) {
+  .keywordLayout {
+    grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .keywordSidebar {
+    border-right: 1px solid var(--color-border);
+    padding-right: 1.5rem;
+  }
+}
