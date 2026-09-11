@@ -553,3 +553,114 @@
     background: var(--color-border);
   }
 }
+
+/* Search evidence moves from signals to content response to discovery paths. */
+.searchVisibilityGrid {
+  display: grid;
+  margin-top: 2rem;
+}
+
+.searchVisibilityColumn {
+  min-width: 0;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.searchVisibilityColumn > h3 {
+  margin-top: 0.75rem;
+}
+
+.searchVisibilityLabel {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.searchVisibilityLabel > span {
+  color: #b85c4b;
+}
+
+.searchVisibilityItem {
+  margin-top: 1.5rem;
+}
+
+.searchVisibilityItem + .searchVisibilityItem {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.searchVisibilityItem > p,
+.searchVisibilitySummary {
+  margin-top: 0.375rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.searchVisibilityResponse {
+  padding-inline: 1rem;
+  background: #eadbd633;
+}
+
+.searchQuestionList {
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.searchQuestionList > li {
+  padding: 0.625rem 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--mfcu-heading-font);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.searchVisibilitySummary {
+  margin-top: 1.25rem;
+}
+
+.searchVisibilityTakeaway {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.page .searchVisibilityTakeaway > h3 {
+  max-width: 65rem;
+  font-size: clamp(2rem, 1.45rem + 2vw, 2.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.searchVisibilityTakeaway > p {
+  margin-top: 0.75rem;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 48rem) {
+  .searchVisibilityGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .searchVisibilityColumn {
+    padding-inline: 1.5rem;
+  }
+
+  .searchVisibilityColumn:first-child {
+    padding-left: 0;
+  }
+
+  .searchVisibilityColumn:last-child {
+    padding-right: 0;
+  }
+
+  .searchVisibilityColumn + .searchVisibilityColumn {
+    border-left: 1px solid var(--color-border);
+  }
+}

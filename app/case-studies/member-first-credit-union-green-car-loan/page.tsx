@@ -6,6 +6,7 @@ import styles from "./case-study.module.css";
 import { KeywordResearch } from "./keyword-research";
 import { LandingPageRedesign } from "./landing-page-redesign";
 import { PaidMediaPlan } from "./paid-media-plan";
+import { SearchAiVisibility } from "./search-ai-visibility";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
@@ -720,47 +721,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <LandingPageRedesign />
 
-      <ContentSection id="search">
-        <NumberedSectionHeader
-          number="07"
-          title="Search & AI visibility"
-          description="The research considered how relevant product information could be discovered and interpreted across traditional and AI-assisted search experiences."
-        />
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          <Card>
-            <Heading as="h3">Keyword research</Heading>
-            <p className="mt-4 text-base leading-[1.7] text-muted">
-              I compared product and repayment-related terms using relevance, search
-              demand, competition and bid ranges. The 13-term shortlist is presented
-              in the keyword research section above.
-            </p>
-          </Card>
-          <Card>
-            <Heading as="h3">Local intent</Heading>
-            <p className="mt-4 text-base leading-[1.7] text-muted">
-              Low-volume local keywords should not automatically be dismissed. Search
-              volume needs to be considered alongside geographic relevance, product fit
-              and user intent.
-            </p>
-          </Card>
-          <Card>
-            <Heading as="h3">Content opportunities</Heading>
-            <p className="mt-4 text-base leading-[1.7] text-muted">
-              Reserved for supported opportunities around questions, eligibility
-              information and useful decision-support content.
-            </p>
-          </Card>
-          <Card>
-            <Heading as="h3">AI-assisted discovery</Heading>
-            <p className="mt-4 text-base leading-[1.7] text-muted">
-              Clearer question-and-answer content, entity information and structured
-              content could make information easier for search and AI-assisted discovery
-              systems to interpret. These practices do not guarantee inclusion in
-              AI-generated answers.
-            </p>
-          </Card>
-        </div>
-      </ContentSection>
+      <SearchAiVisibility />
 
       <PaidMediaPlan />
 
