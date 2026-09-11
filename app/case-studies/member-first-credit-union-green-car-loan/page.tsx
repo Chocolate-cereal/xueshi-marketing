@@ -5,6 +5,7 @@ import Link from "next/link";
 import styles from "./case-study.module.css";
 import { KeywordResearch } from "./keyword-research";
 import { LandingPageRedesign } from "./landing-page-redesign";
+import { PaidMediaPlan } from "./paid-media-plan";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
@@ -258,16 +259,6 @@ function StrategyVisual({ index }: { index: number }) {
     </div>
   );
 }
-
-const mediaPlan = [
-  ["Platforms", "Facebook and Instagram"],
-  ["Objective", "Drive relevant users to the landing page"],
-  ["Geography", "Relevant Dublin service area"],
-  ["Audience", "People considering an electric or qualifying hybrid vehicle"],
-  ["Campaign approach", "Concentrated single-campaign test"],
-  ["Message", "Financing, affordability and repayment planning"],
-  ["Primary action", "Calculate repayments"],
-];
 
 export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
@@ -771,50 +762,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </div>
       </ContentSection>
 
-      <ContentSection id="media" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="08"
-          title="Paid-media plan"
-          description="A focused strategic summary connects the landing-page proposition to a locally relevant acquisition concept."
-        />
-        <dl className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {mediaPlan.map(([label, value]) => (
-            <div key={label} className="bg-surface p-5">
-              <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                {label}
-              </dt>
-              <dd className="mt-3 text-base leading-[1.7] text-foreground">{value}</dd>
-            </div>
-          ))}
-        </dl>
-        <div className="mt-6 grid gap-5 lg:grid-cols-3">
-          <Card className="shadow-none">
-            <h3 className="font-semibold text-foreground">Why Meta</h3>
-            <p className="mt-3 text-base leading-[1.7] text-muted">
-              Facebook and Instagram provide visual formats and audience controls suited
-              to an initial product-awareness and landing-page traffic test.
-            </p>
-          </Card>
-          <Card className="shadow-none">
-            <h3 className="font-semibold text-foreground">Why location matters</h3>
-            <p className="mt-3 text-base leading-[1.7] text-muted">
-              Geographic targeting keeps the concept aligned with the relevant Dublin
-              service area rather than paying to reach users outside the intended market.
-            </p>
-          </Card>
-          <Card className="shadow-none">
-            <h3 className="font-semibold text-foreground">Why concentrate the test</h3>
-            <p className="mt-3 text-base leading-[1.7] text-muted">
-              A constrained test budget should avoid unnecessary fragmentation so that the
-              initial campaign has a clearer learning objective.
-            </p>
-          </Card>
-        </div>
-        <p className="mt-6 rounded-xl border border-border bg-surface/55 p-5 text-base leading-[1.7] text-muted">
-          Forecasts were planning estimates based on platform audience estimates and
-          external advertising benchmarks rather than live campaign performance.
-        </p>
-      </ContentSection>
+      <PaidMediaPlan />
 
       <ContentSection id="creative">
         <NumberedSectionHeader
