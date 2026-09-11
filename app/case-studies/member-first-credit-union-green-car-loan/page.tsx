@@ -281,16 +281,16 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
           <div className="mt-11 grid items-center gap-12 pb-14 sm:mt-14 sm:pb-16 lg:grid-cols-[minmax(0,1.85fr)_minmax(15rem,1fr)] lg:gap-16 lg:pb-20">
             <div className="min-w-0">
-              <span className="inline-flex border border-border px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-muted">
+              <span className="inline-flex border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
                 Independent portfolio case study
               </span>
               <p className="mt-7 text-sm font-medium text-accent">
                 Member First Credit Union
               </p>
-              <Heading className="mt-3 max-w-[47rem] text-[2.5rem] font-normal leading-[1.04] sm:text-[3.25rem] lg:text-[3.75rem]">
+              <Heading className={styles.heroTitle}>
                 Green Car Loan Landing Page &amp; Campaign Strategy
               </Heading>
-              <p className="mt-6 max-w-[44rem] text-[0.9375rem] leading-[1.7] text-muted sm:text-base">
+              <p className="mt-6 max-w-[44rem] text-base leading-[1.7] text-muted">
                 An independent digital marketing case study exploring how a credit union
                 could improve the online journey for a green car loan through landing-page
                 optimisation, search research, paid-media planning and campaign creative.
@@ -320,29 +320,26 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
           {projectMeta.map((item) => (
             <div key={item.label} className="min-w-0 bg-background px-5 py-6">
-              <dt className="text-[0.625rem] font-semibold uppercase tracking-[0.14em] text-accent">
+              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                 {item.label}
               </dt>
-              <dd className="mt-2 text-xs leading-[1.6] text-foreground">{item.value}</dd>
+              <dd className="mt-2 text-sm leading-[1.6] text-foreground">{item.value}</dd>
             </div>
           ))}
         </dl>
-        <aside className="border-b border-border px-4 py-4 text-[0.6875rem] leading-[1.65] text-muted sm:px-5 sm:text-xs">
+        <aside className="border-b border-border px-4 py-4 text-sm leading-[1.6] text-muted sm:px-5">
           This is an independent portfolio project based on publicly available information
           and my own analysis. It was not commissioned by or produced on behalf of Member
           First Credit Union.
         </aside>
       </ContentSection>
 
-      <ContentSection id="context" className="bg-surface/35 py-14 sm:py-16">
-        <p className="text-[0.6875rem] font-medium uppercase tracking-[0.14em] text-[#E74432] sm:text-xs">
-          01 — Context &amp; objectives
-        </p>
-        <h2
-          className="mt-4 max-w-[44rem] text-[2rem] font-normal leading-[1.05] tracking-[-0.02em] text-foreground sm:text-[2.5rem] lg:text-5xl"
-        >
-          Understanding the original experience
-        </h2>
+      <ContentSection id="context" className="bg-surface/35">
+        <NumberedSectionHeader
+          number="01"
+          label="Context & objectives"
+          title="Understanding the original experience"
+        />
 
         <div className="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)] lg:gap-14">
           <div className="max-w-sm">
@@ -351,21 +348,21 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             >
               Project context
             </h3>
-            <p className="mt-5 text-[0.8125rem] leading-[1.7] text-muted sm:text-sm">
+            <p className="mt-5 text-base leading-[1.7] text-muted">
               This independent case study examines the Green Car Loan digital journey and
               how the page communicates the offer, supports decision-making and guides
               prospective borrowers towards application.
             </p>
-            <p className="mt-4 text-[0.8125rem] leading-[1.7] text-muted sm:text-sm">
+            <p className="mt-4 text-base leading-[1.7] text-muted">
               The review considers the landing-page experience, information hierarchy,
               search visibility and paid-media alignment, with recommendations based on
               publicly available information and independent analysis.
             </p>
             <div className="mt-8">
-              <p className="text-[0.625rem] font-semibold uppercase tracking-[0.16em] text-[#E74432]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E74432]">
                 Scope
               </p>
-              <p className="mt-2 text-[0.8125rem] leading-6 text-foreground">
+              <p className="mt-2 text-base leading-[1.7] text-foreground">
                 UX · Content · SEO · Paid media
               </p>
             </div>
@@ -386,10 +383,10 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 className="block h-auto w-full"
               />
             </div>
-            <p className="mt-2 text-[0.6875rem] leading-5 text-muted">
+            <p className="mt-2 text-sm leading-[1.6] text-muted">
               Scroll to explore the original page ↓
             </p>
-            <figcaption className="mt-1 flex flex-col gap-1 text-[0.6875rem] leading-5 text-muted sm:flex-row sm:items-center sm:justify-between sm:text-xs">
+            <figcaption className="mt-1 flex flex-col gap-1 text-sm leading-[1.6] text-muted sm:flex-row sm:items-center sm:justify-between">
               <span>Original MFCU Green Car Loan webpage, captured for analysis.</span>
               <Link
                 href="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
@@ -425,7 +422,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   >
                     {objective.title}
                   </h3>
-                  <p className="mt-2.5 max-w-sm text-[0.8125rem] leading-[1.6] text-muted">
+                  <p className="mt-2.5 max-w-sm text-base leading-[1.7] text-muted">
                     {objective.description}
                   </p>
                 </div>
@@ -436,20 +433,12 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       </ContentSection>
 
       <ContentSection id="research">
-        <header className="grid gap-5 border-y border-border py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10">
-          <p className="text-sm font-semibold tracking-[0.18em] text-[#B85C4B]">02</p>
-          <div className="max-w-3xl">
-            <h2
-              className="text-[2.625rem] font-normal leading-[1.08] tracking-[-0.02em] text-foreground sm:text-5xl"
-            >
-              Research approach
-            </h2>
-            <p className="mt-4 max-w-2xl text-[0.9375rem] leading-[1.65] text-muted sm:text-base">
-              A seven-stage process connected discovery and analysis to the proposed
-              experience and campaign execution.
-            </p>
-          </div>
-        </header>
+        <NumberedSectionHeader
+          number="02"
+          title="Research approach"
+          description="A seven-stage process connected discovery and analysis to the proposed experience and campaign execution."
+          className="border-b border-border pb-8"
+        />
 
         {[
           { title: "Discover", steps: researchSteps.slice(0, 2) },
@@ -469,7 +458,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <div className="pb-7 md:pb-0">
                 <span className="block h-0.5 w-12 bg-[#B85C4B]" aria-hidden="true" />
                 <h3
-                  className="mt-4 text-[2rem] font-normal leading-none text-foreground sm:text-[2.5rem]"
+                  className={styles.researchPhase}
                 >
                   {phase.title}
                 </h3>
@@ -497,7 +486,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                     <h4 className="mt-4 text-base font-semibold leading-snug text-foreground sm:text-[1.0625rem]">
                       {title}
                     </h4>
-                    <p className="mt-3 max-w-sm text-[0.8125rem] leading-[1.6] text-muted sm:text-sm">
+                    <p className="mt-3 max-w-sm text-base leading-[1.7] text-muted">
                       {description}
                     </p>
                   </li>
@@ -511,16 +500,11 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
       <ContentSection id="findings" className="bg-surface/35">
         <div className="grid lg:grid-cols-[minmax(0,0.63fr)_minmax(18rem,0.37fr)]">
           <div className="min-w-0 lg:pr-12">
-            <div className="grid gap-5 border-t border-border pt-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
-              <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
-              <div>
-                <Heading as="h2">Key findings</Heading>
-                <p className="mt-5 max-w-2xl text-base leading-[1.6] text-muted">
-                  Four issues stood out across the landing-page experience, information
-                  hierarchy and search content.
-                </p>
-              </div>
-            </div>
+            <NumberedSectionHeader
+              number="03"
+              title="Key findings"
+              description="Four issues stood out across the landing-page experience, information hierarchy and search content."
+            />
 
             <div className="mt-10">
               <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
@@ -529,7 +513,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     The repayment calculator was difficult to reach
                   </h3>
-                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                  <p className="mt-4 text-base leading-[1.7] text-muted">
                     The calculator appeared too far down the page, even though repayment
                     cost is likely to be one of the main questions users have when
                     considering the loan.
@@ -542,7 +526,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     Financial information lacked clarity and consistency
                   </h3>
-                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                  <p className="mt-4 text-base leading-[1.7] text-muted">
                     The page presented the promotional rate, APR, calculator and repayment
                     tables without a clear hierarchy. Some examples, including the 10-year
                     term, appeared inconsistent with information elsewhere on the page.
@@ -555,7 +539,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     The journey from research to application was unclear
                   </h3>
-                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                  <p className="mt-4 text-base leading-[1.7] text-muted">
                     Eligibility, loan benefits, repayment details and application steps
                     appeared in separate sections. Their order did not clearly guide users
                     from exploring the loan to checking eligibility and applying.
@@ -568,7 +552,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
                     Search content did not fully address user questions
                   </h3>
-                  <p className="mt-4 text-base leading-[1.6] text-muted">
+                  <p className="mt-4 text-base leading-[1.7] text-muted">
                     The page provided limited answers to likely search queries about
                     qualifying vehicles, eligibility, repayment calculations and the
                     difference between the interest rate and APR.
@@ -578,8 +562,8 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             </div>
           </div>
 
-          <aside className="mt-12 min-w-0 border-t border-border pt-10 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-8">
-            <h3 className="text-[1.75rem] font-bold leading-[1.2] text-foreground sm:text-[2rem]">
+          <aside className="mt-12 min-w-0 border-t border-border pt-10 lg:mt-0 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-16">
+            <h3 className={styles.evidenceTitle}>
               Supporting evidence
             </h3>
             <div className="mt-8 grid gap-8">
@@ -662,23 +646,15 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         id="strategy"
         className="bg-background"
       >
-        <header className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
-          <div className="flex items-baseline gap-6 sm:gap-12">
-            <p className="text-sm font-medium text-[#B85C4B]">04</p>
-            <h2
-              className="text-[2rem] font-bold leading-tight sm:text-[2.5rem]"
-            >
-              Landing-page strategy
-            </h2>
-          </div>
-          <p className="text-[0.625rem] font-semibold uppercase tracking-[0.24em] text-[#B85C4B]">
-            Decisions first
-          </p>
-        </header>
+        <NumberedSectionHeader
+          number="04"
+          title="Landing-page strategy"
+          note="Decisions first"
+        />
 
         <div className="my-10 grid gap-6 sm:my-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center lg:gap-10">
           <h3
-            className="text-[2.25rem] font-bold leading-[1.08] tracking-[-0.02em] sm:text-[3rem] lg:text-[3.5rem]"
+            className={styles.strategyStatement}
           >
             Make <span className="text-[#B85C4B]">affordability</span> the starting point.
           </h3>
@@ -703,11 +679,11 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h4
-                  className="mt-2 text-[2rem] font-bold leading-tight tracking-[-0.02em] lg:text-[2.25rem]"
+                  className={styles.strategyAction}
                 >
                   {point.title}
                 </h4>
-                <p className="mt-3 text-sm leading-[1.6] text-muted">
+                <p className="mt-3 text-base leading-[1.7] text-muted">
                   {point.description}
                 </p>
               </div>
@@ -786,14 +762,14 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           <Card>
             <Heading as="h3">Keyword research</Heading>
-            <p className="mt-4 text-sm leading-7 text-muted">
+            <p className="mt-4 text-base leading-[1.7] text-muted">
               I investigated product-related search demand and relevant search themes.
               Keyword evidence and prioritisation will be added in a later iteration.
             </p>
           </Card>
           <Card>
             <Heading as="h3">Local intent</Heading>
-            <p className="mt-4 text-sm leading-7 text-muted">
+            <p className="mt-4 text-base leading-[1.7] text-muted">
               Low-volume local keywords should not automatically be dismissed. Search
               volume needs to be considered alongside geographic relevance, product fit
               and user intent.
@@ -801,14 +777,14 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           </Card>
           <Card>
             <Heading as="h3">Content opportunities</Heading>
-            <p className="mt-4 text-sm leading-7 text-muted">
+            <p className="mt-4 text-base leading-[1.7] text-muted">
               Reserved for supported opportunities around questions, eligibility
               information and useful decision-support content.
             </p>
           </Card>
           <Card>
             <Heading as="h3">AI-assisted discovery</Heading>
-            <p className="mt-4 text-sm leading-7 text-muted">
+            <p className="mt-4 text-base leading-[1.7] text-muted">
               Clearer question-and-answer content, entity information and structured
               content could make information easier for search and AI-assisted discovery
               systems to interpret. These practices do not guarantee inclusion in
@@ -830,34 +806,34 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               <dt className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                 {label}
               </dt>
-              <dd className="mt-3 text-sm leading-7 text-foreground">{value}</dd>
+              <dd className="mt-3 text-base leading-[1.7] text-foreground">{value}</dd>
             </div>
           ))}
         </dl>
         <div className="mt-6 grid gap-5 lg:grid-cols-3">
           <Card className="shadow-none">
             <h3 className="font-semibold text-foreground">Why Meta</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
+            <p className="mt-3 text-base leading-[1.7] text-muted">
               Facebook and Instagram provide visual formats and audience controls suited
               to an initial product-awareness and landing-page traffic test.
             </p>
           </Card>
           <Card className="shadow-none">
             <h3 className="font-semibold text-foreground">Why location matters</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
+            <p className="mt-3 text-base leading-[1.7] text-muted">
               Geographic targeting keeps the concept aligned with the relevant Dublin
               service area rather than paying to reach users outside the intended market.
             </p>
           </Card>
           <Card className="shadow-none">
             <h3 className="font-semibold text-foreground">Why concentrate the test</h3>
-            <p className="mt-3 text-sm leading-7 text-muted">
+            <p className="mt-3 text-base leading-[1.7] text-muted">
               A constrained test budget should avoid unnecessary fragmentation so that the
               initial campaign has a clearer learning objective.
             </p>
           </Card>
         </div>
-        <p className="mt-6 rounded-xl border border-border bg-surface/55 p-5 text-sm leading-7 text-muted">
+        <p className="mt-6 rounded-xl border border-border bg-surface/55 p-5 text-base leading-[1.7] text-muted">
           Forecasts were planning estimates based on platform audience estimates and
           external advertising benchmarks rather than live campaign performance.
         </p>
@@ -873,7 +849,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           label="Campaign creative — to be added"
           className="mt-12 min-h-[28rem]"
         />
-        <p className="mt-5 max-w-3xl text-sm leading-7 text-muted">
+        <p className="mt-5 max-w-3xl text-base leading-[1.7] text-muted">
           The final portfolio presentation will focus on the strongest creative concept
           and selected copy variations rather than reproducing every version produced
           during the project.
@@ -938,7 +914,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <ContentSection id="limitations">
         <NumberedSectionHeader number="10" title="Limitations" />
-        <aside className="mt-10 rounded-2xl border border-border bg-accent-soft/40 p-6 text-base leading-8 text-muted sm:p-8">
+        <aside className="mt-10 rounded-2xl border border-border bg-accent-soft/40 p-6 text-base leading-[1.7] text-muted sm:p-8">
           This was a strategic portfolio project rather than an implemented campaign. I
           did not have access to first-party analytics, customer research, campaign
           conversion data, the production CMS or post-launch results. Recommendations
@@ -953,7 +929,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
           <Card className="p-7 sm:p-8">
             <Heading as="h3">With first-party access, my next steps would be to:</Heading>
-            <ul className="mt-6 space-y-4 text-sm leading-7 text-muted">
+            <ul className="mt-6 space-y-4 text-base leading-[1.7] text-muted">
               {[
                 "Validate calculator and CTA behaviour through analytics",
                 "Analyse application drop-off",
@@ -973,7 +949,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             </ul>
           </Card>
           <div className="flex items-center rounded-2xl border border-border bg-surface p-7 sm:p-9">
-            <p className="text-xl leading-9 text-foreground sm:text-2xl sm:leading-10">
+            <p className="text-base leading-[1.7] text-foreground">
               This project reinforced the importance of connecting search research, user
               experience and campaign planning rather than treating each channel in
               isolation. The strongest recommendations were those that could be traced

@@ -1,26 +1,34 @@
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { cn } from "@/lib/utils";
+import styles from "./case-study.module.css";
 
 export function NumberedSectionHeader({
   number,
   title,
   description,
+  label,
+  note,
+  className,
 }: {
   number: string;
   title: string;
   description?: string;
+  label?: string;
+  note?: string;
+  className?: string;
 }) {
   return (
-    <div className="grid gap-5 border-t border-border pt-8 md:grid-cols-[5rem_minmax(0,1fr)] md:gap-8">
-      <p className="text-sm font-semibold tracking-[0.18em] text-accent">{number}</p>
-      <div className="max-w-3xl">
-        <Heading as="h2">{title}</Heading>
-        {description ? (
-          <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{description}</p>
-        ) : null}
+    <header className={cn(styles.sectionHeader, className)}>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <p className={styles.sectionLabel}>
+          {number}{label ? ` — ${label}` : ""}
+        </p>
+        {note ? <p className={styles.sectionLabel}>{note}</p> : null}
       </div>
-    </div>
+      <h2 className={styles.sectionTitle}>{title}</h2>
+      {description ? <p className={styles.sectionDescription}>{description}</p> : null}
+    </header>
   );
 }
 
@@ -116,7 +124,7 @@ export function MeasurementGroup({ title, items }: { title: string; items: strin
       <h3 className="text-lg font-semibold text-foreground">{title}</h3>
       <ul className="mt-5 space-y-3">
         {items.map((item) => (
-          <li key={item} className="flex gap-3 text-sm leading-6 text-muted">
+          <li key={item} className="flex gap-3 text-base leading-[1.7] text-muted">
             <span
               className="mt-2 size-1.5 shrink-0 rounded-full bg-accent"
               aria-hidden="true"
