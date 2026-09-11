@@ -29,6 +29,28 @@ const keywordGroups = [
   },
 ];
 
+// Explicit cell selections from the original research sheet, not threshold rules.
+const researchHighlights: Record<string, { volume?: boolean; yoy?: string; competition?: boolean; highBid?: boolean }> = {
+  "types of car finance": { competition: true, highBid: true },
+  "car loan ev": { yoy: "∞", highBid: true },
+  "car loan electric vehicle": { yoy: "∞", highBid: true },
+  "green loan calculator": { yoy: "900%", highBid: true },
+  "calculating car finance": { volume: true, competition: true },
+  "credit union auto loan": { volume: true },
+  "credit union auto financing": { volume: true },
+  "credit union loan rate": { highBid: true },
+  "credit union car loan ireland": { yoy: "900%" },
+  "auto loan": { yoy: "9900%" },
+};
+
+function ResearchMetric({ children, highlighted = false }: { children: string; highlighted?: boolean }) {
+  return (
+    <td className={highlighted ? styles.keywordMetricHighlight : undefined}>
+      {children}{highlighted && <span className="sr-only"> (highlighted in research)</span>}
+    </td>
+  );
+}
+
 const keywords = keywordGroups.flatMap((group) => group.keywords);
 const productCount = keywords.filter((keyword) => keyword.cluster === "Product").length;
 const criteria = [
@@ -84,36 +106,45 @@ export function KeywordResearch() {
             tabIndex={0}
           >
             <table className={styles.keywordTable}>
-              <caption className="sr-only">Thirteen shortlisted keywords, grouped by relevance, with cluster, average monthly searches, competition and bid range.</caption>
+              <caption className="sr-only">Thirteen shortlisted keywords, grouped by relevance, with cluster, average monthly searches, year-on-year change, competition and low and high top-of-page bids in euros.</caption>
               <thead>
                 <tr>
                   <th scope="col">Keyword</th>
                   <th scope="col">Cluster</th>
                   <th scope="col">Relevance</th>
                   <th scope="col">Avg. monthly</th>
+                  <th scope="col">YoY change</th>
                   <th scope="col">Competition</th>
-                  <th scope="col">Bid range</th>
+                  <th scope="col">Top-of-page bid<br />Low (€)</th>
+                  <th scope="col">Top-of-page bid<br />High (€)</th>
                 </tr>
               </thead>
               {keywordGroups.map((group, groupIndex) => (
                 <tbody key={group.relevance}>
                   <tr className={styles.keywordGroup}>
-                    <th scope="rowgroup" colSpan={6}>{group.relevance} relevance · {group.keywords.length} terms</th>
+                    <th scope="rowgroup" colSpan={8}>{group.relevance} relevance · {group.keywords.length} terms</th>
                   </tr>
-                  {group.keywords.map((keyword, index) => (
+                  {group.keywords.map((keyword, index) => {
+                    const highlight = researchHighlights[keyword.term] ?? {};
+                    const [lowBid, highBid] = keyword.bid.split("–");
+                    return (
                     <tr key={keyword.term}>
                       <th scope="row"><span className={styles.keywordRowNumber}>{(groupIndex === 0 ? 0 : keywordGroups[0].keywords.length) + index + 1}.</span>{keyword.term}</th>
                       <td>{keyword.cluster}</td>
                       <td className={group.relevance === "Very high" ? styles.keywordHighRelevance : undefined}>{group.relevance}</td>
-                      <td>{keyword.volume}</td>
-                      <td>{keyword.competition}</td>
-                      <td>{keyword.bid}</td>
+                      <ResearchMetric highlighted={highlight.volume}>{keyword.volume}</ResearchMetric>
+                      <ResearchMetric highlighted={Boolean(highlight.yoy)}>{highlight.yoy ?? "0%"}</ResearchMetric>
+                      <ResearchMetric highlighted={highlight.competition}>{keyword.competition}</ResearchMetric>
+                      <ResearchMetric>{lowBid}</ResearchMetric>
+                      <ResearchMetric highlighted={highlight.highBid}>{highBid}</ResearchMetric>
                     </tr>
-                  ))}
+                    );
+                  })}
                 </tbody>
               ))}
             </table>
           </div>
+          <p className="mt-3 text-xs leading-[1.6] text-muted">Shaded metrics mark observations selected in the research sheet, including trade-offs; they are not a uniform performance rating. YoY means year-on-year change; ∞ is preserved as reported in the source.</p>
         </div>
       </div>
 

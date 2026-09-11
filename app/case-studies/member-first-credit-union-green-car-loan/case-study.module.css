@@ -183,7 +183,7 @@
 
 .keywordTable {
   width: 100%;
-  min-width: 46rem;
+  min-width: 52rem;
   border-collapse: collapse;
   font-size: 0.875rem;
   line-height: 1.5;
@@ -203,7 +203,6 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  white-space: nowrap;
 }
 
 .keywordTable tbody th[scope="row"] {
@@ -211,7 +210,7 @@
   font-weight: 400;
 }
 
-.keywordTable td:last-child {
+.keywordTable td:nth-last-child(-n + 2) {
   white-space: nowrap;
 }
 
@@ -403,4 +402,9 @@
     border-left: 1px solid var(--color-border);
     padding-left: 1.25rem;
   }
+}
+
+/* Preserve the research sheet’s cell-by-cell emphasis across metric columns. */
+.keywordMetricHighlight {
+  background: #f3cece;
 }
