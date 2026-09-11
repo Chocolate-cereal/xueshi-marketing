@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import styles from "./case-study.module.css";
 import { KeywordResearch } from "./keyword-research";
+import { LandingPageRedesign } from "./landing-page-redesign";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
@@ -726,35 +727,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
         </div>
       </ContentSection>
 
-      <ContentSection id="redesign" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="06"
-          title="Landing-page redesign"
-          description="The wireframe is a major project deliverable and will be presented here when the final Figma export is ready."
-        />
-        <VisualPlaceholder
-          label="Landing-page wireframe — to be added"
-          className="mt-12 min-h-[32rem]"
-        />
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            "Hero",
-            "Calculator",
-            "Benefits & qualification",
-            "Environmental message",
-          ].map((label) => (
-            <Card
-              key={label}
-              className="min-h-36 border-dashed bg-surface/50 p-5 shadow-none"
-            >
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
-                Future annotation
-              </p>
-              <h3 className="mt-4 font-semibold text-muted">{label}</h3>
-            </Card>
-          ))}
-        </div>
-      </ContentSection>
+      <LandingPageRedesign />
 
       <ContentSection id="search">
         <NumberedSectionHeader
