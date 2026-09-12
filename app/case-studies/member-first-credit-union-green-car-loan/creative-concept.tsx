@@ -8,30 +8,30 @@ const conceptDetails = [
   {
     label: "Primary text",
     value:
-      "Considering an electric or qualifying hybrid car? Explore what your repayments could look like.",
+      "Considering an electric or qualifying hybrid car? Check what your repayments could look like with an MFCU Green Car Loan.",
   },
   {
     label: "Headline",
-    value: "Plan your green car repayments",
+    value: "Get a Green Car Loan from MFCU",
   },
   {
     label: "Primary action",
-    value: "Calculate repayments",
+    value: "Check repayments",
   },
 ];
 
 const conceptSummary = [
   {
     label: "Product",
-    value: "Electric and qualifying hybrid vehicles",
+    value: "Green Car Loan for electric and qualifying hybrid cars",
   },
   {
     label: "Proposition",
-    value: "Financing and affordability",
+    value: "5.75% promotional interest rate, with 5.9% APR",
   },
   {
     label: "Next step",
-    value: "Explore repayments",
+    value: "Check repayments",
   },
 ];
 
@@ -50,7 +50,7 @@ export function CreativeConcept() {
       <NumberedSectionHeader
         number="09"
         title="Creative concept"
-        description="The campaign creative translated the loan proposition into a focused, repayment-led social concept."
+        description="The campaign creative combines the Green Car Loan offer, rate information and sustainability benefits in one focused social concept."
       />
 
       <div className={styles.creativeLayout}>
@@ -75,7 +75,7 @@ export function CreativeConcept() {
         <div className={styles.creativeMessage}>
           <Subheading>Selected message</Subheading>
           <blockquote className={styles.creativeQuote}>
-            “Make affordability easier to explore before asking users to apply.”
+            “Your greener drive starts here.”
           </blockquote>
 
           <dl className={styles.creativeDetails}>
@@ -90,9 +90,10 @@ export function CreativeConcept() {
           <div className={styles.creativeRationale}>
             <h3>Creative rationale</h3>
             <p>
-              The car establishes the product immediately, the rate provides a clear
-              proof point, and the repayment-led action connects the ad to the proposed
-              landing-page journey.
+              The charging imagery and green palette establish the electric-car focus.
+              The 5.75% promotional rate and 5.9% APR make the offer concrete, while the
+              CTA and benefit list connect repayments, online application and MFCU&apos;s
+              tree-planting commitment.
             </p>
           </div>
         </div>
