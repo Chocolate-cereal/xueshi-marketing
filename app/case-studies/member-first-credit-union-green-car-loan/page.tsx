@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "./case-study.module.css";
+import { CreativeConcept } from "./creative-concept";
 import { KeywordResearch } from "./keyword-research";
 import { LandingPageRedesign } from "./landing-page-redesign";
 import { PaidMediaPlan } from "./paid-media-plan";
@@ -14,7 +15,6 @@ import { Heading } from "@/components/ui/heading";
 import {
   MeasurementGroup,
   NumberedSectionHeader,
-  VisualPlaceholder,
 } from "./case-study-components";
 
 export const metadata: Metadata = {
@@ -725,34 +725,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <PaidMediaPlan />
 
-      <ContentSection id="creative">
-        <NumberedSectionHeader
-          number="09"
-          title="Creative concept"
-          description="The campaign presentation will connect product positioning and repayment planning to a focused advertising concept."
-        />
-        <VisualPlaceholder
-          label="Campaign creative — to be added"
-          className="mt-12 min-h-[28rem]"
-        />
-        <p className="mt-5 max-w-3xl text-base leading-[1.7] text-muted">
-          The final portfolio presentation will focus on the strongest creative concept
-          and selected copy variations rather than reproducing every version produced
-          during the project.
-        </p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
-          {["Selected primary text", "Selected headlines", "Creative rationale"].map(
-            (item) => (
-              <Card
-                key={item}
-                className="min-h-32 border-dashed bg-surface/45 shadow-none"
-              >
-                <p className="text-sm font-semibold text-muted">{item} — to be added</p>
-              </Card>
-            ),
-          )}
-        </div>
-      </ContentSection>
+      <CreativeConcept />
 
       <ContentSection id="measurement" className="bg-surface/35">
         <NumberedSectionHeader
