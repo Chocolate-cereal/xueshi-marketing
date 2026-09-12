@@ -56,18 +56,19 @@ export function CreativeConcept() {
       <div className={styles.creativeLayout}>
         <figure className={styles.creativeFigure}>
           <Subheading>Creative in context</Subheading>
-          <div className={styles.creativeAdCrop}>
+          <div className={styles.creativeAdFrame}>
             <Image
               src="/case-studies/member-first-credit-union-green-car-loan/creative-concept-reference.png"
-              alt="Facebook ad concept for the Green Car Loan featuring a silver electric car, a 5.75% promotional rate and a Calculate repayments call to action."
-              width={1078}
-              height={628}
+              alt="MFCU Green Car Loan creative showing electric-car charging, a 5.75% promotional interest rate, a 5.9% APR and a Check repayments call to action."
+              width={1080}
+              height={1350}
               sizes="(min-width: 1024px) 22rem, (min-width: 640px) 24rem, calc(100vw - 3rem)"
               className={styles.creativeAdImage}
+              unoptimized
             />
           </div>
           <figcaption className="sr-only">
-            The selected paid-social creative shown in a Facebook feed context.
+            The selected Green Car Loan paid-social creative.
           </figcaption>
         </figure>
 

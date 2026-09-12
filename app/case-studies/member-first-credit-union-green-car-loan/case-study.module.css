@@ -699,22 +699,16 @@
   background: var(--color-border);
 }
 
-.creativeAdCrop {
-  position: relative;
-  overflow: hidden;
+.creativeAdFrame {
   width: min(100%, 22rem);
-  aspect-ratio: 317 / 373;
   margin: 1rem auto 0;
   border: 1px solid var(--color-border);
   background: #fff;
 }
 
 .creativeAdImage {
-  position: absolute;
-  top: -38.87%;
-  left: -51.42%;
-  width: 340.06%;
-  max-width: none;
+  display: block;
+  width: 100%;
   height: auto;
 }
 
