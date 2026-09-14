@@ -1120,3 +1120,110 @@
     border-left: 1px solid #d8c9bd;
   }
 }
+
+/* Reflection: three practical phases followed by the project takeaway. */
+.reflectionHeader {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.reflectionRule {
+  width: 100%;
+  height: 1px;
+  margin-top: 1.75rem;
+  background: #d8c9bd;
+}
+
+.page .reflectionStatement {
+  max-width: 60rem;
+  margin-top: 1.5rem;
+  font-size: clamp(1.5rem, 1.25rem + 0.9vw, 2rem);
+  font-weight: 400;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.reflectionPhases {
+  display: grid;
+  margin-top: 1.75rem;
+}
+
+.reflectionPhase {
+  min-width: 0;
+  padding-block: 1.75rem;
+  border-top: 1px solid #d8c9bd;
+}
+
+.reflectionPhase:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.reflectionPhaseNumber {
+  color: #c85f47;
+  font-family: var(--mfcu-heading-font);
+  font-size: clamp(3.75rem, 3.25rem + 2vw, 5.25rem);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.page .reflectionPhase > h3 {
+  margin-top: 1.25rem;
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
+}
+
+.reflectionPhaseItems {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.reflectionPhaseItems li {
+  max-width: 23rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.reflectionTakeaway {
+  margin-top: 1.75rem;
+  padding: 1.25rem 1.5rem;
+  background: #f1dcd4;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+@media (min-width: 64rem) {
+  .reflectionPhases {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
+  }
+
+  .reflectionPhase {
+    min-height: 18.25rem;
+    padding: 0 2.5rem;
+    border-top: 0;
+  }
+
+  .reflectionPhase:first-child {
+    padding: 0 2.5rem 0 0;
+  }
+
+  .reflectionPhase + .reflectionPhase {
+    border-left: 1px solid #d8c9bd;
+  }
+
+  .reflectionPhase:last-child {
+    padding-right: 0;
+  }
+
+  .reflectionTakeaway {
+    margin-top: 2rem;
+    padding: 1.25rem 1.75rem;
+  }
+}

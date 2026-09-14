@@ -9,10 +9,10 @@ import { LandingPageRedesign } from "./landing-page-redesign";
 import { Limitations } from "./limitations";
 import { MeasurementSuccess } from "./measurement-success";
 import { PaidMediaPlan } from "./paid-media-plan";
+import { ReflectionNextSteps } from "./reflection-next-steps";
 import { SearchAiVisibility } from "./search-ai-visibility";
 
 import { ContentSection } from "@/components/sections/content-section";
-import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
 import { NumberedSectionHeader } from "./case-study-components";
 
@@ -730,41 +730,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <Limitations />
 
-      <ContentSection id="reflection" className="bg-surface/35">
-        <NumberedSectionHeader number="12" title="Reflection & next steps" />
-        <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          <Card className="p-7 sm:p-8">
-            <Heading as="h3">With first-party access, my next steps would be to:</Heading>
-            <ul className="mt-6 space-y-4 text-base leading-[1.7] text-muted">
-              {[
-                "Validate calculator and CTA behaviour through analytics",
-                "Analyse application drop-off",
-                "Compare keyword opportunities against Search Console and paid-search data",
-                "Test calculator-led versus application-led messaging",
-                "Validate relevant structured data and CMS implementation",
-                "Run an initial campaign test and optimise using actual performance",
-              ].map((item) => (
-                <li key={item} className="flex gap-3">
-                  <span
-                    className="mt-3 size-1.5 shrink-0 rounded-full bg-accent"
-                    aria-hidden="true"
-                  />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Card>
-          <div className="flex items-center rounded-2xl border border-border bg-surface p-7 sm:p-9">
-            <p className="text-base leading-[1.7] text-foreground">
-              This project reinforced the importance of connecting search research, user
-              experience and campaign planning rather than treating each channel in
-              isolation. The strongest recommendations were those that could be traced
-              from an observed user or search need through to a specific page or campaign
-              decision.
-            </p>
-          </div>
-        </div>
-      </ContentSection>
+      <ReflectionNextSteps />
 
       <ContentSection className="py-10 sm:py-12">
         <nav
