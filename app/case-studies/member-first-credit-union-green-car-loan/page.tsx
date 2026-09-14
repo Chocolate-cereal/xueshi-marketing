@@ -6,6 +6,7 @@ import styles from "./case-study.module.css";
 import { CreativeConcept } from "./creative-concept";
 import { KeywordResearch } from "./keyword-research";
 import { LandingPageRedesign } from "./landing-page-redesign";
+import { Limitations } from "./limitations";
 import { MeasurementSuccess } from "./measurement-success";
 import { PaidMediaPlan } from "./paid-media-plan";
 import { SearchAiVisibility } from "./search-ai-visibility";
@@ -727,17 +728,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <MeasurementSuccess />
 
-      <ContentSection id="limitations">
-        <NumberedSectionHeader number="11" title="Limitations" />
-        <aside className="mt-10 rounded-2xl border border-border bg-accent-soft/40 p-6 text-base leading-[1.7] text-muted sm:p-8">
-          This was a strategic portfolio project rather than an implemented campaign. I
-          did not have access to first-party analytics, customer research, campaign
-          conversion data, the production CMS or post-launch results. Recommendations
-          therefore represent evidence-led hypotheses based on publicly available
-          information, third-party research tools and established UX and marketing
-          principles.
-        </aside>
-      </ContentSection>
+      <Limitations />
 
       <ContentSection id="reflection" className="bg-surface/35">
         <NumberedSectionHeader number="12" title="Reflection & next steps" />

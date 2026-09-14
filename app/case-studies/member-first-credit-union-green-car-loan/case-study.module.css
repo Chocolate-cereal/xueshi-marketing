@@ -1034,3 +1034,89 @@
     align-self: end;
   }
 }
+
+/* Limitations: evidence available for the audit versus evidence requiring access. */
+.limitationsHeader {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.limitationsRule {
+  width: 100%;
+  height: 1px;
+  margin-top: 1.75rem;
+  background: #c87a69;
+}
+
+.limitationsComparison {
+  display: grid;
+  margin-top: 1.75rem;
+  overflow: hidden;
+  border: 1px solid #d8c9bd;
+}
+
+.limitationsPanel {
+  min-width: 0;
+  padding: 1.75rem 1.5rem;
+}
+
+.limitationsUnavailable {
+  border-top: 1px solid #d8c9bd;
+  background: #f1dcd4;
+}
+
+.page .limitationsPanel > h3 {
+  font-family: var(--mfcu-body-font);
+  font-size: clamp(1.125rem, 1.025rem + 0.35vw, 1.375rem);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.limitationsPanel ul {
+  display: grid;
+  gap: 0.875rem;
+  margin-top: 1.375rem;
+}
+
+.limitationsPanel li {
+  display: grid;
+  grid-template-columns: 0.65rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+  color: var(--color-foreground);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.limitationsPanel li > span {
+  width: 0.65rem;
+  height: 0.65rem;
+  margin-top: 0.45rem;
+  background: #c96857;
+}
+
+.page .limitationsStatement {
+  max-width: 56rem;
+  margin-top: 2.5rem;
+  font-family: var(--mfcu-heading-font);
+  font-size: clamp(1.75rem, 1.35rem + 1.65vw, 2.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+@media (min-width: 40rem) {
+  .limitationsComparison {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .limitationsPanel {
+    padding: 2rem;
+  }
+
+  .limitationsUnavailable {
+    border-top: 0;
+    border-left: 1px solid #d8c9bd;
+  }
+}
