@@ -6,16 +6,14 @@ import styles from "./case-study.module.css";
 import { CreativeConcept } from "./creative-concept";
 import { KeywordResearch } from "./keyword-research";
 import { LandingPageRedesign } from "./landing-page-redesign";
+import { MeasurementSuccess } from "./measurement-success";
 import { PaidMediaPlan } from "./paid-media-plan";
 import { SearchAiVisibility } from "./search-ai-visibility";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
-import {
-  MeasurementGroup,
-  NumberedSectionHeader,
-} from "./case-study-components";
+import { NumberedSectionHeader } from "./case-study-components";
 
 export const metadata: Metadata = {
   title: "Green Car Loan Landing Page & Campaign Strategy",
@@ -727,49 +725,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
 
       <CreativeConcept />
 
-      <ContentSection id="measurement" className="bg-surface/35">
-        <NumberedSectionHeader
-          number="10"
-          title="How I would measure success"
-          description="These are proposed metrics for validating the experience and campaign, not existing performance results."
-        />
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <MeasurementGroup
-            title="Landing-page engagement"
-            items={[
-              "Calculator starts",
-              "Calculator completions",
-              "Interaction with eligibility and application content",
-            ]}
-          />
-          <MeasurementGroup
-            title="Conversion journey"
-            items={[
-              "Application CTA clicks",
-              "Application starts",
-              "Application completion rate",
-            ]}
-          />
-          <MeasurementGroup
-            title="Campaign"
-            items={[
-              "Landing-page views",
-              "Click-through rate",
-              "Cost per landing-page view",
-              "Conversion rate by audience and creative",
-            ]}
-          />
-          <MeasurementGroup
-            title="Search"
-            items={[
-              "Impressions for priority queries",
-              "Organic clicks",
-              "Search visibility trends",
-              "Search Console query development",
-            ]}
-          />
-        </div>
-      </ContentSection>
+      <MeasurementSuccess />
 
       <ContentSection id="limitations">
         <NumberedSectionHeader number="11" title="Limitations" />

@@ -826,3 +826,211 @@
     padding-left: 1rem;
   }
 }
+
+/* Measurement map: one conversion outcome supported by four diagnostic views. */
+.page .measurementStatement {
+  margin-top: 0.5rem;
+  font-size: clamp(1.75rem, 1.45rem + 1.4vw, 2.375rem);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.measurementMap {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.measurementConnectors {
+  display: none;
+}
+
+.measurementOutcome,
+.measurementEvidenceGroup {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.measurementOutcome {
+  padding: 2rem 1.5rem;
+  border: 1px solid #cfa99f;
+  background: #eadbd666;
+  text-align: center;
+}
+
+.measurementOutcomeLabel {
+  color: #b85c4b;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.page .measurementOutcome > h3 {
+  margin-top: 1rem;
+  font-size: clamp(1.75rem, 1.5rem + 1vw, 2.125rem);
+  line-height: 1.1;
+}
+
+.measurementOutcomeMetric {
+  margin-top: 0.375rem;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.measurementOutcomeExplanation {
+  max-width: 18rem;
+  margin: 1rem auto 0;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.measurementEvidenceGroup {
+  padding: 1.25rem;
+  border-top: 1px solid var(--color-border);
+  background: color-mix(in srgb, var(--color-surface) 55%, transparent);
+}
+
+.measurementGroupHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.measurementGroupHeading > span {
+  color: #b85c4b;
+  font-family: var(--mfcu-heading-font);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.measurementGroupHeading > i {
+  width: 1.5rem;
+  height: 1px;
+  flex-shrink: 0;
+  background: var(--color-muted);
+  opacity: 0.65;
+}
+
+.page .measurementGroupHeading > h4 {
+  color: var(--color-muted);
+  font-family: var(--mfcu-body-font);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.measurementEvidenceGroup ul {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.875rem;
+  padding-left: 2.25rem;
+}
+
+.measurementEvidenceGroup li {
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.measurementFooter {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.page .measurementFooter > p:first-child {
+  font-family: var(--mfcu-heading-font);
+  font-size: clamp(1.25rem, 1.1rem + 0.5vw, 1.5rem);
+  line-height: 1.35;
+}
+
+.measurementFooter > p:last-child {
+  margin-top: 0.375rem;
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 40rem) {
+  .measurementMap {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .measurementOutcome {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 64rem) {
+  .measurementMap {
+    grid-template-areas:
+      "group-one outcome group-three"
+      "group-two outcome group-four";
+    grid-template-columns: minmax(0, 1fr) minmax(18rem, 1.12fr) minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(11rem, auto));
+    gap: 3rem 5rem;
+    min-height: 27.5rem;
+  }
+
+  .measurementConnectors {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .measurementConnectors path {
+    vector-effect: non-scaling-stroke;
+  }
+
+  .measurementOutcome {
+    grid-area: outcome;
+    align-self: center;
+  }
+
+  .measurementEvidenceGroup {
+    align-self: start;
+    padding: 0;
+    border-top: 0;
+    background: color-mix(
+      in srgb,
+      var(--color-surface) 35%,
+      var(--color-background)
+    );
+  }
+
+  .measurementGroupOne {
+    grid-area: group-one;
+  }
+
+  .measurementGroupTwo {
+    grid-area: group-two;
+    align-self: end;
+  }
+
+  .measurementGroupThree {
+    grid-area: group-three;
+  }
+
+  .measurementGroupFour {
+    grid-area: group-four;
+    align-self: end;
+  }
+}
