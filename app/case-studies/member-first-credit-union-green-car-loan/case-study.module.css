@@ -1,7 +1,7 @@
 /* One type pairing for this case study, including its shared navigation. */
 :global(body):has(.page) {
-  --mfcu-heading-font: "Times New Roman", Times, "Liberation Serif", serif;
-  --mfcu-body-font: Arial, Helvetica, sans-serif;
+  --mfcu-heading-font: var(--font-libre-baskerville), Georgia, serif;
+  --mfcu-body-font: var(--font-manrope), Arial, sans-serif;
   font-family: var(--mfcu-body-font);
 }
 
