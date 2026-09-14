@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Arimo, Baskervville } from "next/font/google";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,20 +15,6 @@ import { SearchAiVisibility } from "./search-ai-visibility";
 import { ContentSection } from "@/components/sections/content-section";
 import { Heading } from "@/components/ui/heading";
 import { NumberedSectionHeader } from "./case-study-components";
-
-const mfcuSerif = Baskervville({
-  variable: "--font-mfcu-serif",
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
-
-const mfcuSans = Arimo({
-  variable: "--font-mfcu-sans",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "Green Car Loan Landing Page & Campaign Strategy",
@@ -277,7 +262,7 @@ function StrategyVisual({ index }: { index: number }) {
 
 export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
-    <article className={`${styles.page} ${mfcuSerif.variable} ${mfcuSans.variable}`}>
+    <article className={styles.page}>
       <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
         <div>
           <Link
