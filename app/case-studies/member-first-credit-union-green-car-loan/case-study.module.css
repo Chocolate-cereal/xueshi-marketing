@@ -1750,6 +1750,23 @@
   }
 }
 
+/* Touch devices have no dependable hover state, so replay the same measured
+   sweep when the research section enters view. The phases remain stacked on
+   narrow screens; only the rule supplies the moment of emphasis. */
+@media (hover: none), (pointer: coarse) {
+  .page[data-motion-ready] > section[data-revealed="true"] [data-phase] .researchPhaseRuleMotion {
+    animation: researchPhaseRuleTraverse 760ms var(--mfcu-ease-in-out) both;
+  }
+
+  .page[data-motion-ready] > section[data-revealed="true"] [data-phase="analyse"] .researchPhaseRuleMotion {
+    animation-delay: 160ms;
+  }
+
+  .page[data-motion-ready] > section[data-revealed="true"] [data-phase="develop"] .researchPhaseRuleMotion {
+    animation-delay: 320ms;
+  }
+}
+
 @media (max-width: 39.99rem) {
   .caseStudyNavInner {
     display: block;
@@ -1799,6 +1816,11 @@
   }
 
   .researchPhaseBlock:hover .researchPhaseRuleMotion {
+    transform: none;
+    animation: none;
+  }
+
+  .page[data-motion-ready] > section[data-revealed="true"] [data-phase] .researchPhaseRuleMotion {
     transform: none;
     animation: none;
   }

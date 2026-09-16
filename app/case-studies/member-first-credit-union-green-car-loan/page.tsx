@@ -484,6 +484,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           return (
             <div
               key={phase.title}
+              data-phase={phase.title.toLowerCase()}
               className={`${styles.researchPhaseBlock} grid border-b border-border px-0 py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10`}
             >
               <div className="pb-7 md:pb-0">
