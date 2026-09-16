@@ -1322,7 +1322,7 @@
     vector-effect: non-scaling-stroke;
   }
 
-  .measurementConnectorPulse {
+  .page[data-motion-ready] > section[data-revealed="true"] .measurementConnectorPulse {
     animation: measurementConnectorPulse 900ms var(--mfcu-ease-out) both;
   }
 
