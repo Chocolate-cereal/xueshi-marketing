@@ -59,10 +59,30 @@ export function MeasurementSuccess() {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M250 76H305V155H350" />
-          <path d="M250 364H305V285H350" />
-          <path d="M750 76H695V155H650" />
-          <path d="M750 364H695V285H650" />
+          <g className={styles.measurementConnectorBase}>
+            <path d="M250 76H305V155H350" />
+            <path d="M250 364H305V285H350" />
+            <path d="M750 76H695V155H650" />
+            <path d="M750 364H695V285H650" />
+          </g>
+          <g>
+            <path
+              className={`${styles.measurementConnectorPulse} ${styles.measurementConnectorPulseOne}`}
+              d="M250 76H305V155H350"
+            />
+            <path
+              className={`${styles.measurementConnectorPulse} ${styles.measurementConnectorPulseTwo}`}
+              d="M250 364H305V285H350"
+            />
+            <path
+              className={`${styles.measurementConnectorPulse} ${styles.measurementConnectorPulseThree}`}
+              d="M750 76H695V155H650"
+            />
+            <path
+              className={`${styles.measurementConnectorPulse} ${styles.measurementConnectorPulseFour}`}
+              d="M750 364H695V285H650"
+            />
+          </g>
         </svg>
 
         <section
