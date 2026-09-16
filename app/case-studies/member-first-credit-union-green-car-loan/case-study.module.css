@@ -357,35 +357,33 @@
   transition: background-color 180ms ease;
 }
 
-.researchPhaseRule {
+.researchPhaseLabel {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.researchPhaseRuleTrack {
+  --research-rule-width: 3rem;
   position: relative;
   display: block;
-  width: 3rem;
+  width: 100%;
   height: 0.125rem;
-  overflow: hidden;
-  background: var(--color-border);
 }
 
-.researchPhaseRule::after {
+.researchPhaseRuleMotion {
   position: absolute;
-  inset: 0;
-  background: #b85c4b;
-  content: "";
-  transform: translateX(100%);
+  inset-block: 0;
+  left: 0;
+  display: block;
+  width: calc(100% - var(--research-rule-width));
+  transition: transform 520ms var(--mfcu-ease-in-out);
 }
 
-@keyframes researchPhaseRuleSweep {
-  0% {
-    transform: translateX(100%);
-  }
-
-  50% {
-    transform: translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
+.researchPhaseRule {
+  display: block;
+  width: var(--research-rule-width);
+  height: 100%;
+  background: #b85c4b;
 }
 
 .page .researchPhase {
@@ -1714,8 +1712,8 @@
     background-color: color-mix(in srgb, var(--color-accent-soft) 25%, transparent);
   }
 
-  .researchPhaseBlock:hover .researchPhaseRule::after {
-    animation: researchPhaseRuleSweep 420ms var(--mfcu-ease-in-out) both;
+  .researchPhaseBlock:hover .researchPhaseRuleMotion {
+    transform: translateX(100%);
   }
 
   .redesignDetail,
@@ -1790,7 +1788,8 @@
     opacity: 0;
   }
 
-  .researchPhaseBlock:hover .researchPhaseRule::after {
-    animation: none;
+  .researchPhaseBlock:hover .researchPhaseRuleMotion {
+    transform: none;
+    transition: none;
   }
 }

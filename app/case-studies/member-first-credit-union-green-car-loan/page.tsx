@@ -487,12 +487,14 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               className={`${styles.researchPhaseBlock} grid border-b border-border px-0 py-8 md:grid-cols-[minmax(0,0.22fr)_minmax(0,0.78fr)] md:gap-10`}
             >
               <div className="pb-7 md:pb-0">
-                <span className={styles.researchPhaseRule} aria-hidden="true" />
-                <h3
-                  className={styles.researchPhase}
-                >
-                  {phase.title}
-                </h3>
+                <div className={styles.researchPhaseLabel}>
+                  <span className={styles.researchPhaseRuleTrack} aria-hidden="true">
+                    <span className={styles.researchPhaseRuleMotion}>
+                      <span className={styles.researchPhaseRule} />
+                    </span>
+                  </span>
+                  <h3 className={styles.researchPhase}>{phase.title}</h3>
+                </div>
               </div>
 
               <ol
