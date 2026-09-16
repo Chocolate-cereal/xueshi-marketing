@@ -14,7 +14,10 @@ export function CaseStudyMotion() {
     root.dataset.motionReady = "true";
     sections[0]?.setAttribute("data-revealed", "true");
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      !("IntersectionObserver" in window)
+    ) {
       sections.forEach((section) => section.setAttribute("data-revealed", "true"));
       return;
     }

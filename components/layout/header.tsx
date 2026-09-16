@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
 import styles from "./header.module.css";
 
-const desktopNavigation = siteConfig.navigation.filter((item) => item.label !== "Contact");
+const primaryNavigation = siteConfig.navigation.filter((item) => item.label !== "Contact");
 
 export function Header() {
   const pathname = usePathname();
@@ -32,7 +32,7 @@ export function Header() {
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Main navigation">
-          {desktopNavigation.map((item) => (
+          {primaryNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -69,7 +69,7 @@ export function Header() {
 
       <div id="mobile-menu" className={styles.mobilePanel} data-open={open}>
         <nav className={styles.mobileNav} aria-label="Mobile navigation">
-          {siteConfig.navigation.map((item) => (
+          {primaryNavigation.map((item) => (
             <Link
               key={item.href}
               href={item.href}
