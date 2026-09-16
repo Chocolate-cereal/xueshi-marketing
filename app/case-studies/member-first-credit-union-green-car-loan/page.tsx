@@ -615,7 +615,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                     src="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
                     alt="Annotated MFCU Green Car Loan page showing the hero, rate highlights and repayment table above the loan calculator."
                     width={1202}
-                    height={1309}
+                    height={1264}
                     sizes="(min-width: 1024px) 37vw, 100vw"
                     className="block h-auto w-full border border-border"
                   />
