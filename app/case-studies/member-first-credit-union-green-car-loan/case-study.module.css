@@ -1337,6 +1337,16 @@
   }
 }
 
+@media (max-width: 63.99rem) {
+  .measurementEvidenceGroup {
+    order: 1;
+  }
+
+  .measurementOutcome {
+    order: 2;
+  }
+}
+
 @media (min-width: 64rem) {
   .measurementMap {
     grid-template-areas:
