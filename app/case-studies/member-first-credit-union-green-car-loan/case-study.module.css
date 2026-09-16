@@ -1169,6 +1169,50 @@
   }
 }
 
+@keyframes measurementEvidenceReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(0.65rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes measurementOutcomeReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(0.5rem) scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.page[data-motion-ready] > section[data-revealed="true"] .measurementEvidenceGroup {
+  animation: measurementEvidenceReveal 420ms var(--mfcu-ease-out) both;
+}
+
+.page[data-motion-ready] > section[data-revealed="true"] .measurementGroupTwo {
+  animation-delay: 70ms;
+}
+
+.page[data-motion-ready] > section[data-revealed="true"] .measurementGroupThree {
+  animation-delay: 140ms;
+}
+
+.page[data-motion-ready] > section[data-revealed="true"] .measurementGroupFour {
+  animation-delay: 210ms;
+}
+
+.page[data-motion-ready] > section[data-revealed="true"] .measurementOutcome {
+  animation: measurementOutcomeReveal 480ms var(--mfcu-ease-out) 1.12s both;
+}
+
 .measurementOutcome,
 .measurementEvidenceGroup {
   position: relative;
@@ -1323,19 +1367,19 @@
   }
 
   .page[data-motion-ready] > section[data-revealed="true"] .measurementConnectorPulse {
-    animation: measurementConnectorPulse 900ms var(--mfcu-ease-out) both;
+    animation: measurementConnectorPulse 640ms var(--mfcu-ease-out) both;
   }
 
   .measurementConnectorPulseTwo {
-    animation-delay: 170ms;
+    animation-delay: 140ms;
   }
 
   .measurementConnectorPulseThree {
-    animation-delay: 340ms;
+    animation-delay: 280ms;
   }
 
   .measurementConnectorPulseFour {
-    animation-delay: 510ms;
+    animation-delay: 420ms;
   }
 
   .measurementOutcome::after {
@@ -1349,7 +1393,7 @@
   }
 
   .page[data-motion-ready] > section[data-revealed="true"] .measurementOutcome::after {
-    animation: measurementOutcomePulse 900ms var(--mfcu-ease-out) 1.1s both;
+    animation: measurementOutcomePulse 900ms var(--mfcu-ease-out) 1.75s both;
   }
 
   .measurementOutcome {
@@ -1677,6 +1721,13 @@
   .limitationsPanel,
   .reflectionTakeaway {
     transition: border-color 160ms ease;
+  }
+
+  .measurementEvidenceGroup,
+  .measurementOutcome {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 
   .measurementConnectorPulse,
