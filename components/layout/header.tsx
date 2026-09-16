@@ -3,84 +3,91 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+
 import { siteConfig } from "@/data/site";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "./theme-toggle";
+import styles from "./header.module.css";
+
+const desktopNavigation = siteConfig.navigation.filter((item) => item.label !== "Contact");
 
 export function Header() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
+  function isActive(href: string) {
+    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+  }
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-18 max-w-6xl items-center justify-between px-6 lg:px-8">
-        <Link
-          href="/"
-          className="font-semibold tracking-[-0.02em] text-foreground transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
-        >
-          Xueshi<span className="font-medium text-muted"> Marketing</span>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.brand} onClick={() => setOpen(false)}>
+          <span className={styles.brandMark} aria-hidden="true">
+            X
+          </span>
+          <span>
+            Xueshi <span className={styles.brandMuted}>Marketing</span>
+          </span>
         </Link>
-        <nav className="hidden items-center gap-1 md:flex" aria-label="Main navigation">
-          {siteConfig.navigation.map((item) => {
-            const active =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium text-muted transition hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                  active && "bg-accent-soft text-accent",
-                )}
-                aria-current={active ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            );
-          })}
+
+        <nav className={styles.desktopNav} aria-label="Main navigation">
+          {desktopNavigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn(styles.navLink, isActive(item.href) && styles.navLinkActive)}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
-        <div className="hidden md:block">
+
+        <div className={styles.actions}>
           <ThemeToggle />
+          <Link href="/contact" className={styles.contactButton}>
+            Let&apos;s talk
+          </Link>
         </div>
+
         <button
           type="button"
           onClick={() => setOpen((value) => !value)}
-          className="rounded-md border border-border px-3 py-2 text-sm font-medium text-foreground transition hover:border-accent hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring md:hidden"
+          className={styles.menuButton}
           aria-expanded={open}
           aria-controls="mobile-menu"
+          aria-label={open ? "Close navigation" : "Open navigation"}
         >
-          Menu
+          <span className={styles.menuIcon} aria-hidden="true">
+            <span />
+            <span />
+            <span />
+          </span>
         </button>
       </div>
-      {open ? (
-        <nav
-          id="mobile-menu"
-          className="border-t border-border bg-background px-6 py-4 md:hidden"
-          aria-label="Mobile navigation"
-        >
-          <div className="flex flex-col gap-2">
-            {siteConfig.navigation.map((item) => {
-              const active =
-                item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={cn(
-                    "rounded-md px-3 py-2.5 text-sm font-medium text-muted transition hover:bg-accent-soft hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring",
-                    active && "bg-accent-soft text-accent",
-                  )}
-                  aria-current={active ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-            <ThemeToggle />
-          </div>
+
+      <div id="mobile-menu" className={styles.mobilePanel} data-open={open}>
+        <nav className={styles.mobileNav} aria-label="Mobile navigation">
+          {siteConfig.navigation.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              onClick={() => setOpen(false)}
+              className={cn(styles.mobileLink, isActive(item.href) && styles.mobileLinkActive)}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </Link>
+          ))}
         </nav>
-      ) : null}
+        <div className={styles.mobilePanelFooter}>
+          <ThemeToggle />
+          <Link href="/contact" className={styles.contactButton} onClick={() => setOpen(false)}>
+            Let&apos;s talk
+          </Link>
+        </div>
+      </div>
     </header>
   );
 }

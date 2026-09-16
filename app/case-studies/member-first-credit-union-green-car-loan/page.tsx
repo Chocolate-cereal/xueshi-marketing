@@ -11,6 +11,7 @@ import { MeasurementSuccess } from "./measurement-success";
 import { PaidMediaPlan } from "./paid-media-plan";
 import { ReflectionNextSteps } from "./reflection-next-steps";
 import { SearchAiVisibility } from "./search-ai-visibility";
+import { CaseStudyMotion } from "./case-study-motion";
 
 import { ContentSection } from "@/components/sections/content-section";
 import { Heading } from "@/components/ui/heading";
@@ -104,6 +105,15 @@ const journey = [
   "Environmental initiative",
   "Final application CTA",
 ];
+
+const caseStudyNavItems = [
+  ["Overview", "context"],
+  ["Research", "research"],
+  ["Findings", "findings"],
+  ["Strategy", "strategy"],
+  ["Activation", "media"],
+  ["Next steps", "reflection"],
+] as const;
 
 const strategyPoints = [
   {
@@ -262,22 +272,25 @@ function StrategyVisual({ index }: { index: number }) {
 
 export default function MemberFirstGreenCarLoanCaseStudy() {
   return (
-    <article className={styles.page}>
+    <article className={styles.page} data-case-study-motion>
+      <CaseStudyMotion />
       <ContentSection className="overflow-hidden pb-0 pt-9 sm:pt-12">
         <div>
           <Link
             href="/case-studies"
-            className="inline-flex text-[0.8125rem] font-medium text-muted transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring sm:text-sm"
+            className={styles.backLink}
           >
             ← Back to Case Studies
           </Link>
 
           <div className="mt-11 grid items-center gap-12 pb-14 sm:mt-14 sm:pb-16 lg:grid-cols-[minmax(0,1.85fr)_minmax(15rem,1fr)] lg:gap-16 lg:pb-20">
             <div className="min-w-0">
-              <span className="inline-flex border border-border px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-muted">
-                Independent portfolio case study
-              </span>
-              <p className="mt-7 text-sm font-medium text-accent">
+              <div className={styles.heroEyebrow}>
+                <span className={styles.heroEyebrowMark} aria-hidden="true" />
+                <span>Independent portfolio case study</span>
+                <span className={styles.heroEyebrowMeta}>MFCU / 2026</span>
+              </div>
+              <p className={styles.heroKicker}>
                 Member First Credit Union
               </p>
               <Heading className={styles.heroTitle}>
@@ -288,31 +301,45 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 could improve the online journey for a green car loan through landing-page
                 optimisation, search research, paid-media planning and campaign creative.
               </p>
+              <div className={styles.heroActions}>
+                <a className={styles.heroPrimaryAction} href="#context">
+                  Read the case study <span aria-hidden="true">↓</span>
+                </a>
+                <span className={styles.heroScope}>UX · Content · SEO · Paid media</span>
+              </div>
             </div>
 
             <div
-              className="mx-auto flex h-[19rem] w-full max-w-[17rem] items-center justify-center bg-accent-soft p-7 sm:h-[22rem] sm:max-w-[19rem] sm:p-8 lg:mx-0 lg:ml-auto lg:h-[25rem] lg:max-w-none"
+              className={styles.heroVisual}
               aria-hidden="true"
             >
-              <div className="w-full max-w-[13rem]">
-                <div className="flex h-24 flex-col justify-center gap-3 bg-surface px-5">
-                  <span className="block h-1.5 w-full bg-accent" />
-                  <span className="block h-1.5 w-3/5 bg-accent" />
-                </div>
-                <div className="mt-5 grid grid-cols-2 gap-4">
-                  <span className="aspect-square border border-accent" />
-                  <span className="aspect-square bg-accent" />
-                  <span className="aspect-square border border-accent" />
-                  <span className="aspect-square border border-accent" />
-                </div>
+              <div className={styles.heroVisualHeader}>
+                <span>MFCU</span>
+                <span>GREEN CAR LOAN</span>
+              </div>
+              <div className={styles.heroVisualMain}>
+                <span className={styles.heroVisualLine} />
+                <span className={`${styles.heroVisualLine} ${styles.heroVisualLineShort}`} />
+                <span className={styles.heroVisualRate}>5.75%</span>
+              </div>
+              <div className={styles.heroVisualGrid}>
+                <span />
+                <span className={styles.heroVisualAccent} />
+                <span />
+                <span />
+              </div>
+              <div className={styles.heroVisualFooter}>
+                <span>Research</span>
+                <span>Journey</span>
+                <span>Action</span>
               </div>
             </div>
           </div>
         </div>
 
-        <dl className="grid gap-px border-y border-border bg-border sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+        <dl className={styles.projectMeta}>
           {projectMeta.map((item) => (
-            <div key={item.label} className="min-w-0 bg-background px-5 py-6">
+            <div key={item.label} className={styles.projectMetaItem}>
               <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-accent">
                 {item.label}
               </dt>
@@ -326,6 +353,19 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           First Credit Union.
         </aside>
       </ContentSection>
+
+      <aside className={styles.caseStudyNav} aria-label="Case study sections">
+        <div className={styles.caseStudyNavInner}>
+          <span className={styles.caseStudyNavLabel}>On this page</span>
+          <nav className={styles.caseStudyNavLinks}>
+            {caseStudyNavItems.map(([label, id]) => (
+              <a key={id} href={`#${id}`}>
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </aside>
 
       <ContentSection id="context" className="bg-surface/35">
         <NumberedSectionHeader
