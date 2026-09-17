@@ -542,8 +542,8 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               description="Four issues stood out across the landing-page experience, information hierarchy and search content."
             />
 
-            <div className="mt-10">
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+            <div className={`${styles.keyFindingsList} mt-10`}
+              <div className={`${styles.keyFinding} grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8`}>
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">01</p>
                 <div>
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
@@ -556,7 +556,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <div className={`${styles.keyFinding} grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8`}>
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">02</p>
                 <div>
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
@@ -569,7 +569,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <div className={`${styles.keyFinding} grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8`}>
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">03</p>
                 <div>
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
@@ -582,7 +582,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   </p>
                 </div>
               </div>
-              <div className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8">
+              <div className={`${styles.keyFinding} grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-y border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8`}>
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">04</p>
                 <div>
                   <h3 className="text-xl font-bold leading-[1.25] text-foreground sm:text-[1.375rem]">
