@@ -35,8 +35,9 @@ function CampaignSetupPictogram({ kind }: { kind: CampaignSetupIconKind }) {
       ) : null}
       {kind === "geography" ? (
         <>
-          <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" />
-          <circle cx="12" cy="10" r="2" />
+          <path d="M4 6.5 9.5 4l5 2.5L20 4v13.5L14.5 20l-5-2.5L4 20V6.5Z" />
+          <path d="M9.5 4v13.5M14.5 6.5V20" />
+          <path d="m14.5 9 2.25-2.25L19 9l-2.25 2.25L14.5 9Z" />
         </>
       ) : null}
       {kind === "approach" ? (
