@@ -797,6 +797,28 @@
   border-bottom: 1px solid var(--color-border);
 }
 
+.campaignSetupTerm {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.campaignSetupPictogram {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 2rem;
+  place-items: center;
+  border: 1px solid rgb(184 92 75 / 0.3);
+  background: rgb(234 219 214 / 0.34);
+  color: #b85c4b;
+}
+
+.campaignSetupPictogram svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
 .campaignRationale {
   margin-top: 1.5rem;
   padding-top: 1.25rem;

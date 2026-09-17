@@ -10,16 +10,44 @@ const campaignFlow = [
 ];
 
 const campaignSetup = [
-  ["Objective", "Drive relevant users to the landing page"],
-  ["Geography", "Relevant Dublin service area"],
-  ["Approach", "Concentrated single-campaign test"],
-];
+  ["Objective", "Drive relevant users to the landing page", "objective"],
+  ["Geography", "Relevant Dublin service area", "geography"],
+  ["Approach", "Concentrated single-campaign test", "approach"],
+] as const;
 
 const rationale = [
   { title: "Why Meta", description: "Visual formats and audience controls support a focused landing-page traffic test." },
   { title: "Why local targeting", description: "Geographic targeting keeps spend within the relevant Dublin service area." },
   { title: "Why one campaign", description: "A constrained test avoids fragmentation and creates a clearer learning objective." },
 ];
+
+type CampaignSetupIconKind = (typeof campaignSetup)[number][2];
+
+function CampaignSetupPictogram({ kind }: { kind: CampaignSetupIconKind }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {kind === "objective" ? (
+        <>
+          <circle cx="12" cy="12" r="7" />
+          <circle cx="12" cy="12" r="2.5" />
+          <path d="M12 2v3M12 19v3M2 12h3M19 12h3" />
+        </>
+      ) : null}
+      {kind === "geography" ? (
+        <>
+          <path d="M12 21s6-5.2 6-11a6 6 0 1 0-12 0c0 5.8 6 11 6 11Z" />
+          <circle cx="12" cy="10" r="2" />
+        </>
+      ) : null}
+      {kind === "approach" ? (
+        <>
+          <path d="M8 4H4v4M16 4h4v4M8 20H4v-4M20 16v4h-4" />
+          <rect x="8" y="8" width="8" height="8" />
+        </>
+      ) : null}
+    </svg>
+  );
+}
 
 export function PaidMediaPlan() {
   return (
@@ -49,9 +77,14 @@ export function PaidMediaPlan() {
         <aside className={styles.campaignSetup} aria-labelledby="campaign-setup-title">
           <h3 id="campaign-setup-title">Campaign setup</h3>
           <dl>
-            {campaignSetup.map(([label, value]) => (
+            {campaignSetup.map(([label, value, icon]) => (
               <div key={label}>
-                <dt className={styles.sectionLabel}>{label}</dt>
+                <dt className={styles.campaignSetupTerm}>
+                  <span className={styles.campaignSetupPictogram} aria-hidden="true">
+                    <CampaignSetupPictogram kind={icon} />
+                  </span>
+                  <span className={styles.sectionLabel}>{label}</span>
+                </dt>
                 <dd className="mt-2 text-base leading-[1.6] text-muted">{value}</dd>
               </div>
             ))}
