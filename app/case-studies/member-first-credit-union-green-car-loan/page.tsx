@@ -542,7 +542,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               description="Four issues stood out across the landing-page experience, information hierarchy and search content."
             />
 
-            <div className={`${styles.keyFindingsList} mt-10`}
+            <div className={`${styles.keyFindingsList} mt-10`}>
               <div className={`${styles.keyFinding} grid grid-cols-[3rem_minmax(0,1fr)] gap-4 border-t border-border py-8 sm:grid-cols-[4rem_minmax(0,1fr)] sm:gap-8`}>
                 <p className="text-sm font-semibold tracking-[0.18em] text-accent">01</p>
                 <div>
