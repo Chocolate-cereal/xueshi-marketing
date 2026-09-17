@@ -728,6 +728,36 @@
   background: #f3cece;
 }
 
+.keyFindingsList {
+  position: relative;
+}
+
+.keyFinding {
+  transition:
+    transform 180ms var(--mfcu-ease-out),
+    opacity 180ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .keyFindingsList:has(.keyFinding:hover) .keyFinding:not(:hover) {
+    opacity: 0.48;
+  }
+
+  .keyFinding:hover {
+    transform: translateX(0.35rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .keyFinding {
+    transition: opacity 160ms ease;
+  }
+
+  .keyFinding:hover {
+    transform: none;
+  }
+}
+
 .paidMediaLayout {
   display: grid;
   gap: 2rem;
