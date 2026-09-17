@@ -805,18 +805,16 @@
 
 .campaignSetupPictogram {
   display: grid;
-  width: 2rem;
-  height: 2rem;
-  flex: 0 0 2rem;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 1.55rem;
   place-items: center;
-  border: 1px solid rgb(184 92 75 / 0.3);
-  background: rgb(234 219 214 / 0.34);
   color: #b85c4b;
 }
 
 .campaignSetupPictogram svg {
-  width: 1.15rem;
-  height: 1.15rem;
+  width: 1.55rem;
+  height: 1.55rem;
 }
 
 .campaignRationale {
