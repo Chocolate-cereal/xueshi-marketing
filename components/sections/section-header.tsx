@@ -19,14 +19,19 @@ export function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div
-      className={cn("max-w-3xl", align === "center" && "mx-auto text-center", className)}
+      className={cn("marketingSectionHeader", align === "center" && "mx-auto text-center", className)}
+      data-reveal
     >
-      {eyebrow ? <Badge>{eyebrow}</Badge> : null}
-      <Heading as="h2" className={cn(eyebrow && "mt-5")}>
+      {eyebrow ? (
+        <div className="marketingSectionEyebrow">
+          <Badge>{eyebrow}</Badge>
+        </div>
+      ) : null}
+      <Heading as="h2" className="marketingSectionTitle">
         {title}
       </Heading>
       {description ? (
-        <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{description}</p>
+        <p className="marketingSectionDescription">{description}</p>
       ) : null}
     </div>
   );
