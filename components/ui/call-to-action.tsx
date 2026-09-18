@@ -21,11 +21,11 @@ export function CallToAction({
   className,
 }: CallToActionProps) {
   return (
-    <Card className={cn("overflow-hidden p-8 sm:p-10", className)}>
-      <div className="relative z-10 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
+    <Card className={cn("siteCta overflow-hidden p-8 sm:p-10", className)}>
+      <div className="siteCtaInner grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
         <div className="max-w-2xl">
           {eyebrow ? (
-            <p className="text-sm font-medium uppercase tracking-[0.22em] text-muted">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">
               {eyebrow}
             </p>
           ) : null}
@@ -34,7 +34,7 @@ export function CallToAction({
           </Heading>
           <p className="mt-5 text-base leading-8 text-muted sm:text-lg">{description}</p>
         </div>
-        <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+        <div className="siteCtaActions lg:justify-end">
           <Button href={primaryAction.href}>{primaryAction.label}</Button>
           {secondaryAction ? (
             <Button href={secondaryAction.href} variant="secondary">
