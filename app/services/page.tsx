@@ -7,18 +7,21 @@ import { Heading } from "@/components/ui/heading";
 
 const services = [
   {
+    index: "01",
     title: "SEO audits",
     description:
       "A structured review of search visibility, technical foundations, content alignment and priority opportunities.",
     areas: ["Technical signals", "Search intent", "Content gaps"],
   },
   {
-    title: "Landing page optimisation",
+    index: "02",
+    title: "Landing-page optimisation",
     description:
       "An evidence-led assessment of message clarity, user journeys, page experience and conversion friction.",
     areas: ["Message hierarchy", "Conversion paths", "Page experience"],
   },
   {
+    index: "03",
     title: "Competitor research",
     description:
       "A focused comparison of positioning, search presence and digital experience to identify useful opportunities.",
@@ -28,51 +31,70 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <>
+    <div className="marketingPage servicesPage">
       <PageIntro
         eyebrow="Services"
         title="Focused analysis for clearer digital marketing priorities."
-        description="Each service is designed to turn a broad marketing question into a structured review, a clear set of findings and practical next steps."
+        description="Each service turns a broad marketing question into a structured review, a clear set of findings and practical next steps."
+        supportingText="Scopes can be shaped around the evidence available, the decision in front of you and the level of support needed."
         actions={[{ label: "Discuss a project", href: "/contact" }]}
       />
+
       <ContentSection className="pt-0">
-        <SectionHeader
-          eyebrow="Core services"
-          title="Choose the review that fits the decision in front of you."
-          description="Scopes can be shaped around the available evidence, business context and the questions your team needs to answer."
-        />
-        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+        <div className="servicesLead" data-reveal>
+          <div>
+            <p className="servicesSectionLabel">Core services</p>
+            <Heading as="h2">Choose the review that fits the decision in front of you.</Heading>
+          </div>
+          <p>
+            The aim is not to produce the longest audit. It is to make the important
+            signal easier to see and easier to act on.
+          </p>
+        </div>
+
+        <div className="servicesList">
           {services.map((service) => (
-            <Card key={service.title} className="flex flex-col p-7">
-              <Heading as="h3">{service.title}</Heading>
-              <p className="mt-4 text-sm leading-7 text-muted">{service.description}</p>
-              <ul className="mt-8 space-y-3 border-t border-border pt-6">
+            <Card key={service.title} className="serviceRow" data-reveal>
+              <div className="serviceRowIndex">{service.index}</div>
+              <div className="serviceRowMain">
+                <Heading as="h3">{service.title}</Heading>
+                <p>{service.description}</p>
+              </div>
+              <ul className="serviceAreas">
                 {service.areas.map((area) => (
-                  <li
-                    key={area}
-                    className="flex items-center gap-3 text-sm text-foreground"
-                  >
-                    <span
-                      className="size-1.5 rounded-full bg-accent"
-                      aria-hidden="true"
-                    />
-                    {area}
-                  </li>
+                  <li key={area}>{area}</li>
                 ))}
               </ul>
             </Card>
           ))}
         </div>
       </ContentSection>
+
       <ContentSection className="pt-0">
-        <CallToAction
-          eyebrow="A useful starting point"
-          title="Not sure which type of review you need?"
-          description="Describe the marketing question, the evidence you already have and the decision that needs to follow. The right scope can be clarified from there."
-          primaryAction={{ label: "Contact me", href: "/contact" }}
-          secondaryAction={{ label: "View case studies", href: "/case-studies" }}
-        />
+        <div className="serviceMethod" data-reveal>
+          <div>
+            <p className="servicesSectionLabel">A useful starting point</p>
+            <Heading as="h2">The right scope can be clarified from the question.</Heading>
+          </div>
+          <p>
+            Describe the marketing question, the evidence you already have and the
+            decision that needs to follow. That is usually enough to shape a sensible
+            first review.
+          </p>
+        </div>
       </ContentSection>
-    </>
+
+      <ContentSection className="pt-0">
+        <div data-reveal>
+          <CallToAction
+            eyebrow="Next step"
+            title="Not sure which type of review you need?"
+            description="Start with the context. We can work out the shape of the review from there."
+            primaryAction={{ label: "Contact me", href: "/contact" }}
+            secondaryAction={{ label: "View case studies", href: "/case-studies" }}
+          />
+        </div>
+      </ContentSection>
+    </div>
   );
 }
