@@ -3,6 +3,7 @@ import "./globals.css";
 import { Footer } from "@/components/layout/footer";
 import { libreBaskerville, manrope } from "./fonts";
 import { Header } from "@/components/layout/header";
+import { SiteMotion } from "@/components/layout/site-motion";
 import { ThemeScript } from "@/components/layout/theme-script";
 import { siteConfig } from "@/data/site";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <ThemeScript />
         <div className="flex min-h-screen flex-col">
           <Header />
+          <SiteMotion />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
