@@ -807,14 +807,14 @@ html[data-site-motion-ready="true"] .marketingPage [data-reveal][data-reveal-vis
   line-height: 1.6;
 }
 
-.footerLink {
+.marketingFooter .footerLink {
   transition:
     color 160ms ease,
     transform 160ms var(--site-ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .footerLink:hover {
+  .marketingFooter .footerLink:hover {
     color: var(--color-accent);
     transform: translateY(-1px);
   }
