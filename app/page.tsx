@@ -1,7 +1,6 @@
-import { SectionHeader } from "@/components/sections/section-header";
+import Image from "next/image";
+
 import { Button } from "@/components/ui/button";
-import { CallToAction } from "@/components/ui/call-to-action";
-import { Card } from "@/components/ui/card";
 import { Container } from "@/components/ui/container";
 import { Heading } from "@/components/ui/heading";
 import { Section } from "@/components/ui/section";
@@ -9,188 +8,249 @@ import { Section } from "@/components/ui/section";
 const services = [
   {
     index: "01",
-    title: "Search and content audits",
-    description:
-      "Find technical, editorial and intent gaps, then turn them into priorities a team can act on.",
+    title: "Strategy & planning",
+    description: "Turn business goals into clear, actionable marketing direction.",
   },
   {
     index: "02",
-    title: "Landing-page reviews",
-    description:
-      "Evaluate message clarity, conversion paths, proof and page experience before investing in traffic.",
+    title: "Digital growth",
+    description: "Build search presence and improve the journeys that support it.",
   },
   {
     index: "03",
-    title: "Measurement foundations",
-    description:
-      "Clarify events, reporting views and decision rhythms so performance conversations stay grounded.",
-  },
-];
-
-const approach = [
-  {
-    title: "Frame the question",
-    description: "Start with the business decision, not a list of disconnected tactics.",
+    title: "Content & campaigns",
+    description: "Create useful campaigns that connect with people and context.",
   },
   {
-    title: "Audit the evidence",
-    description: "Separate observed signals from assumptions and missing information.",
+    index: "04",
+    title: "Audience & insights",
+    description: "Understand behaviour, intent and the opportunities between them.",
   },
   {
-    title: "Prioritise the next move",
-    description: "Shape practical experiments around impact, confidence and constraints.",
-  },
-  {
-    title: "Document the reasoning",
-    description: "Make the recommendation easy to challenge, understand and build on.",
+    index: "05",
+    title: "Optimisation",
+    description: "Test, learn and improve with decisions grounded in evidence.",
   },
 ];
 
 const caseStudies = [
   {
-    label: "01 / Independent case study",
-    title: "Green Car Loan Landing Page & Campaign Strategy",
-    result:
-      "A public-facing audit combining landing-page optimisation, search research, paid-media planning and campaign creative.",
-    href: "/case-studies/member-first-credit-union-green-car-loan",
+    label: "Planned audit / SEO + paid search",
+    title: "Organic vs Paid Search Strategy Audit",
+    description:
+      "A comparative review of search performance, opportunity and the role of paid visibility.",
+    variant: "search",
+    href: "/case-studies",
+    action: "View case studies",
   },
   {
-    label: "02 / In development",
-    title: "More evidence-led work to follow",
-    result:
-      "New projects will be added when the context, process and outcomes can be shown with the same level of care.",
+    label: "Planned audit / UX + CRO",
+    title: "Revolut Landing Page Conversion Audit",
+    description:
+      "A closer look at message clarity, page experience and the moments that shape action.",
+    variant: "revolut",
     href: "/case-studies",
+    action: "View case studies",
+  },
+  {
+    label: "Proposed redesign / UX + content",
+    title: "Member First Credit Union Green Car Loan",
+    description:
+      "A research-led redesign connecting search intent, repayment planning and campaign creative.",
+    variant: "mfcu",
+    href: "/case-studies/member-first-credit-union-green-car-loan",
+    action: "View case study",
   },
 ];
 
-const tools = [
-  "SEO diagnostics",
-  "Landing-page heuristics",
-  "Competitor research",
-  "Analytics QA",
-  "Content briefs",
-  "Experiment logs",
+const process = [
+  {
+    index: "01",
+    title: "Research",
+    description: "Understand your goals, market and audience.",
+  },
+  {
+    index: "02",
+    title: "Analyse",
+    description: "Find what matters through data and insight.",
+  },
+  {
+    index: "03",
+    title: "Recommend",
+    description: "Develop practical, prioritised solutions.",
+  },
+  {
+    index: "04",
+    title: "Measure",
+    description: "Track impact and refine what comes next.",
+  },
 ];
+
+const reasons = [
+  {
+    title: "Strategic thinking",
+    description:
+      "I see the bigger picture, connect the dots and focus on what drives long-term value.",
+  },
+  {
+    title: "Evidence-led",
+    description:
+      "I use data to uncover opportunities, validate ideas and make smarter decisions.",
+  },
+  {
+    title: "Practical approach",
+    description:
+      "I turn ideas into clear, actionable plans and enjoy making things happen.",
+  },
+];
+
+const insights = [
+  {
+    date: "Note 01",
+    type: "Search",
+    title: "Turning search findings into a useful priority list",
+    description: "A short note on moving from observations to decisions.",
+    variant: "search",
+  },
+  {
+    date: "Note 02",
+    type: "UX / content",
+    title: "Reading a landing page as a decision journey",
+    description: "A practical way to look at clarity, proof and friction.",
+    variant: "content",
+  },
+  {
+    date: "Note 03",
+    type: "Measurement",
+    title: "What a useful marketing measurement plan needs",
+    description: "Keeping outcomes, evidence and next steps connected.",
+    variant: "measurement",
+  },
+];
+
+function LandingSectionHeading({
+  index,
+  title,
+  description,
+  className = "",
+}: {
+  index: string;
+  title: string;
+  description?: string;
+  className?: string;
+}) {
+  return (
+    <div className={`landingSectionHeading ${className}`.trim()} data-reveal>
+      <span className="landingSectionIndex">{index}</span>
+      <Heading as="h2">{title}</Heading>
+      {description ? <p>{description}</p> : null}
+    </div>
+  );
+}
+
+function StudyThumb({ variant }: { variant: string }) {
+  if (variant === "mfcu") {
+    return (
+      <div className="landingStudyThumb landingStudyThumbImage">
+        <Image
+          src="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
+          alt="Member First Credit Union Green Car Loan webpage"
+          fill
+          sizes="(min-width: 64rem) 17rem, 100vw"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`landingStudyThumb landingStudyThumb-${variant}`}
+      aria-label={`${variant} audit visual placeholder`}
+      role="img"
+    >
+      <div className="landingStudyThumbWindow">
+        <span />
+        <span />
+        <span />
+      </div>
+      <div className="landingStudyThumbLines" aria-hidden="true">
+        <span />
+        <span />
+        <span />
+      </div>
+      <span className="landingStudyThumbLabel">
+        {variant === "search" ? "SEARCH / SIGNAL" : "MESSAGE / ACTION"}
+      </span>
+    </div>
+  );
+}
 
 export default function HomePage() {
   return (
-    <div className="marketingPage homePage">
-      <Section className="homeHero">
+    <div className="marketingPage landingPage">
+      <Section className="landingHero">
         <Container>
-          <div className="homeHeroGrid">
-            <div data-reveal>
-              <div className="homeEyebrow">
-                <span className="homeEyebrowMark" aria-hidden="true" />
-                <span>Digital marketing portfolio</span>
-                <span className="homeEyebrowMeta">Dublin / IE</span>
-              </div>
-              <Heading className="homeHeroTitle">
-                Evidence into <span className="homeHeroTitleAccent">direction.</span>
+          <div className="landingHeroGrid">
+            <div className="landingHeroCopy" data-reveal>
+              <p className="landingHeroEyebrow">Marketing insights. Real impact.</p>
+              <Heading className="landingHeroTitle">
+                Hi, I&apos;m <span>Xue</span>
               </Heading>
-              <p className="homeHeroSummary">
-                I’m Xue, a digital marketer focused on SEO, landing-page optimisation,
-                paid media and the decisions that connect them.
+              <p className="landingHeroLead">
+                I help ambitious brands turn insights into meaningful growth.
               </p>
-              <div className="homeHeroActions">
+              <p className="landingHeroDescription">
+                A digital marketing specialist with a passion for strategy, data and human
+                behaviour — bringing logic and creativity to build marketing that works in
+                the real world.
+              </p>
+              <div className="landingHeroActions">
                 <Button href="/case-studies">
-                  View case studies <span aria-hidden="true">↗</span>
+                  View case studies <span aria-hidden="true">→</span>
                 </Button>
-                <Button href="/contact" variant="ghost">
-                  Start a conversation <span aria-hidden="true">↗</span>
+                <Button href="/contact" variant="secondary">
+                  Contact me <span aria-hidden="true">→</span>
                 </Button>
               </div>
-              <p className="homeAvailability">
-                Open to digital marketing opportunities with thoughtful teams.
-              </p>
             </div>
 
             <div
-              className="homeSignalBoard"
+              className="landingHeroVisual"
               data-reveal
-              aria-label="A visual summary of the way Xueshi Marketing works"
+              aria-label="Branded editorial visual for Xueshi Marketing"
+              role="img"
             >
-              <div className="homeSignalHeader">
-                <span>Working signals</span>
-                <span>01 / 04</span>
+              <div className="landingHeroVisualGrid" aria-hidden="true" />
+              <div className="landingPortrait" aria-hidden="true">
+                <div className="landingPortraitHead" />
+                <div className="landingPortraitShoulder" />
+                <div className="landingPortraitHighlight" />
               </div>
-              <div className="homeSignalContent">
-                <p className="homeSignalStatement">
-                  Better marketing starts with a <em>clearer question.</em>
-                </p>
-                <div className="homeSignalRows" aria-hidden="true">
-                  <div className="homeSignalRow">
-                    <span>Evidence</span>
-                    <span />
-                    <span>01</span>
-                  </div>
-                  <div className="homeSignalRow">
-                    <span>Structure</span>
-                    <span />
-                    <span>02</span>
-                  </div>
-                  <div className="homeSignalRow">
-                    <span>Action</span>
-                    <span />
-                    <span>03</span>
-                  </div>
-                </div>
+              <div className="landingHeroVisualNote">
+                <span>Good marketing</span>
+                <span>builds brighter</span>
+                <span>possibilities.</span>
               </div>
-              <div className="homeSignalFooter">
-                <span>SEO / UX / Paid media</span>
-                <span>Observe → decide</span>
+              <div className="landingHeroVisualFooter">
+                <span>Strategy</span>
+                <span>Audience</span>
+                <span>Better marketing</span>
               </div>
             </div>
           </div>
-
-          <div className="homeHeroFoot" data-reveal>
-            <span>Independent portfolio / research-led work</span>
-            <span>Clarity before activity</span>
-          </div>
         </Container>
       </Section>
 
-      <Section className="bg-surface/35">
+      <Section className="landingServicesSection">
         <Container>
-          <SectionHeader
-            eyebrow="01 / Services"
-            title="Focused support where marketing teams often lose signal."
-            description="Each service produces a decision-ready set of findings rather than a long list of generic tactics."
-          />
-          <div className="homeServiceGrid">
-            {services.map((service) => (
-              <Card key={service.title} className="homeServiceCard" data-reveal>
-                <div className="homeServiceTopline">
-                  <span>{service.index}</span>
-                  <span className="homeServiceArrow" aria-hidden="true">
-                    ↗
-                  </span>
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section>
-        <Container>
-          <div className="homeApproachGrid">
-            <SectionHeader
-              eyebrow="02 / Approach"
-              title="A calm operating model for ambiguous growth problems."
-              description="The work separates what is known, what is assumed and what should be tested next."
-            />
-            <div className="homeApproachList" data-reveal>
-              {approach.map((item, index) => (
-                <div className="homeApproachItem" key={item.title}>
-                  <span className="homeApproachNumber">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3>{item.title}</h3>
-                    <p>{item.description}</p>
-                  </div>
+          <div className="landingSectionGrid">
+            <LandingSectionHeading index="01" title="What I Can Help With" />
+            <div className="landingServices" data-reveal>
+              {services.map((service) => (
+                <div className="landingService" key={service.index}>
+                  <span className="landingServiceIndex">{service.index}</span>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
                 </div>
               ))}
             </div>
@@ -198,83 +258,148 @@ export default function HomePage() {
         </Container>
       </Section>
 
-      <Section className="bg-surface/35">
+      <Section className="landingStudiesSection">
         <Container>
-          <SectionHeader
-            eyebrow="03 / Case studies"
-            title="Work that shows the reasoning, not just the result."
-            description="Projects are presented with context, evidence, decisions and limitations so the work can be understood rather than simply admired."
-          />
-          <div className="homeCaseStudyGrid">
-            {caseStudies.map((study) => (
-              <Card key={study.title} className="homeCaseStudyCard" data-reveal>
-                <div className="homeCaseStudyTopline">
-                  <span>{study.label}</span>
-                  <span className="homeCaseStudyArrow" aria-hidden="true">
-                    ↗
+          <div className="landingStudiesLayout">
+            <div className="landingStudiesIntro" data-reveal>
+              <LandingSectionHeading
+                index="02"
+                title="Selected Case Studies"
+                description="Real challenges. Practical solutions. Thoughtful, evidence-led marketing."
+              />
+              <Button href="/case-studies" variant="ghost">
+                View case studies <span aria-hidden="true">→</span>
+              </Button>
+            </div>
+            <div className="landingStudies" data-reveal>
+              {caseStudies.map((study) => (
+                <article className="landingStudy" key={study.title}>
+                  <StudyThumb variant={study.variant} />
+                  <div className="landingStudyContent">
+                    <p className="landingStudyMeta">
+                      <span>{study.label}</span>
+                    </p>
+                    <h3>{study.title}</h3>
+                    <p>{study.description}</p>
+                  </div>
+                  <Button href={study.href} variant="ghost" className="landingStudyLink">
+                    {study.action} <span aria-hidden="true">→</span>
+                  </Button>
+                </article>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="landingProcessSection">
+        <Container>
+          <div className="landingSectionGrid landingProcessGrid">
+            <LandingSectionHeading
+              index="03"
+              title="How I Work"
+              description="A clear, collaborative process to turn complexity into progress."
+            />
+            <div className="landingProcess" data-reveal>
+              {process.map((step) => (
+                <div className="landingProcessStep" key={step.index}>
+                  <span className="landingProcessIndex">{step.index}</span>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="landingAboutSection">
+        <Container>
+          <div className="landingAboutGrid">
+            <div data-reveal>
+              <LandingSectionHeading index="04" title="About / Why Work With Me" />
+              <div className="landingAboutCopy">
+                <p>
+                  I&apos;m Xue, a digital marketing specialist with experience across
+                  brand, performance and content marketing. I enjoy solving problems,
+                  finding what makes people tick and turning ideas into real results.
+                </p>
+                <p>
+                  I bring a balance of strategic thinking and hands-on execution, with a
+                  genuine interest in the impact good marketing can have on businesses and
+                  people&apos;s lives.
+                </p>
+              </div>
+            </div>
+            <div className="landingReasons" data-reveal>
+              <p className="landingReasonsIntro">
+                Three reasons clients and employers value working with me
+              </p>
+              {reasons.map((reason) => (
+                <div className="landingReason" key={reason.title}>
+                  <h3>{reason.title}</h3>
+                  <p>{reason.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="landingInsightsSection">
+        <Container>
+          <div className="landingInsightsHeader" data-reveal>
+            <LandingSectionHeading
+              index="05"
+              title="Latest Insights"
+              description="Thoughts on marketing, strategy and the changing digital landscape."
+            />
+            <Button href="/insights" variant="ghost">
+              All insights <span aria-hidden="true">→</span>
+            </Button>
+          </div>
+          <div className="landingInsights" data-reveal>
+            {insights.map((insight) => (
+              <article className="landingInsight" key={insight.title}>
+                <div
+                  className={`landingInsightVisual landingInsightVisual-${insight.variant}`}
+                >
+                  <span>
+                    {insight.variant === "search"
+                      ? "01"
+                      : insight.variant === "content"
+                        ? "02"
+                        : "03"}
                   </span>
                 </div>
-                <h3>{study.title}</h3>
-                <p>{study.result}</p>
-                <Button href={study.href} variant="ghost" className="mt-7">
-                  Explore <span aria-hidden="true">→</span>
+                <p className="landingInsightMeta">
+                  {insight.date} <span aria-hidden="true">·</span> {insight.type}
+                </p>
+                <h3>{insight.title}</h3>
+                <p>{insight.description}</p>
+                <Button href="/insights" variant="ghost">
+                  Read more <span aria-hidden="true">→</span>
                 </Button>
-              </Card>
+              </article>
             ))}
           </div>
         </Container>
       </Section>
 
-      <Section>
+      <Section className="landingContactSection">
         <Container>
-          <SectionHeader
-            eyebrow="04 / Working toolkit"
-            title="A practical toolkit for finding, prioritising and validating growth work."
-            description="Methods are selected for the question at hand, with documentation that keeps assumptions visible."
-          />
-          <div className="homeToolRibbon" data-reveal>
-            {tools.map((tool) => (
-              <span key={tool}>{tool}</span>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="pt-0">
-        <Container>
-          <div className="homeFitGrid">
-            <Card className="homeFitCard" data-reveal>
-              <p className="homeSectionLabel">05 / Why Xueshi Marketing</p>
-              <Heading as="h2" className="mt-5">
-                A considered second set of eyes for the next decision.
-              </Heading>
-              <p>
-                The portfolio is built for teams that value transparent reasoning,
-                practical recommendations and a clear link between evidence and action.
-              </p>
-            </Card>
-            <Card className="homeFitCard" data-reveal>
-              <p className="homeSectionLabel">Best fit</p>
-              <h3 className="mt-5">Small teams, founders and growing organisations.</h3>
-              <p>
-                Especially when search visibility, content quality, landing-page
-                performance or measurement readiness need a closer look.
-              </p>
-            </Card>
-          </div>
-        </Container>
-      </Section>
-
-      <Section className="pt-0">
-        <Container>
-          <div data-reveal>
-            <CallToAction
-              eyebrow="06 / Contact"
-              title="Have a marketing question worth examining?"
-              description="Share the context, constraints and decision you are weighing. A clearer scope makes the first conversation more useful."
-              primaryAction={{ label: "Start the conversation", href: "/contact" }}
-              secondaryAction={{ label: "Review services", href: "/services" }}
-            />
+          <div className="landingContact" data-reveal>
+            <div>
+              <p className="landingContactIndex">06 / Contact</p>
+              <Heading as="h2">Let&apos;s Talk</Heading>
+            </div>
+            <p>
+              Interested in working together or have a question? I&apos;d love to hear
+              from you.
+            </p>
+            <Button href="/contact">
+              Contact me <span aria-hidden="true">→</span>
+            </Button>
           </div>
         </Container>
       </Section>

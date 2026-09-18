@@ -1,6 +1,5 @@
 import { ContentSection } from "@/components/sections/content-section";
 import { PageIntro } from "@/components/sections/page-intro";
-import { SectionHeader } from "@/components/sections/section-header";
 import { CallToAction } from "@/components/ui/call-to-action";
 import { Card } from "@/components/ui/card";
 import { Heading } from "@/components/ui/heading";
@@ -44,7 +43,9 @@ export default function ServicesPage() {
         <div className="servicesLead" data-reveal>
           <div>
             <p className="servicesSectionLabel">Core services</p>
-            <Heading as="h2">Choose the review that fits the decision in front of you.</Heading>
+            <Heading as="h2">
+              Choose the review that fits the decision in front of you.
+            </Heading>
           </div>
           <p>
             The aim is not to produce the longest audit. It is to make the important
