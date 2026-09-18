@@ -3,6 +3,7 @@ import { PageIntro } from "@/components/sections/page-intro";
 import { SectionHeader } from "@/components/sections/section-header";
 import { CallToAction } from "@/components/ui/call-to-action";
 import { Card } from "@/components/ui/card";
+import { Heading } from "@/components/ui/heading";
 
 const principles = [
   {
@@ -22,45 +23,87 @@ const principles = [
   },
 ];
 
+const workingStyle = [
+  "Structured enough to make the reasoning visible.",
+  "Curious enough to question the first explanation.",
+  "Practical enough to keep the next step realistic.",
+];
+
 export default function AboutPage() {
   return (
-    <>
+    <div className="marketingPage aboutPage">
       <PageIntro
         eyebrow="About Xue"
         title="Thoughtful marketing analysis, communicated with clarity."
         description="I approach digital marketing as a structured process: understand the question, examine the available evidence and turn the findings into useful decisions."
-        supportingText="This portfolio will continue to document my working approach, learning and selected project work as it develops."
+        supportingText="This portfolio documents the working approach, learning and selected project work as it develops."
         actions={[{ label: "Start a conversation", href: "/contact" }]}
       />
+
+      <ContentSection className="pt-0">
+        <div className="aboutStatementGrid" data-reveal>
+          <div>
+            <p className="aboutSectionLabel">A working note</p>
+            <Heading as="h2" className="aboutStatement">
+              Good marketing work gives people a clearer next move.
+            </Heading>
+          </div>
+          <div className="aboutStatementCopy">
+            <p>
+              My background sits between search, campaign execution, research and
+              website experience. I enjoy the point where those areas meet: finding the
+              signal, explaining it plainly and deciding what deserves attention first.
+            </p>
+            <p>
+              The work here is intentionally transparent. It shows the context, the
+              judgement calls and the limitations alongside the recommendation.
+            </p>
+          </div>
+        </div>
+      </ContentSection>
+
       <ContentSection className="pt-0">
         <SectionHeader
           eyebrow="Working principles"
           title="A professional approach for teams that value clear reasoning."
           description="These principles shape how I investigate marketing questions and present recommendations."
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
+        <div className="aboutPrinciplesGrid">
           {principles.map((principle, index) => (
-            <Card key={principle.title}>
-              <span className="text-xs font-semibold tracking-[0.18em] text-accent">
-                0{index + 1}
-              </span>
-              <h3 className="mt-6 text-lg font-semibold text-foreground">
-                {principle.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{principle.description}</p>
+            <Card key={principle.title} className="aboutPrinciple" data-reveal>
+              <div className="aboutPrincipleTopline">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+              <h3>{principle.title}</h3>
+              <p>{principle.description}</p>
             </Card>
           ))}
         </div>
       </ContentSection>
+
       <ContentSection className="pt-0">
-        <CallToAction
-          eyebrow="Work with me"
-          title="Looking for a considered view of a marketing challenge?"
-          description="Share the context and the decision you are working toward. I’ll use that information to make the first conversation focused and useful."
-          primaryAction={{ label: "Contact me", href: "/contact" }}
-          secondaryAction={{ label: "Explore services", href: "/services" }}
-        />
+        <div className="aboutStyleStrip" data-reveal>
+          <p className="aboutSectionLabel">How I work</p>
+          <ul>
+            {workingStyle.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </div>
       </ContentSection>
-    </>
+
+      <ContentSection className="pt-0">
+        <div data-reveal>
+          <CallToAction
+            eyebrow="Work with me"
+            title="Looking for a considered view of a marketing challenge?"
+            description="Share the context and the decision you are working toward. I’ll use that information to make the first conversation focused and useful."
+            primaryAction={{ label: "Contact me", href: "/contact" }}
+            secondaryAction={{ label: "Explore services", href: "/services" }}
+          />
+        </div>
+      </ContentSection>
+    </div>
   );
 }
