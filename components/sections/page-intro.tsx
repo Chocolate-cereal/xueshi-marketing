@@ -23,19 +23,24 @@ export function PageIntro({
   actions,
 }: PageIntroProps) {
   return (
-    <ContentSection className="pb-16 pt-16 sm:pb-20 sm:pt-24">
-      <div className="grid gap-8 border-b border-border pb-14 sm:pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(16rem,0.42fr)] lg:gap-16">
-        <div className="max-w-4xl">
-          <Badge>{eyebrow}</Badge>
-          <Heading className="mt-6">{title}</Heading>
+    <ContentSection className="marketingPageIntro">
+      <div className="marketingPageIntroInner" data-reveal>
+        <div className="marketingPageIntroLead">
+          <div className="marketingPageIntroLine">
+            <span className="marketingIntroIndex" aria-hidden="true">
+              00
+            </span>
+            <Badge>{eyebrow}</Badge>
+          </div>
+          <Heading className="marketingPageIntroTitle mt-6">{title}</Heading>
         </div>
-        <div className="max-w-xl lg:pt-12">
-          <p className="text-lg leading-8 text-muted">{description}</p>
+        <div className="marketingPageIntroAside">
+          <p className="marketingPageIntroDescription">{description}</p>
           {supportingText ? (
-            <p className="mt-4 text-sm leading-7 text-muted">{supportingText}</p>
+            <p className="marketingPageIntroSupporting mt-4">{supportingText}</p>
           ) : null}
           {actions?.length ? (
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="marketingPageIntroActions">
               {actions.map((action) => (
                 <Button key={action.href} href={action.href} variant={action.variant}>
                   {action.label}
