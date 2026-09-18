@@ -67,7 +67,7 @@ export function Header() {
         </nav>
 
         <div className={styles.actions}>
-          <ThemeToggle />
+          <ThemeToggle className={!isCaseStudy ? styles.publicThemeToggle : undefined} />
           <Link href="/contact" className={styles.contactButton}>
             Let&apos;s talk
             {!isCaseStudy ? <span aria-hidden="true">↗</span> : null}
@@ -105,7 +105,7 @@ export function Header() {
           ))}
         </nav>
         <div className={styles.mobilePanelFooter}>
-          <ThemeToggle />
+          <ThemeToggle className={!isCaseStudy ? styles.publicThemeToggle : undefined} />
           <Link href="/contact" className={styles.contactButton} onClick={() => setOpen(false)}>
             Let&apos;s talk
             {!isCaseStudy ? <span aria-hidden="true">↗</span> : null}
