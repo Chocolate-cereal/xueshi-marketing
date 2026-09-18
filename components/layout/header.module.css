@@ -277,3 +277,115 @@
     transition: none;
   }
 }
+
+
+/* Public portfolio header. The case-study route keeps the original header rules above. */
+.publicHeader {
+  border-bottom-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+}
+
+.publicHeader .inner {
+  min-height: 5rem;
+}
+
+.publicHeader .publicBrand {
+  gap: 0.8rem;
+}
+
+.publicHeader .brandMark {
+  position: relative;
+  width: 2.2rem;
+  height: 2.2rem;
+  border: 1px solid var(--color-accent);
+  background: transparent;
+  color: var(--color-accent);
+  font-size: 0.95rem;
+}
+
+.publicHeader .brandRule {
+  position: absolute;
+  right: 0.28rem;
+  bottom: 0.28rem;
+  left: 0.28rem;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+.publicHeader .brandCopy {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.publicHeader .brandName {
+  color: var(--color-foreground);
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+.publicHeader .brandMuted {
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.publicHeader .navLink {
+  padding-inline: 0.55rem;
+  color: var(--color-muted);
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.publicHeader .navLink::after {
+  right: 0.55rem;
+  left: 0.55rem;
+  bottom: 0.12rem;
+}
+
+.publicHeader .contactButton {
+  display: inline-flex;
+  gap: 0.65rem;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: var(--color-background);
+  padding-inline: 0.85rem;
+}
+
+.publicHeader .contactButton span {
+  display: inline-block;
+  transition: transform 180ms var(--header-ease-out);
+}
+
+.publicHeader .mobilePanel {
+  border-top-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
+  background: var(--color-surface);
+}
+
+.publicHeader .mobileLink {
+  border-block-color: var(--color-border);
+  border-inline: 0;
+  padding-inline: 0.15rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.publicHeader .mobilePanelFooter {
+  padding-top: 1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .publicHeader .contactButton:hover {
+    border-color: var(--color-accent-hover);
+    background: var(--color-accent-hover);
+  }
+
+  .publicHeader .contactButton:hover span {
+    transform: translate(0.18rem, -0.18rem);
+  }
+}
