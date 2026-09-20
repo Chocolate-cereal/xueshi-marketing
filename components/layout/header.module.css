@@ -118,7 +118,9 @@
   display: block;
   height: 1px;
   background: currentColor;
-  transition: transform 180ms var(--header-ease-out), opacity 140ms ease;
+  transition:
+    transform 180ms var(--header-ease-out),
+    opacity 140ms ease;
 }
 
 .menuButton[aria-expanded="true"] .menuIcon span:first-child {
@@ -181,7 +183,9 @@
   content: "↗";
   opacity: 0;
   transform: translateX(-0.25rem);
-  transition: opacity 160ms ease, transform 160ms var(--header-ease-out);
+  transition:
+    opacity 160ms ease,
+    transform 160ms var(--header-ease-out);
 }
 
 .mobileLinkActive {
@@ -278,7 +282,6 @@
   }
 }
 
-
 /* Public portfolio header. The case-study route keeps the original header rules above. */
 .publicHeader {
   border-bottom-color: color-mix(in srgb, var(--color-accent) 28%, var(--color-border));
@@ -336,8 +339,8 @@
 .publicHeader .navLink {
   padding-inline: 0.55rem;
   color: var(--color-muted);
-  font-size: 0.67rem;
-  letter-spacing: 0.1em;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -389,7 +392,6 @@
     transform: translate(0.18rem, -0.18rem);
   }
 }
-
 
 .publicHeader .publicThemeToggle {
   border-radius: 0;

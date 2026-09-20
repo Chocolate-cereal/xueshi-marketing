@@ -835,6 +835,11 @@ html[data-site-motion-ready="true"]
 
 /* Landing page reference layout */
 .landingPage {
+  --landing-display: clamp(3.2rem, 6.8vw, 5.6rem);
+  --landing-lead: clamp(1.25rem, 1.7vw, 1.7rem);
+  --landing-section-title: clamp(1.75rem, 2.8vw, 2.2rem);
+  --landing-body: 0.94rem;
+  --landing-meta: 0.68rem;
   background-image: none;
 }
 
@@ -879,9 +884,9 @@ html[data-site-motion-ready="true"]
 .landingSectionIndex,
 .landingContactIndex {
   color: var(--color-muted);
-  font-size: 0.68rem;
+  font-size: var(--landing-meta);
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.14em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -899,10 +904,10 @@ html[data-site-motion-ready="true"]
 .landingHeroTitle {
   max-width: 48rem;
   margin-top: 1.25rem;
-  font-size: clamp(3.4rem, 9vw, 7.75rem) !important;
+  font-size: var(--landing-display) !important;
   font-weight: 400 !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.075em !important;
+  line-height: 0.96 !important;
+  letter-spacing: -0.06em !important;
 }
 
 .landingHeroTitle span {
@@ -914,17 +919,17 @@ html[data-site-motion-ready="true"]
   margin-top: 1.5rem;
   color: var(--color-foreground);
   font-family: var(--font-serif);
-  font-size: clamp(1.3rem, 2.3vw, 2rem);
-  line-height: 1.22;
-  letter-spacing: -0.035em;
+  font-size: var(--landing-lead);
+  line-height: 1.28;
+  letter-spacing: -0.025em;
 }
 
 .landingHeroDescription {
   max-width: 36rem;
   margin-top: 1.1rem;
   color: var(--color-muted);
-  font-size: 0.95rem;
-  line-height: 1.75;
+  font-size: var(--landing-body);
+  line-height: 1.68;
 }
 
 .landingHeroActions {
@@ -1048,7 +1053,7 @@ html[data-site-motion-ready="true"]
   padding-left: 1rem;
   color: var(--color-foreground);
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.35rem);
   line-height: 1.18;
 }
 
@@ -1061,7 +1066,7 @@ html[data-site-motion-ready="true"]
   flex-wrap: wrap;
   gap: 0.5rem 1.1rem;
   color: var(--color-muted);
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.14em;
   line-height: 1.4;
@@ -1093,10 +1098,10 @@ html[data-site-motion-ready="true"]
 .landingSectionHeading h2 {
   max-width: 18rem;
   margin-top: 1rem;
-  font-size: clamp(2rem, 4vw, 3rem) !important;
+  font-size: var(--landing-section-title) !important;
   font-weight: 400 !important;
-  line-height: 1.02 !important;
-  letter-spacing: -0.055em !important;
+  line-height: 1.08 !important;
+  letter-spacing: -0.045em !important;
 }
 
 .landingSectionHeading h2::after {
@@ -1112,8 +1117,8 @@ html[data-site-motion-ready="true"]
   max-width: 20rem;
   margin-top: 1.25rem;
   color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.7;
+  font-size: var(--landing-body);
+  line-height: 1.68;
 }
 
 .landingServices {
@@ -1142,7 +1147,7 @@ html[data-site-motion-ready="true"]
 
 .landingService h3 {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.03em;
@@ -1153,8 +1158,8 @@ html[data-site-motion-ready="true"]
   max-width: 22rem;
   margin-top: 0.45rem;
   color: var(--color-muted);
-  font-size: 0.82rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.62;
 }
 
 .landingStudiesSection {
@@ -1281,9 +1286,9 @@ html[data-site-motion-ready="true"]
 .landingInsightMeta,
 .landingReasonsIntro {
   color: var(--color-muted);
-  font-size: 0.62rem;
+  font-size: var(--landing-meta);
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -1295,7 +1300,7 @@ html[data-site-motion-ready="true"]
 .landingStudy h3 {
   margin-top: 0.55rem;
   font-family: var(--font-serif);
-  font-size: clamp(1.35rem, 2.5vw, 1.85rem);
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
   font-weight: 400;
   line-height: 1.1;
   letter-spacing: -0.04em;
@@ -1305,8 +1310,8 @@ html[data-site-motion-ready="true"]
   max-width: 34rem;
   margin-top: 0.55rem;
   color: var(--color-muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.62;
 }
 
 .landingStudyLink {
@@ -1337,9 +1342,9 @@ html[data-site-motion-ready="true"]
 
 .landingProcessStep h3 {
   align-self: center;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
@@ -1349,8 +1354,8 @@ html[data-site-motion-ready="true"]
   max-width: 20rem;
   margin-top: 0.45rem;
   color: var(--color-muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.62;
 }
 
 .landingAboutSection {
@@ -1394,17 +1399,17 @@ html[data-site-motion-ready="true"]
 }
 
 .landingReason h3 {
-  font-size: 0.74rem;
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.1em;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
 .landingReason p {
   color: var(--color-muted);
-  font-size: 0.85rem;
-  line-height: 1.6;
+  font-size: 0.9rem;
+  line-height: 1.62;
 }
 
 .landingInsightsHeader {
@@ -1514,8 +1519,8 @@ html[data-site-motion-ready="true"]
   max-width: 18rem;
   margin-top: 0.55rem;
   color: var(--color-muted);
-  font-size: 0.82rem;
-  line-height: 1.6;
+  font-size: 0.88rem;
+  line-height: 1.62;
 }
 
 .landingInsight .siteButton {
@@ -1536,17 +1541,17 @@ html[data-site-motion-ready="true"]
 
 .landingContact h2 {
   margin-top: 0.65rem;
-  font-size: clamp(2.4rem, 5vw, 4.2rem) !important;
+  font-size: clamp(2rem, 3.2vw, 2.8rem) !important;
   font-weight: 400 !important;
-  line-height: 0.98 !important;
-  letter-spacing: -0.06em !important;
+  line-height: 1.02 !important;
+  letter-spacing: -0.045em !important;
 }
 
 .landingContact > p {
   max-width: 22rem;
   color: var(--color-muted);
-  font-size: 0.9rem;
-  line-height: 1.65;
+  font-size: var(--landing-body);
+  line-height: 1.68;
 }
 
 .landingContact .siteButton {
