@@ -228,6 +228,12 @@
     padding-inline: 2rem;
   }
 
+  .publicHeader .inner {
+    width: calc(100% - clamp(4.5rem, 7.2vw, 9.5rem));
+    max-width: 120rem;
+    padding-inline: 0;
+  }
+
   .desktopNav {
     display: flex;
     align-items: center;

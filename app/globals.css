@@ -844,8 +844,8 @@ html[data-site-motion-ready="true"]
 }
 
 .landingPage > section > .mx-auto {
-  width: calc(100% - clamp(2.5rem, 8vw, 10rem));
-  max-width: 110rem;
+  width: calc(100% - clamp(4.5rem, 7.2vw, 9.5rem));
+  max-width: 120rem;
   padding-inline: 0;
 }
 
@@ -876,6 +876,13 @@ html[data-site-motion-ready="true"]
   display: grid;
   align-items: stretch;
   gap: clamp(1.5rem, 3.5vw, 3.5rem);
+}
+
+.landingHero > .mx-auto {
+  width: 100%;
+  max-width: none;
+  padding-left: clamp(2.75rem, 3.6vw, 4.75rem);
+  padding-right: 0;
 }
 
 .landingHeroCopy {
@@ -959,6 +966,52 @@ html[data-site-motion-ready="true"]
     var(--color-surface);
 }
 
+.landingHeroVisualDecor {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+}
+
+.landingHeroVisualCircle {
+  position: absolute;
+  top: -16%;
+  left: 8%;
+  width: min(30rem, 43vw);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--color-accent-soft) 55%, transparent);
+}
+
+.landingHeroVisualFrame {
+  position: absolute;
+  bottom: 9%;
+  left: 9%;
+  width: clamp(8rem, 13vw, 12rem);
+  aspect-ratio: 1;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 52%, transparent);
+}
+
+.landingHeroVisualFrame::after {
+  position: absolute;
+  top: -0.85rem;
+  right: -0.85rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 22%, transparent);
+  content: "";
+}
+
+.landingHeroVisualMarker {
+  position: absolute;
+  top: 22%;
+  left: 12%;
+  width: 0.55rem;
+  height: 0.55rem;
+  background: var(--color-accent);
+}
+
 .landingHeroVisualGrid {
   position: absolute;
   inset: 0;
@@ -980,16 +1033,16 @@ html[data-site-motion-ready="true"]
 
 .landingPortraitImage {
   position: absolute;
-  z-index: 1;
-  right: 17%;
+  z-index: 2;
+  right: 22%;
   bottom: 0;
-  width: min(66%, 29rem);
-  height: 91%;
+  width: min(52%, 29rem);
+  height: 94%;
 }
 
 .landingPortraitImage img {
   object-fit: cover;
-  object-position: center center;
+  object-position: center 28%;
 }
 
 .landingHeroVisualNote {
@@ -1009,7 +1062,7 @@ html[data-site-motion-ready="true"]
 
 .landingHeroVisualFooter {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   right: 1.25rem;
   bottom: 1.15rem;
   left: 1.25rem;
@@ -1558,11 +1611,11 @@ html[data-site-motion-ready="true"]
 
 @media (min-width: 64rem) {
   .landingHeroGrid {
-    grid-template-columns: minmax(0, 1.02fr) minmax(23rem, 0.98fr);
+    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
   }
 
   .landingHeroVisual {
-    min-height: 35rem;
+    min-height: clamp(35rem, 43vw, 42rem);
   }
 
   .landingServices {
@@ -1608,6 +1661,10 @@ html[data-site-motion-ready="true"]
     padding-inline: 1.25rem;
   }
 
+  .landingHero > .mx-auto {
+    padding-inline: 1.25rem;
+  }
+
   .landingHeroVisual {
     min-height: 26rem;
     border-left: 0;
@@ -1615,9 +1672,26 @@ html[data-site-motion-ready="true"]
   }
 
   .landingPortraitImage {
-    right: 16%;
-    width: 63%;
-    height: 89%;
+    right: 24%;
+    width: 58%;
+    height: 92%;
+  }
+
+  .landingHeroVisualCircle {
+    top: -10%;
+    left: -8%;
+    width: 17rem;
+  }
+
+  .landingHeroVisualFrame {
+    bottom: 10%;
+    left: 4%;
+    width: 6.5rem;
+  }
+
+  .landingHeroVisualMarker {
+    top: 20%;
+    left: 8%;
   }
 
   .landingHeroVisualNote {

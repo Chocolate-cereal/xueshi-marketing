@@ -221,6 +221,11 @@ export default function HomePage() {
               role="img"
             >
               <div className="landingHeroVisualGrid" aria-hidden="true" />
+              <div className="landingHeroVisualDecor" aria-hidden="true">
+                <span className="landingHeroVisualCircle" />
+                <span className="landingHeroVisualFrame" />
+                <span className="landingHeroVisualMarker" />
+              </div>
               <div className="landingPortraitImage">
                 <Image
                   src="/portrait-xue.webp"
