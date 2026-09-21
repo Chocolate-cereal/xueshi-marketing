@@ -843,6 +843,12 @@ html[data-site-motion-ready="true"]
   background-image: none;
 }
 
+.landingPage > section > .mx-auto {
+  width: calc(100% - clamp(2.5rem, 8vw, 10rem));
+  max-width: 110rem;
+  padding-inline: 0;
+}
+
 .landingPage::before {
   background:
     linear-gradient(
@@ -869,7 +875,7 @@ html[data-site-motion-ready="true"]
 .landingHeroGrid {
   display: grid;
   align-items: stretch;
-  gap: clamp(2.5rem, 6vw, 5.5rem);
+  gap: clamp(1.5rem, 3.5vw, 3.5rem);
 }
 
 .landingHeroCopy {
@@ -1593,7 +1599,7 @@ html[data-site-motion-ready="true"]
   .landingStudiesLayout,
   .landingAboutGrid {
     grid-template-columns: minmax(10rem, 0.27fr) minmax(0, 0.73fr);
-    gap: clamp(2.5rem, 6vw, 6rem);
+    gap: clamp(1.5rem, 3.5vw, 3.5rem);
   }
 
   .landingProcessGrid {
@@ -1652,6 +1658,11 @@ html[data-site-motion-ready="true"]
 }
 
 @media (max-width: 39.99rem) {
+  .landingPage > section > .mx-auto {
+    width: 100%;
+    padding-inline: 1.25rem;
+  }
+
   .landingHeroVisual {
     min-height: 26rem;
     border-left: 0;
