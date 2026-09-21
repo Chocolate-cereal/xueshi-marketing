@@ -226,15 +226,6 @@ export default function HomePage() {
                 <span className="landingHeroVisualFrame" />
                 <span className="landingHeroVisualMarker" />
               </div>
-              <div className="landingPortraitImage">
-                <Image
-                  src="/portrait-xue.webp"
-                  alt="Portrait of Xue Shi"
-                  fill
-                  priority
-                  sizes="(min-width: 64rem) 28vw, (min-width: 40rem) 38vw, 64vw"
-                />
-              </div>
               <div className="landingHeroVisualNote">
                 <span>Good marketing</span>
                 <span>builds brighter</span>

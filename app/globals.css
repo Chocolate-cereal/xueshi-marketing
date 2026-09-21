@@ -875,14 +875,7 @@ html[data-site-motion-ready="true"]
 .landingHeroGrid {
   display: grid;
   align-items: stretch;
-  gap: clamp(1.5rem, 3.5vw, 3.5rem);
-}
-
-.landingHero > .mx-auto {
-  width: 100%;
-  max-width: none;
-  padding-left: clamp(2.75rem, 3.6vw, 4.75rem);
-  padding-right: 0;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
 }
 
 .landingHeroCopy {
@@ -954,7 +947,7 @@ html[data-site-motion-ready="true"]
 
 .landingHeroVisual {
   position: relative;
-  min-height: 31rem;
+  min-height: 28rem;
   overflow: hidden;
   border-left: 1px solid var(--color-border);
   background:
@@ -1029,20 +1022,6 @@ html[data-site-motion-ready="true"]
       transparent 70.2%
     );
   opacity: 0.7;
-}
-
-.landingPortraitImage {
-  position: absolute;
-  z-index: 2;
-  right: 22%;
-  bottom: 0;
-  width: min(52%, 29rem);
-  height: 94%;
-}
-
-.landingPortraitImage img {
-  object-fit: cover;
-  object-position: center 28%;
 }
 
 .landingHeroVisualNote {
@@ -1611,11 +1590,11 @@ html[data-site-motion-ready="true"]
 
 @media (min-width: 64rem) {
   .landingHeroGrid {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+    grid-template-columns: minmax(0, 1.12fr) minmax(22rem, 0.88fr);
   }
 
   .landingHeroVisual {
-    min-height: clamp(35rem, 43vw, 42rem);
+    min-height: clamp(27rem, 33vw, 34rem);
   }
 
   .landingServices {
@@ -1661,20 +1640,10 @@ html[data-site-motion-ready="true"]
     padding-inline: 1.25rem;
   }
 
-  .landingHero > .mx-auto {
-    padding-inline: 1.25rem;
-  }
-
   .landingHeroVisual {
-    min-height: 26rem;
+    min-height: 23rem;
     border-left: 0;
     border-top: 1px solid var(--color-border);
-  }
-
-  .landingPortraitImage {
-    right: 24%;
-    width: 58%;
-    height: 92%;
   }
 
   .landingHeroVisualCircle {
