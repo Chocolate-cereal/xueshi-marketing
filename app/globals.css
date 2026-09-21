@@ -978,79 +978,23 @@ html[data-site-motion-ready="true"]
   opacity: 0.7;
 }
 
-.landingPortrait {
+.landingPortraitImage {
   position: absolute;
-  right: 15%;
+  z-index: 1;
+  right: 17%;
   bottom: 0;
-  width: min(64%, 23rem);
-  height: 86%;
-  background:
-    linear-gradient(
-      105deg,
-      transparent 0 19%,
-      color-mix(in srgb, var(--color-accent) 25%, transparent) 19.2% 20%,
-      transparent 20.2% 100%
-    ),
-    linear-gradient(
-      150deg,
-      color-mix(in srgb, var(--color-accent-soft) 88%, white),
-      color-mix(in srgb, var(--color-accent) 32%, var(--color-surface)) 70%
-    );
-  border: 1px solid color-mix(in srgb, var(--color-accent) 48%, var(--color-border));
+  width: min(66%, 29rem);
+  height: 91%;
 }
 
-.landingPortraitHead {
-  position: absolute;
-  top: 8%;
-  left: 27%;
-  width: 43%;
-  height: 32%;
-  background: color-mix(in srgb, var(--color-accent) 48%, var(--color-surface));
-  border: 1px solid color-mix(in srgb, var(--color-accent) 65%, var(--color-border));
-}
-
-.landingPortraitHead::after {
-  position: absolute;
-  right: -24%;
-  top: 16%;
-  width: 34%;
-  height: 56%;
-  border-right: 1px solid var(--color-accent);
-  border-bottom: 1px solid var(--color-accent);
-  content: "";
-  opacity: 0.75;
-}
-
-.landingPortraitShoulder {
-  position: absolute;
-  right: -10%;
-  bottom: -1px;
-  left: -10%;
-  height: 57%;
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in srgb, var(--color-foreground) 9%, transparent),
-      transparent 50%
-    ),
-    color-mix(in srgb, var(--color-accent) 36%, var(--color-surface));
-  border-top: 1px solid color-mix(in srgb, var(--color-accent) 62%, var(--color-border));
-  clip-path: polygon(12% 11%, 36% 0, 70% 4%, 92% 22%, 100% 100%, 0 100%);
-}
-
-.landingPortraitHighlight {
-  position: absolute;
-  top: 35%;
-  right: 15%;
-  width: 25%;
-  height: 45%;
-  border-left: 1px solid color-mix(in srgb, var(--color-surface) 78%, transparent);
-  border-top: 1px solid color-mix(in srgb, var(--color-surface) 78%, transparent);
-  opacity: 0.8;
+.landingPortraitImage img {
+  object-fit: cover;
+  object-position: center center;
 }
 
 .landingHeroVisualNote {
   position: absolute;
+  z-index: 2;
   top: 2.5rem;
   right: 1.5rem;
   display: grid;
@@ -1065,6 +1009,7 @@ html[data-site-motion-ready="true"]
 
 .landingHeroVisualFooter {
   position: absolute;
+  z-index: 2;
   right: 1.25rem;
   bottom: 1.15rem;
   left: 1.25rem;
@@ -1667,6 +1612,12 @@ html[data-site-motion-ready="true"]
     min-height: 26rem;
     border-left: 0;
     border-top: 1px solid var(--color-border);
+  }
+
+  .landingPortraitImage {
+    right: 16%;
+    width: 63%;
+    height: 89%;
   }
 
   .landingHeroVisualNote {

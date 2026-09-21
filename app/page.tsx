@@ -221,10 +221,14 @@ export default function HomePage() {
               role="img"
             >
               <div className="landingHeroVisualGrid" aria-hidden="true" />
-              <div className="landingPortrait" aria-hidden="true">
-                <div className="landingPortraitHead" />
-                <div className="landingPortraitShoulder" />
-                <div className="landingPortraitHighlight" />
+              <div className="landingPortraitImage">
+                <Image
+                  src="/portrait-xue.webp"
+                  alt="Portrait of Xue Shi"
+                  fill
+                  priority
+                  sizes="(min-width: 64rem) 28vw, (min-width: 40rem) 38vw, 64vw"
+                />
               </div>
               <div className="landingHeroVisualNote">
                 <span>Good marketing</span>
