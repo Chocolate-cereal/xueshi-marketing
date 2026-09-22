@@ -1,66 +1,62 @@
-import { ContentSection } from "@/components/sections/content-section";
-import { PageIntro } from "@/components/sections/page-intro";
-import { SectionHeader } from "@/components/sections/section-header";
-import { CallToAction } from "@/components/ui/call-to-action";
-import { Card } from "@/components/ui/card";
-
-const principles = [
-  {
-    title: "Evidence before assumptions",
-    description:
-      "Research, analytics and direct observation form the starting point for every recommendation.",
-  },
-  {
-    title: "Clarity over volume",
-    description:
-      "The goal is a focused set of priorities that a team can understand, discuss and act on.",
-  },
-  {
-    title: "Practical next steps",
-    description:
-      "Recommendations account for context and constraints rather than relying on generic best-practice lists.",
-  },
-];
-
+import Image from "next/image";
+import { profile } from "@/data/profile";
+import { ContactLinks, ContactSection } from "@/components/sections/contact-links";
+import { pageMetadata } from "@/lib/metadata";
+export const metadata = pageMetadata(
+  "About Xue",
+  "Meet Xue and explore her focus on search visibility, landing pages and digital marketing research.",
+  "/about",
+);
 export default function AboutPage() {
   return (
-    <>
-      <PageIntro
-        eyebrow="About Xue"
-        title="Thoughtful marketing analysis, communicated with clarity."
-        description="I approach digital marketing as a structured process: understand the question, examine the available evidence and turn the findings into useful decisions."
-        supportingText="This portfolio will continue to document my working approach, learning and selected project work as it develops."
-        actions={[{ label: "Start a conversation", href: "/contact" }]}
-      />
-      <ContentSection className="pt-0">
-        <SectionHeader
-          eyebrow="Working principles"
-          title="A professional approach for teams that value clear reasoning."
-          description="These principles shape how I investigate marketing questions and present recommendations."
-        />
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {principles.map((principle, index) => (
-            <Card key={principle.title}>
-              <span className="text-xs font-semibold tracking-[0.18em] text-accent">
-                0{index + 1}
-              </span>
-              <h3 className="mt-6 text-lg font-semibold text-foreground">
-                {principle.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-muted">{principle.description}</p>
-            </Card>
-          ))}
+    <div className="portfolio-wrap interior-page">
+      <p className="page-label">About me</p>
+      <h1>
+        I’m Xue.
+        <br />
+        <span>A curious eye for marketing.</span>
+      </h1>
+      <div className="reading-layout">
+        <div className="section-aside">
+          <p>
+            SEO. Landing pages.
+            <br />
+            Competitor research.
+          </p>
+          {profile.location && <p>{profile.location}</p>}
         </div>
-      </ContentSection>
-      <ContentSection className="pt-0">
-        <CallToAction
-          eyebrow="Work with me"
-          title="Looking for a considered view of a marketing challenge?"
-          description="Share the context and the decision you are working toward. I’ll use that information to make the first conversation focused and useful."
-          primaryAction={{ label: "Contact me", href: "/contact" }}
-          secondaryAction={{ label: "Explore services", href: "/services" }}
+        <div className="prose">
+          <p className="lead">
+            I’m a digital marketer focused on how websites are found and how clearly they
+            communicate.
+          </p>
+          <p>
+            My work centres on SEO, landing page optimisation, website performance and
+            competitor research. I use research and structured analysis to identify issues
+            and recommend practical next steps.
+          </p>
+          {profile.background.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+          <h2>What I’m looking for</h2>
+          <p>
+            I’m open to digital marketing opportunities with agencies, in-house teams and
+            growing organisations.
+          </p>
+          <ContactLinks />
+        </div>
+      </div>
+      {profile.portrait && (
+        <Image
+          className="portrait"
+          src={profile.portrait}
+          alt="Xue"
+          width={640}
+          height={800}
+          sizes="(max-width: 700px) 100vw, 320px"
         />
-      </ContentSection>
-    </>
+      )}
+      <ContactSection />
+    </div>
   );
 }

@@ -1,6 +1,10 @@
 import type { MetadataRoute } from "next";
 import { siteConfig } from "@/data/site";
-
+import { publishedProjects } from "@/data/projects";
 export default function sitemap(): MetadataRoute.Sitemap {
-  return siteConfig.navigation.map((item) => ({ url: `${siteConfig.url}${item.href}`, lastModified: new Date(), changeFrequency: "monthly", priority: item.href === "/" ? 1 : 0.7 }));
+  if (!siteConfig.url) return [];
+  return [
+    ...siteConfig.navigation.map(({ href }) => href),
+    ...publishedProjects.map(({ slug }) => `/case-studies/${slug}`),
+  ].map((path) => ({ url: `${siteConfig.url}${path}` }));
 }

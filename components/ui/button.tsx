@@ -7,7 +7,7 @@ type ButtonProps = React.ComponentProps<"button"> & {
 };
 
 const variants = {
-  primary: "bg-accent text-white hover:bg-accent-hover",
+  primary: "bg-accent text-[var(--color-button-ink)] hover:bg-accent-hover",
   secondary:
     "border border-border bg-surface text-foreground hover:border-accent hover:bg-accent-soft",
   ghost: "text-accent hover:text-accent-hover",
