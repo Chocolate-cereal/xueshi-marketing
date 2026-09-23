@@ -198,7 +198,7 @@ function StrategyVisual({ index }: { index: number }) {
     return (
       <div aria-hidden="true" className={`${panel} w-full p-2.5`}>
         <div className="mb-2.5 flex gap-1">
-          <span className="size-1 rounded-full bg-[#B85C4B]/70" />
+          <span className="size-1 rounded-full bg-accent/70" />
           <span className="size-1 rounded-full bg-foreground/30" />
           <span className="size-1 rounded-full bg-foreground/20" />
         </div>
@@ -206,7 +206,7 @@ function StrategyVisual({ index }: { index: number }) {
           <p className="text-[10px] font-semibold">Hero</p>
           <StrategyLines />
         </div>
-        <div className="mt-2 flex items-center gap-2.5 rounded-[2px] bg-[#B85C4B]/10 px-3 py-2.5 text-[#B85C4B]">
+        <div className="mt-2 flex items-center gap-2.5 rounded-[2px] bg-accent/10 px-3 py-2.5 text-accent">
           <StrategyIcon kind="calculator" />
           <div className="min-w-0 flex-1">
             <p className="text-[10px] font-semibold">Calculator</p>
@@ -225,7 +225,7 @@ function StrategyVisual({ index }: { index: number }) {
             <span className="h-1 w-1/3 rounded-sm bg-foreground/10" />
           </div>
         ))}
-        <div className="flex items-center justify-between gap-3 rounded-[3px] bg-[#B85C4B]/20 px-3 py-3 text-[#B85C4B]">
+        <div className="flex items-center justify-between gap-3 rounded-[3px] bg-accent/20 px-3 py-3 text-accent">
           <div className="flex-1">
             <p className="text-[10px] font-semibold">Your monthly repayment</p>
             <StrategyLines />
@@ -239,9 +239,9 @@ function StrategyVisual({ index }: { index: number }) {
       <div aria-hidden="true" className="flex w-full items-center">
         {(["Benefits", "Eligibility", "Apply"] as const).map((label, i) => (
           <div key={label} className="flex min-w-0 flex-1 items-center">
-            {i > 0 && <span className="h-px w-3 shrink-0 bg-[#B85C4B]/65" />}
+            {i > 0 && <span className="h-px w-3 shrink-0 bg-accent/65" />}
             <div className={`${panel} min-w-0 flex-1 px-2 py-3`}>
-              <span className="flex justify-center text-[#B85C4B]">
+              <span className="flex justify-center text-accent">
                 <StrategyIcon kind={i === 0 ? "gift" : i === 1 ? "document" : "arrow"} />
               </span>
               <p className="mt-2 text-center text-[9px] font-semibold">{label}</p>
@@ -259,7 +259,7 @@ function StrategyVisual({ index }: { index: number }) {
         <span className="block h-1.5 w-1/2 rounded-sm bg-foreground/15" />
         <span className="block h-1.5 w-4/5 rounded-sm bg-foreground/15" />
       </div>
-      <div className="flex items-center gap-2.5 rounded-[2px] bg-[#B85C4B]/10 px-2.5 py-3 text-[#B85C4B]">
+      <div className="flex items-center gap-2.5 rounded-[2px] bg-accent/10 px-2.5 py-3 text-accent">
         <StrategyIcon kind="leaf" />
         <div className="min-w-0 flex-1">
           <p className="text-[9px] font-semibold">Environmental initiative</p>
@@ -392,7 +392,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               publicly available information and independent analysis.
             </p>
             <div className="mt-8">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#E74432]">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
                 Scope
               </p>
               <p className="mt-2 text-base leading-[1.7] text-foreground">
@@ -425,7 +425,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 href="/case-studies/member-first-credit-union-green-car-loan/original-page.png"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition hover:text-[#E74432] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
+                className="transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
               >
                 View full original page ↗
               </Link>
@@ -445,7 +445,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                 }`}
               >
                 <p
-                  className="text-[1.625rem] font-normal leading-none text-[#E74432] sm:text-[1.875rem]"
+                  className="text-[1.625rem] font-normal leading-none text-accent sm:text-[1.875rem]"
                 >
                   {String(index + 1).padStart(2, "0")}
                 </p>
@@ -513,7 +513,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                     }`}
                   >
                     <p
-                      className="text-[1.0625rem] font-medium leading-none text-[#B85C4B]"
+                      className="text-[1.0625rem] font-medium leading-none text-accent"
                     >
                       {String(stepOffset + stepIndex + 1).padStart(2, "0")}
                     </p>
@@ -621,7 +621,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   />
                 </a>
                 <figcaption className="mt-3">
-                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-accent">
                     Finding 01 · Calculator position
                   </p>
                   <p className="mt-1 text-sm leading-[1.6] text-muted">
@@ -633,7 +633,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   href="/case-studies/member-first-credit-union-green-car-loan/calculator-position.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex text-sm text-[#B85C4B] underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  className="mt-2 inline-flex text-sm text-accent underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
                   View larger image ↗
                 </a>
@@ -656,7 +656,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   />
                 </a>
                 <figcaption className="mt-3">
-                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-[#B85C4B]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.06em] text-accent">
                     Finding 02 · Repayment information
                   </p>
                   <p className="mt-1 text-sm leading-[1.6] text-muted">
@@ -668,7 +668,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
                   href="/case-studies/member-first-credit-union-green-car-loan/repayment-tables.png"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-flex text-sm text-[#B85C4B] underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+                  className="mt-2 inline-flex text-sm text-accent underline underline-offset-4 transition hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
                   View larger image ↗
                 </a>
@@ -692,7 +692,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
           <h3
             className={styles.strategyStatement}
           >
-            Make <span className="text-[#B85C4B]">affordability</span> the starting point.
+            Make <span className="text-accent">affordability</span> the starting point.
           </h3>
           <p className="max-w-md border-l border-border py-2 pl-6 text-base leading-[1.7] text-muted lg:py-6 lg:pl-8">
             A calculator-led journey that helps visitors understand the offer before
@@ -711,7 +711,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
               }`}
             >
               <div className="min-w-0 self-start">
-                <p className="text-xs font-medium text-[#B85C4B]">
+                <p className="text-xs font-medium text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </p>
                 <h4
@@ -736,7 +736,7 @@ export default function MemberFirstGreenCarLoanCaseStudy() {
             {journey.map((item, index) => (
               <li key={item} className="flex items-baseline gap-2">
                 {index > 0 && (
-                  <span aria-hidden="true" className="text-[#B85C4B]/60">
+                  <span aria-hidden="true" className="text-accent/60">
                     ·
                   </span>
                 )}

@@ -1,7 +1,7 @@
 /* One type pairing for this case study, including its shared navigation. */
 :global(body):has(.page) {
-  --mfcu-heading-font: "Times New Roman", Times, "Liberation Serif", serif;
-  --mfcu-body-font: Arial, Helvetica, sans-serif;
+  --mfcu-heading-font: var(--font-serif);
+  --mfcu-body-font: var(--font-sans);
   --mfcu-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --mfcu-ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   font-family: var(--mfcu-body-font);
@@ -83,17 +83,17 @@
   width: 1.35rem;
   height: 0.35rem;
   flex-shrink: 0;
-  background: #b85c4b;
+  background: var(--color-accent);
 }
 
 .heroEyebrowMeta {
-  color: #b85c4b;
+  color: var(--color-accent);
   font-variant-numeric: tabular-nums;
 }
 
 .heroKicker {
   margin-top: 1.75rem;
-  color: #b85c4b;
+  color: var(--color-accent);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -111,10 +111,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  border: 1px solid #a84f40;
-  background: #b85c4b;
+  border: 1px solid var(--color-accent-hover);
+  background: var(--color-accent);
   padding: 0.7rem 0.95rem;
-  color: #fffaf7;
+  color: var(--color-background);
   font-size: 0.8125rem;
   font-weight: 600;
 }
@@ -132,8 +132,8 @@
   width: 100%;
   max-width: 22rem;
   margin-inline: auto;
-  border: 1px solid #cfa99f;
-  background: #eadbd6;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: var(--color-accent-soft);
   padding: 1.25rem;
   box-shadow: 0 1.25rem 3rem rgb(80 47 40 / 0.08);
 }
@@ -163,7 +163,7 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  color: #8d5147;
+  color: var(--color-accent);
   font-size: 0.625rem;
   font-weight: 700;
   line-height: 1.4;
@@ -183,7 +183,7 @@
   display: block;
   width: 82%;
   height: 0.45rem;
-  background: #b85c4b;
+  background: var(--color-accent);
 }
 
 .heroVisualLineShort {
@@ -193,7 +193,7 @@
 
 .heroVisualRate {
   margin-top: 0.5rem;
-  color: #7f493f;
+  color: var(--color-accent-hover);
   font-family: var(--mfcu-heading-font);
   font-size: clamp(3.25rem, 14vw, 4.75rem);
   font-weight: 700;
@@ -215,13 +215,13 @@
 }
 
 .heroVisualGrid .heroVisualAccent {
-  border-color: #b85c4b;
-  background: #b85c4b;
+  border-color: var(--color-accent);
+  background: var(--color-accent);
 }
 
 .heroVisualFooter {
   margin-top: 1.25rem;
-  color: #9c5b4f;
+  color: var(--color-accent);
   font-size: 0.5625rem;
 }
 
@@ -258,7 +258,7 @@
 
 .caseStudyNavLabel {
   flex-shrink: 0;
-  color: #b85c4b;
+  color: var(--color-accent);
   font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -309,7 +309,7 @@
   line-height: 1.5;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #b85c4b;
+  color: var(--color-accent);
 }
 
 .page .sectionTitle {
@@ -382,7 +382,7 @@
   display: block;
   width: var(--research-rule-width);
   height: 100%;
-  background: #b85c4b;
+  background: var(--color-accent);
 }
 
 @keyframes researchPhaseRuleTraverse {
@@ -457,11 +457,11 @@
   width: 1.75rem;
   height: 0.5rem;
   flex-shrink: 0;
-  background: #c58a7d;
+  background: color-mix(in srgb, var(--color-accent) 65%, var(--color-border));
 }
 
 .keywordLegend li:last-child > span {
-  background: #ddbbb2;
+  background: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
 }
 
 .keywordCriteria {
@@ -483,7 +483,7 @@
 }
 
 .keywordCriterionNumber {
-  color: #b85c4b;
+  color: var(--color-accent);
   font-variant-numeric: tabular-nums;
 }
 
@@ -550,17 +550,17 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #a84f40;
-  background: #eadbd640;
+  color: var(--color-accent-hover);
+  background: color-mix(in srgb, var(--color-accent-soft) 25%, transparent);
 }
 
 .keywordTable tbody:first-of-type .keywordGroup th,
 .keywordHighRelevance {
-  background: #eadbd680;
+  background: color-mix(in srgb, var(--color-accent-soft) 50%, transparent);
 }
 
 .keywordHighRelevance {
-  color: #a84f40;
+  color: var(--color-accent-hover);
 }
 
 .keywordTakeaway {
@@ -588,7 +588,7 @@
 .wireframeLink {
   display: inline-block;
   margin-top: 1rem;
-  color: #a84f40;
+  color: var(--color-accent-hover);
   font-size: 0.875rem;
   text-decoration: underline;
   text-underline-offset: 0.25rem;
@@ -630,7 +630,7 @@
   position: absolute;
   left: 0;
   width: 100%;
-  border: 1px solid #b85c4b;
+  border: 1px solid var(--color-accent);
   transition: background-color 160ms ease;
 }
 
@@ -641,7 +641,7 @@
   justify-content: center;
   width: 1.625rem;
   height: 1.625rem;
-  background: #a85d4b;
+  background: var(--color-accent);
   color: white;
   font-size: 0.875rem;
   font-weight: 700;
@@ -725,7 +725,7 @@
 
 /* Preserve the research sheet’s cell-by-cell emphasis across metric columns. */
 .keywordMetricHighlight {
-  background: #f3cece;
+  background: var(--color-accent-soft);
 }
 
 .keyFindingsList {
@@ -785,7 +785,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #b85c4b;
+  color: var(--color-accent);
   font-family: var(--mfcu-heading-font);
   font-size: 1.375rem;
   font-weight: 700;
@@ -809,7 +809,7 @@
 
 .campaignAction {
   padding-inline: 1rem;
-  background: #eadbd655;
+  background: color-mix(in srgb, var(--color-accent-soft) 33%, transparent);
 }
 
 .campaignSetup {
@@ -839,7 +839,7 @@
   height: 1.55rem;
   flex: 0 0 1.55rem;
   place-items: center;
-  color: #b85c4b;
+  color: var(--color-accent);
 }
 
 .campaignSetupPictogram svg {
@@ -949,7 +949,7 @@
 }
 
 .searchVisibilityLabel > span {
-  color: #b85c4b;
+  color: var(--color-accent);
 }
 
 .searchVisibilityItem {
@@ -971,7 +971,7 @@
 
 .searchVisibilityResponse {
   padding-inline: 1rem;
-  background: #eadbd633;
+  background: color-mix(in srgb, var(--color-accent-soft) 20%, transparent);
 }
 
 .searchQuestionList {
@@ -1054,7 +1054,7 @@
 
 .creativeSubheading > p {
   flex-shrink: 0;
-  color: #a84f40;
+  color: var(--color-accent-hover);
   font-size: 0.6875rem;
   font-weight: 600;
   line-height: 1.5;
@@ -1153,7 +1153,7 @@
 }
 
 .creativeSummary > div > span {
-  color: #b85c4b;
+  color: var(--color-accent);
   font-size: 0.6875rem;
   font-weight: 600;
   line-height: 1.5;
@@ -1223,7 +1223,7 @@
 }
 
 .measurementConnectorPulse {
-  stroke: #b85c4b;
+  stroke: var(--color-accent);
   stroke-linecap: round;
   stroke-width: 2;
   opacity: 0;
@@ -1316,13 +1316,13 @@
 
 .measurementOutcome {
   padding: 2rem 1.5rem;
-  border: 1px solid #cfa99f;
-  background: #eadbd666;
+  border: 1px solid color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
+  background: color-mix(in srgb, var(--color-accent-soft) 40%, transparent);
   text-align: center;
 }
 
 .measurementOutcomeLabel {
-  color: #b85c4b;
+  color: var(--color-accent);
   font-size: 0.6875rem;
   font-weight: 600;
   line-height: 1.5;
@@ -1364,7 +1364,7 @@
 }
 
 .measurementGroupHeading > span {
-  color: #b85c4b;
+  color: var(--color-accent);
   font-family: var(--mfcu-heading-font);
   font-size: 1rem;
   font-weight: 700;
@@ -1545,14 +1545,14 @@
   width: 100%;
   height: 1px;
   margin-top: 1.75rem;
-  background: #c87a69;
+  background: var(--color-accent);
 }
 
 .limitationsComparison {
   display: grid;
   margin-top: 1.75rem;
   overflow: hidden;
-  border: 1px solid #d8c9bd;
+  border: 1px solid var(--color-border);
 }
 
 .limitationsPanel {
@@ -1561,8 +1561,8 @@
 }
 
 .limitationsUnavailable {
-  border-top: 1px solid #d8c9bd;
-  background: #f1dcd4;
+  border-top: 1px solid var(--color-border);
+  background: var(--color-accent-soft);
 }
 
 .page .limitationsPanel > h3 {
@@ -1592,7 +1592,7 @@
   width: 0.65rem;
   height: 0.65rem;
   margin-top: 0.45rem;
-  background: #c96857;
+  background: var(--color-accent);
 }
 
 .page .limitationsStatement {
@@ -1621,7 +1621,7 @@
 
   .limitationsUnavailable {
     border-top: 0;
-    border-left: 1px solid #d8c9bd;
+    border-left: 1px solid var(--color-border);
   }
 }
 
@@ -1635,7 +1635,7 @@
   width: 100%;
   height: 1px;
   margin-top: 1.75rem;
-  background: #d8c9bd;
+  background: var(--color-border);
 }
 
 .page .reflectionStatement {
@@ -1657,7 +1657,7 @@
 .reflectionPhase {
   min-width: 0;
   padding-block: 1.75rem;
-  border-top: 1px solid #d8c9bd;
+  border-top: 1px solid var(--color-border);
 }
 
 .reflectionPhase:first-child {
@@ -1666,7 +1666,7 @@
 }
 
 .reflectionPhaseNumber {
-  color: #c85f47;
+  color: var(--color-accent);
   font-family: var(--mfcu-heading-font);
   font-size: clamp(3.75rem, 3.25rem + 2vw, 5.25rem);
   line-height: 0.9;
@@ -1697,7 +1697,7 @@
 .reflectionTakeaway {
   margin-top: 1.75rem;
   padding: 1.25rem 1.5rem;
-  background: #f1dcd4;
+  background: var(--color-accent-soft);
   color: var(--color-muted);
   font-size: 1rem;
   line-height: 1.55;
@@ -1739,7 +1739,7 @@
   }
 
   .reflectionPhase + .reflectionPhase {
-    border-left: 1px solid #d8c9bd;
+    border-left: 1px solid var(--color-border);
   }
 
   .reflectionPhase:last-child {
@@ -1758,8 +1758,8 @@
   }
 
   .heroPrimaryAction:hover {
-    background: #a84f40;
-    box-shadow: 0 0.5rem 1.5rem rgb(168 79 64 / 0.16);
+    background: var(--color-accent-hover);
+    box-shadow: 0 0.5rem 1.5rem color-mix(in srgb, var(--color-accent) 16%, transparent);
   }
 
   .caseStudyNavLinks a:hover {
@@ -1791,12 +1791,12 @@
   .limitationsPanel:hover,
   .reflectionTakeaway:hover {
     transform: translateY(-2px);
-    border-color: #cfa99f;
+    border-color: color-mix(in srgb, var(--color-accent) 35%, var(--color-border));
     box-shadow: 0 0.75rem 1.75rem rgb(80 47 40 / 0.06);
   }
 
   .wireframeMarker:hover {
-    background: #b85c4b12;
+    background: color-mix(in srgb, var(--color-accent) 7%, transparent);
   }
 }
 

@@ -22,13 +22,13 @@ export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="/" className={styles.brand} onClick={() => setOpen(false)}>
-          <span className={styles.brandMark} aria-hidden="true">
-            X
-          </span>
-          <span>
-            Xueshi <span className={styles.brandMuted}>Marketing</span>
-          </span>
+        <Link
+          href={siteConfig.landingPageUrl}
+          className={styles.brand}
+          onClick={() => setOpen(false)}
+          aria-label="Xueshi Marketing home"
+        >
+          Xueshi <span className={styles.brandMuted}>Marketing</span>
         </Link>
 
         <nav className={styles.desktopNav} aria-label="Main navigation">
@@ -59,11 +59,7 @@ export function Header() {
           aria-controls="mobile-menu"
           aria-label={open ? "Close navigation" : "Open navigation"}
         >
-          <span className={styles.menuIcon} aria-hidden="true">
-            <span />
-            <span />
-            <span />
-          </span>
+          {open ? "Close" : "Menu"}
         </button>
       </div>
 

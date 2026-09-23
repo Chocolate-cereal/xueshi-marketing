@@ -7,9 +7,13 @@ export function Footer() {
     <footer className="border-t border-border bg-surface/45">
       <Container className="grid gap-10 py-12 sm:py-14 lg:grid-cols-[1fr_auto] lg:items-end">
         <div>
-          <p className="font-semibold tracking-[-0.02em] text-foreground">
+          <Link
+            href={siteConfig.landingPageUrl}
+            aria-label="Xueshi Marketing home"
+            className="inline-block font-serif text-sm font-normal uppercase tracking-[0.1em] text-foreground transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
+          >
             Xueshi Marketing
-          </p>
+          </Link>
           <p className="mt-3 max-w-md text-sm leading-7 text-muted">
             A personal digital marketing portfolio focused on evidence-led analysis and
             clear growth recommendations.
