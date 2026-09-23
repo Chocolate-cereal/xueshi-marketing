@@ -1,29 +1,22 @@
 "use client";
-
-import { useState } from "react";
-
 export function ThemeToggle() {
-  const [dark, setDark] = useState(() =>
-    typeof document === "undefined"
-      ? false
-      : document.documentElement.classList.contains("dark"),
-  );
-
   function toggleTheme() {
-    const next = !dark;
-    setDark(next);
-    document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
+    const dark = document.documentElement.classList.toggle("dark");
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {
+      /* Theme still works when storage is unavailable. */
+    }
   }
-
   return (
     <button
       type="button"
+      className="theme-button"
       onClick={toggleTheme}
-      className="min-h-11 cursor-pointer px-2 py-2 text-xs font-medium text-muted underline underline-offset-4 transition hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
-      aria-label="Toggle dark mode"
+      aria-label="Change colour theme"
     >
-      {dark ? "Light" : "Dark"}
+      <span className="show-light">Use dark theme</span>
+      <span className="show-dark">Use light theme</span>
     </button>
   );
 }

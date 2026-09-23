@@ -5,24 +5,19 @@ import { libreBaskerville, manrope } from "./fonts";
 import { Header } from "@/components/layout/header";
 import { ThemeScript } from "@/components/layout/theme-script";
 import { siteConfig } from "@/data/site";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  // Preview origin resolves sharing images only; canonicals require owner approval.
+  metadataBase: new URL(
+    siteConfig.url ??
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : "https://xueshi-marketing.vercel.app"),
+  ),
   title: { default: siteConfig.name, template: `%s | ${siteConfig.name}` },
   description: siteConfig.description,
-  applicationName: siteConfig.name,
-  openGraph: {
-    title: siteConfig.name,
-    description: siteConfig.description,
-    url: siteConfig.url,
-    siteName: siteConfig.name,
-    locale: "en_US",
-    type: "website",
-  },
-  robots: { index: true, follow: true },
+  robots: { index: Boolean(siteConfig.url), follow: Boolean(siteConfig.url) },
   icons: { icon: "/favicon.svg" },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -30,9 +25,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${manrope.variable} ${libreBaskerville.variable} antialiased`}>
         <ThemeScript />
+        <a className="skip-link" href="#main-content">
+          Skip to content
+        </a>
         <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
+          <Header navigation={siteConfig.navigation} />
+          <main id="main-content" tabIndex={-1} className="flex-1">
+            {children}
+          </main>
           <Footer />
         </div>
       </body>
