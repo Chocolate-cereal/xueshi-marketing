@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { publishedProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 import { ProjectList } from "@/components/sections/project-list";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = {
@@ -8,10 +8,10 @@ export const metadata = {
     "Digital marketing projects: context, analysis, recommendations and outcomes.",
     "/case-studies",
   ),
-  ...(!publishedProjects.length ? { robots: { index: false, follow: false } } : {}),
+  ...(!projects.length ? { robots: { index: false, follow: false } } : {}),
 };
 export default function CaseStudiesPage() {
-  if (!publishedProjects.length) notFound();
+  if (!projects.length) notFound();
   return (
     <div className="portfolio-wrap interior-page">
       <p className="page-label">Selected work</p>
@@ -20,7 +20,7 @@ export default function CaseStudiesPage() {
         <br />
         <span>at the work.</span>
       </h1>
-      <ProjectList projects={publishedProjects} />
+      <ProjectList projects={projects} />
     </div>
   );
 }

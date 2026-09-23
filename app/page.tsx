@@ -3,7 +3,6 @@ import Link from "next/link";
 import { profile, hasContact } from "@/data/profile";
 import { publishedProjects } from "@/data/projects";
 import { ContactLinks, ContactSection } from "@/components/sections/contact-links";
-import { ProjectList } from "@/components/sections/project-list";
 import { pageMetadata } from "@/lib/metadata";
 export const metadata = pageMetadata(
   "Xue · Digital marketing",
@@ -19,30 +18,39 @@ const focus = [
   ["Competitor research", "Understand the market and where a brand can stand apart."],
   ["Website experience", "Examine performance, accessibility and the visitor journey."],
 ];
-const perspectives = [
+const caseStudies = [
   {
-    image: "still-life",
-    category: "Brand & content",
-    title: "A clearer story. A more useful page.",
-    text: "Look at how product information, imagery and search intent work together.",
-    focus: "Message clarity",
-    detail: "Content & positioning",
+    variant: "search",
+    image: "/images/case-studies/search-audit.webp",
+    imageAlt: "Analytics dashboard shown on a laptop beside a plant.",
+    imageHeight: 278,
+    meta: ["Independent audit", "SEO / paid search"],
+    title: "Organic vs Paid Search Strategy Audit",
+    description:
+      "A comprehensive audit to evaluate search performance, identify growth opportunities and shape a more effective strategy.",
+    href: "/case-studies",
   },
   {
-    image: "studio",
-    category: "Websites & experience",
-    title: "Make the next step feel natural.",
-    text: "Review the path from a first visit to an enquiry, and identify unnecessary friction.",
-    focus: "Visitor journey",
-    detail: "Landing page analysis",
+    variant: "revolut",
+    image: "/images/case-studies/revolut-audit.webp",
+    imageAlt: "Revolut app displayed on a mobile phone.",
+    imageHeight: 292,
+    meta: ["UX / CRO", "Independent audit"],
+    title: "Revolut Landing Page Conversion Audit",
+    description:
+      "A detailed analysis of the landing page experience, with recommendations to improve conversion and user engagement.",
+    href: "/case-studies",
   },
   {
-    image: "coast",
-    category: "Research & discovery",
-    title: "Understand what makes a choice matter.",
-    text: "Compare search results and competitor experiences to reveal useful opportunities.",
-    focus: "Market context",
-    detail: "Competitor research",
+    variant: "mfcu",
+    image: "/images/case-studies/mfcu-redesign.webp",
+    imageAlt: "Member First Credit Union Green Car Loan redesigned landing page.",
+    imageHeight: 292,
+    meta: ["Proposed redesign", "UX / content"],
+    title: "Member First Credit Union Green Car Loan",
+    description:
+      "A proposed website redesign to improve clarity, accessibility and conversion for the green car loan product.",
+    href: "/case-studies/member-first-credit-union-green-car-loan",
   },
 ];
 export default function HomePage() {
@@ -106,66 +114,52 @@ export default function HomePage() {
           </article>
         ))}
       </section>
-      {publishedProjects.length > 0 ? (
-        <section className="editorial-band">
-          <div className="portfolio-wrap editorial-work">
-            <aside>
-              <h2>
-                Selected
-                <br />
-                case study
-              </h2>
-              <p>
-                An independent review and proposed redesign for Member First Credit
-                Union’s Green Car Loan.
-              </p>
-            </aside>
-            <ProjectList projects={publishedProjects.slice(0, 3)} />
+      <section className="editorial-band" id="selected-case-studies">
+        <div className="portfolio-wrap editorial-work">
+          <aside>
+            <h2>
+              Selected
+              <br />
+              Case Studies
+            </h2>
+            <p>
+              Real challenges. Practical solutions. Thoughtful, evidence-led marketing.
+            </p>
+            <Link className="text-link" href="/case-studies">
+              View case studies <span aria-hidden="true">→</span>
+            </Link>
+          </aside>
+          <div className="case-study-list">
+            {caseStudies.map((study) => (
+              <article className="case-study-row" key={study.title}>
+                <Image
+                  className={`case-study-thumbnail case-study-thumbnail--${study.variant}`}
+                  src={study.image}
+                  alt={study.imageAlt}
+                  width={494}
+                  height={study.imageHeight}
+                  sizes="(max-width: 360px) calc(100vw - 40px), (max-width: 700px) 110px, (max-width: 1200px) 190px, 247px"
+                />
+                <div className="case-study-copy">
+                  <p className="case-study-meta">
+                    {study.meta.map((label, index) => (
+                      <span className="case-study-meta-item" key={label}>
+                        {index > 0 && <span className="case-study-meta-divider" />}
+                        {label}
+                      </span>
+                    ))}
+                  </p>
+                  <h3>{study.title}</h3>
+                  <p>{study.description}</p>
+                </div>
+                <Link className="case-study-action" href={study.href}>
+                  View case study <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
           </div>
-        </section>
-      ) : (
-        <section className="editorial-band">
-          <div className="portfolio-wrap editorial-work">
-            <aside>
-              <h2>
-                A closer
-                <br />
-                look
-              </h2>
-              <p>Three perspectives on a stronger digital presence.</p>
-              <Link className="text-link" href="/services">
-                Explore expertise <span aria-hidden="true">→</span>
-              </Link>
-            </aside>
-            <div className="perspective-list">
-              {perspectives.map((item) => (
-                <article className="perspective-row" key={item.title}>
-                  <Image
-                    src={`/images/${item.image}.webp`}
-                    alt=""
-                    width={900}
-                    height={600}
-                    sizes="(max-width: 700px) 40vw, 190px"
-                  />
-                  <div>
-                    <p className="editorial-kicker">{item.category}</p>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </div>
-                  <div className="perspective-note">
-                    <span>{item.focus}</span>
-                    <p>{item.detail}</p>
-                  </div>
-                </article>
-              ))}
-              <p className="imagery-note">
-                Illustrative AI-generated imagery. These are areas of focus, not client
-                case studies.
-              </p>
-            </div>
-          </div>
-        </section>
-      )}
+        </div>
+      </section>
       <section className="portfolio-wrap method-strip" aria-labelledby="method-title">
         <div>
           <h2 id="method-title">How I approach a brief</h2>

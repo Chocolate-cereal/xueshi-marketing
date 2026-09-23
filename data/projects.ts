@@ -31,12 +31,12 @@ export type CaseStudy = {
 export const projects: CaseStudy[] = [
   {
     slug: "member-first-credit-union-green-car-loan",
-    published: true,
+    published: false,
     title: "Member First Credit Union Green Car Loan",
     date: "2026",
     category: "Self initiated",
     summary:
-      "An independent review and proposed redesign of Member First Credit Union’s Green Car Loan page, with recommendations across UX, search, content and paid media.",
+      "A proposed website redesign to improve clarity, accessibility and conversion for the green car loan product.",
     context:
       "The Green Car Loan page needed to explain the offer and guide prospective borrowers from initial interest towards an application. This independent review assessed the page structure and information hierarchy alongside search and campaign opportunities.",
     scope:

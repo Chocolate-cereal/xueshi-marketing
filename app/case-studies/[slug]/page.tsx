@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { publishedProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 import { pageMetadata } from "@/lib/metadata";
 export function generateStaticParams() {
-  return publishedProjects.map(({ slug }) => ({ slug }));
+  return projects.map(({ slug }) => ({ slug }));
 }
 export async function generateMetadata({
   params,
@@ -12,7 +12,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = publishedProjects.find((item) => item.slug === slug);
+  const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: "Project not found", robots: { index: false } };
   return pageMetadata(project.title, project.summary, `/case-studies/${project.slug}`);
 }
@@ -22,7 +22,7 @@ export default async function CaseStudyPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const project = publishedProjects.find((item) => item.slug === slug);
+  const project = projects.find((item) => item.slug === slug);
   if (!project) notFound();
   return (
     <article className="portfolio-wrap interior-page case-study">
