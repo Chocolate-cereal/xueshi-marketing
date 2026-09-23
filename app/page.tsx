@@ -113,9 +113,12 @@ export default function HomePage() {
               <h2>
                 Selected
                 <br />
-                work
+                case study
               </h2>
-              <p>Context, analysis and practical recommendations.</p>
+              <p>
+                An independent review and proposed redesign for Member First Credit
+                Union’s Green Car Loan.
+              </p>
             </aside>
             <ProjectList projects={publishedProjects.slice(0, 3)} />
           </div>
