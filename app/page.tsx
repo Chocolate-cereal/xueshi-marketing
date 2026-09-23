@@ -50,7 +50,7 @@ const caseStudies = [
     title: "Member First Credit Union Green Car Loan",
     description:
       "A proposed website redesign to improve clarity, accessibility and conversion for the green car loan product.",
-    href: "/case-studies/member-first-credit-union-green-car-loan",
+    href: "https://xueshi-marketing-git-feature-1ea12a-chocolate-cereals-projects.vercel.app/case-studies/member-first-credit-union-green-car-loan",
   },
 ];
 export default function HomePage() {
