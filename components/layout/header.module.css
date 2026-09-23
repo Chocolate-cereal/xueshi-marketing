@@ -3,6 +3,7 @@
   position: relative;
   z-index: 50;
   background: var(--color-background);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
 }
 
 .inner {
@@ -19,7 +20,7 @@
   display: inline-block;
   flex-shrink: 0;
   color: var(--color-foreground);
-  font-family: var(--font-serif);
+  font-family: var(--font-libre-baskerville), Georgia, serif;
   font-size: 1.0625rem;
   font-weight: 400;
   letter-spacing: 0.1em;
