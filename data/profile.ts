@@ -9,8 +9,8 @@ export const profile: {
   background: string[];
 } = {
   name: "Xue",
-  email: null,
-  linkedIn: null,
+  email: "xue.shi.ucd.ie@gmail.com",
+  linkedIn: "https://www.linkedin.com/in/xue-shi-a943391b8/",
   cv: null,
   portrait: null,
   location: null,

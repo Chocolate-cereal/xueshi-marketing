@@ -1,130 +1,190 @@
-import Image from "next/image";
 import Link from "next/link";
-import { profile, hasContact } from "@/data/profile";
 import { ContactLinks } from "@/components/sections/contact-links";
 import { pageMetadata } from "@/lib/metadata";
+
 export const metadata = pageMetadata(
-  "About Xue",
-  "Meet Xue: a digital marketer focused on search visibility, landing pages and competitor research.",
+  "About Xue Shi",
+  "Xue Shi’s background in digital marketing, paid search, international research and customer operations.",
   "/about",
 );
+
+const marketingExperience = [
+  {
+    company: "Majorel · Google client",
+    role: "Senior Advertising Campaign Optimiser",
+    dates: "Aug 2022 – Nov 2023",
+    details: [
+      "Optimised Google Search and Display campaigns for international markets.",
+      "Researched markets, localised campaign messaging and reviewed landing-page relevance.",
+      "Supported quality calibration and colleague onboarding as a senior team member.",
+    ],
+  },
+  {
+    company: "IMS Health Co., Ltd. · China",
+    role: "Marketing & Sales Coordinator",
+    dates: "Jun 2018 – Jun 2020",
+    details: [
+      "Prepared reports and supported day-to-day marketing and sales coordination.",
+      "Used CRM segmentation and market research to help teams understand audiences and opportunities.",
+    ],
+  },
+];
+
+const additionalExperience = [
+  {
+    company: "Covalen · Meta client",
+    role: "Community Operations Analyst",
+    dates: "Mar 2025 – Present",
+    details:
+      "Review account-integrity and impersonation cases, contribute to workflow calibration, and support quality checks and onboarding.",
+  },
+  {
+    company: "TLScontact",
+    role: "Visa & Immigration Officer",
+    dates: "May 2024 – Dec 2024",
+    details:
+      "Handled visa and immigration applications with close attention to documentation accuracy and clear applicant communication.",
+  },
+];
+
+const skills = [
+  "Paid search",
+  "Campaign optimisation",
+  "Market research",
+  "Localisation",
+  "Landing-page analysis",
+  "CRM segmentation",
+  "Quality assurance",
+  "Training & onboarding",
+];
+
 export default function AboutPage() {
   return (
-    <div className="inner-editorial about-editorial">
-      <section className="portfolio-wrap about-opening" aria-labelledby="about-title">
-        <div className="about-image">
-          <Image
-            src={profile.portrait || "/images/studio.webp"}
-            alt={profile.portrait ? "Portrait of Xue" : ""}
-            fill
-            priority
-            sizes="(max-width: 760px) 100vw, 45vw"
-          />
-          <div className="image-caption">
-            {profile.portrait
-              ? "Xue / Digital marketing"
-              : "Space to think. Room to explore."}
-          </div>
-        </div>
-        <div className="about-introduction">
-          <p className="inner-label">Behind Xueshi Marketing</p>
+    <div className="about-page">
+      <section className="portfolio-wrap about-intro" aria-labelledby="about-title">
+        <div>
+          <p className="portfolio-eyebrow">About Xue</p>
           <h1 id="about-title">
-            A curious mind.
+            A marketer with
             <br />
-            <span>A practical focus.</span>
+            <span>a cross-market perspective.</span>
           </h1>
-          <p className="inner-lead">
-            I’m Xue. I look at how people find a website, what they understand, and what
-            helps them take the next step.
+        </div>
+        <div className="about-intro-copy">
+          <p className="about-lead">
+            I’m Xue Shi, a digital marketing professional with experience in paid search,
+            campaign optimisation and international market research.
           </p>
           <p>
-            My focus is SEO, landing page optimisation and competitor research. I use
-            research and structured analysis to turn a broad marketing question into
-            useful recommendations.
+            My work has also taken me through customer operations and service roles.
+            They’ve strengthened how I communicate, work carefully with detail and support
+            consistent quality—skills I bring to marketing teams too.
           </p>
-          <div className="about-signature">
-            <span>Xue</span>
-            <p>
-              Digital marketing
-              {profile.location && (
-                <>
-                  <br />
-                  {profile.location}
-                </>
-              )}
-            </p>
-          </div>
           <ContactLinks />
         </div>
       </section>
-      <section className="about-interests" aria-labelledby="interests-title">
-        <div className="portfolio-wrap interests-layout">
+
+      <section className="about-education" aria-labelledby="education-title">
+        <div className="portfolio-wrap education-inner">
           <div>
-            <p className="inner-label">The questions behind the work</p>
-            <h2 id="interests-title">
-              Small details.
-              <br />A bigger picture.
-            </h2>
+            <p className="portfolio-eyebrow">Education</p>
+            <h2 id="education-title">Building a digital foundation.</h2>
           </div>
-          <dl>
+          <article className="education-entry">
+            <p className="education-dates">2020 – 2021</p>
             <div>
-              <dt>How do people find you?</dt>
-              <dd>
-                Search visibility, relevant content and the questions an audience is
-                already asking.
-              </dd>
+              <h3>MSc Digital Marketing</h3>
+              <p>University College Dublin</p>
             </div>
-            <div>
-              <dt>What makes them stay?</dt>
-              <dd>
-                A clear message, a useful page and an experience that is easy to follow.
-              </dd>
-            </div>
-            <div>
-              <dt>Why choose you?</dt>
-              <dd>Positioning that makes sense in the context of the wider market.</dd>
-            </div>
-          </dl>
+          </article>
         </div>
       </section>
-      {profile.background.length > 0 && (
-        <section
-          className="portfolio-wrap background-story"
-          aria-labelledby="background-title"
-        >
-          <h2 id="background-title">My background</h2>
-          <div>
-            {profile.background.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-        </section>
-      )}
-      <section className="portfolio-wrap about-next" aria-labelledby="next-title">
-        <div>
-          <p className="inner-label">The next chapter</p>
-          <h2 id="next-title">
-            Good questions.
+
+      <section
+        className="portfolio-wrap experience-section"
+        aria-labelledby="marketing-experience-title"
+      >
+        <div className="experience-heading">
+          <p className="portfolio-eyebrow">Marketing experience</p>
+          <h2 id="marketing-experience-title">
+            Campaigns, research
             <br />
-            Thoughtful teams.
+            and customer insight.
           </h2>
         </div>
+        <div className="experience-list">
+          {marketingExperience.map((item) => (
+            <article className="experience-entry" key={item.company}>
+              <div className="experience-entry-heading">
+                <div>
+                  <h3>{item.company}</h3>
+                  <p>{item.role}</p>
+                </div>
+                <p className="experience-dates">{item.dates}</p>
+              </div>
+              <ul>
+                {item.details.map((detail) => (
+                  <li key={detail}>{detail}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="additional-experience" aria-labelledby="additional-title">
+        <div className="portfolio-wrap additional-inner">
+          <div>
+            <p className="portfolio-eyebrow">Additional experience</p>
+            <h2 id="additional-title">A broader set of strengths.</h2>
+            <p className="additional-intro">
+              These roles are a different part of my story. They’ve built transferable
+              skills in careful review, clear communication, sound judgement and
+              quality-focused work.
+            </p>
+          </div>
+          <div className="additional-list">
+            {additionalExperience.map((item) => (
+              <article className="additional-entry" key={item.company}>
+                <div>
+                  <h3>{item.company}</h3>
+                  <p>{item.role}</p>
+                </div>
+                <p className="experience-dates">{item.dates}</p>
+                <p className="additional-detail">{item.details}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="portfolio-wrap skills-section" aria-labelledby="skills-title">
         <div>
-          <p className="inner-lead">
-            I’m open to digital marketing opportunities with agencies, in-house teams and
-            growing organisations.
-          </p>
-          <p>
-            Explore the areas I focus on and the questions I bring to a website review.
-          </p>
-          <Link className="action" href="/services">
-            Explore my expertise <span aria-hidden="true">↗</span>
-          </Link>
-          {hasContact && (
-            <Link className="text-link" href="/contact">
-              Get in touch
+          <p className="portfolio-eyebrow">Skills</p>
+          <h2 id="skills-title">What I work with</h2>
+        </div>
+        <ul className="skill-list">
+          {skills.map((skill) => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </section>
+
+      <section className="about-close">
+        <div className="portfolio-wrap about-close-inner">
+          <div>
+            <p className="portfolio-eyebrow">Next step</p>
+            <h2>Looking for a thoughtful, hands-on marketer?</h2>
+          </div>
+          <div>
+            <p>
+              I’m open to digital marketing opportunities with agency and in-house teams.
+            </p>
+            <ContactLinks />
+            <Link className="portfolio-text-link" href="/">
+              Back to selected work <span aria-hidden="true">→</span>
             </Link>
-          )}
+          </div>
         </div>
       </section>
     </div>

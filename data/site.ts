@@ -1,5 +1,17 @@
 import { hasContact } from "./profile";
-import { publishedProjects } from "./projects";
+
+export const portfolioNavigation = [
+  { label: "Home", href: "/" },
+  { label: "Case Studies", href: "/#selected-work" },
+  { label: "About", href: "/about" },
+  ...(hasContact ? [{ label: "Contact", href: "/contact" }] : []),
+];
+
+export const caseStudyNavigation = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Expertise", href: "/services" },
+];
 
 // Set only after the owner confirms the production origin. No guessed domain.
 const configuredOrigin = process.env.NEXT_PUBLIC_SITE_URL;
@@ -24,12 +36,6 @@ export const siteConfig = {
   name: "Xueshi Marketing",
   url: getOrigin(configuredOrigin),
   description:
-    "Xue’s digital marketing portfolio: SEO, landing page optimisation and competitor research.",
-  navigation: [
-    { label: "Home", href: "/" },
-    ...(publishedProjects.length ? [{ label: "Work", href: "/case-studies" }] : []),
-    { label: "About", href: "/about" },
-    { label: "Expertise", href: "/services" },
-    ...(hasContact ? [{ label: "Contact", href: "/contact" }] : []),
-  ],
+    "Xue Shi’s digital marketing portfolio: paid search, international research and landing-page analysis.",
+  navigation: portfolioNavigation,
 };
