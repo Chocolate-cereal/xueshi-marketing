@@ -3,6 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRef, useState } from "react";
 import { caseStudyNavigation } from "@/data/site";
+import { profile } from "@/data/profile";
 export function Header({
   navigation,
 }: {
@@ -12,12 +13,26 @@ export function Header({
   const isCaseStudyPage = pathname.startsWith(
     "/case-studies/member-first-credit-union-green-car-loan",
   );
-  const activeNavigation = isCaseStudyPage ? caseStudyNavigation : navigation;
+  const isHomePage = pathname === "/";
+  const homeNavigation = navigation.map((item) =>
+    item.href === "/contact" ? { ...item, href: "/#contact" } : item,
+  );
+  const activeNavigation = isCaseStudyPage
+    ? caseStudyNavigation
+    : isHomePage
+      ? homeNavigation
+      : navigation;
   const [open, setOpen] = useState(false);
   const menuButton = useRef<HTMLButtonElement>(null);
   return (
     <header
-      className={isCaseStudyPage ? "site-header" : "site-header site-header--portfolio"}
+      className={
+        isCaseStudyPage
+          ? "site-header"
+          : isHomePage
+            ? "site-header site-header--portfolio site-header--home"
+            : "site-header site-header--portfolio"
+      }
       onKeyDown={(event) => {
         if (event.key === "Escape" && open) {
           setOpen(false);
@@ -61,11 +76,22 @@ export function Header({
                   ? "page"
                   : undefined
               }
-              className={item.href === "/contact" ? "nav-contact" : undefined}
+              className={
+                item.href === "/contact" && !isHomePage ? "nav-contact" : undefined
+              }
             >
               {item.label}
             </Link>
           ))}
+          {isHomePage && (
+            <a
+              className="home-header-action"
+              href={profile.cv ?? "/about#marketing-experience-title"}
+              download={profile.cv ? true : undefined}
+            >
+              {profile.cv ? "Download CV" : "View experience"}
+            </a>
+          )}
         </nav>
       </div>
     </header>
