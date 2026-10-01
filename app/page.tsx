@@ -90,8 +90,7 @@ export default function HomePage() {
           <div className="home-hero-copy">
             <p className="portfolio-eyebrow">Digital marketing · Xue Shi</p>
             <h1 id="home-title">
-              Paid search, research
-              <br className="home-title-break" /> and landing-page thinking.
+              Paid search, research and landing-page thinking.
             </h1>
             <p className="home-hero-lead">
               Hands-on campaign optimisation, international market research and clear
