@@ -106,19 +106,6 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-          <figure className="home-portrait">
-            <div className="home-portrait-frame">
-              <Image
-                src="/images/portrait-silhouette.svg"
-                alt="Illustrated portrait placeholder."
-                fill
-                priority
-                sizes="(max-width: 860px) 100vw, 42vw"
-                unoptimized
-              />
-            </div>
-            <figcaption>Portrait</figcaption>
-          </figure>
         </div>
       </section>
 

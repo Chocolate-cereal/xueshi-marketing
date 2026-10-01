@@ -2355,9 +2355,12 @@ figcaption {
   background: var(--color-background);
 }
 .portfolio-home .home-hero-grid {
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(38px, 6vw, 78px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
   padding-block: clamp(42px, 5.7vw, 72px);
+}
+.portfolio-home .home-hero-copy {
+  max-width: 780px;
 }
 .portfolio-home .home-hero-copy h1 {
   max-width: 14ch;
@@ -2436,6 +2439,7 @@ figcaption {
 .home-skill-list {
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0;
   margin: 0;
@@ -2651,6 +2655,7 @@ figcaption {
   margin-top: 6px;
 }
 .portfolio-home .home-contact {
+  display: block;
   padding-block: 36px 40px;
   background: var(--color-background);
 }
@@ -2679,6 +2684,9 @@ figcaption {
 .home-contact-actions .portfolio-button,
 .home-contact-actions .home-outline-button {
   min-width: 142px;
+}
+.home-contact-actions .portfolio-button {
+  margin-top: 0;
 }
 .home-footer {
   padding-block: 19px 22px;
@@ -2810,7 +2818,7 @@ body:has(.portfolio-home) > div > .site-footer {
     padding-bottom: 27px;
   }
   .home-skill-list {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 7px 0;
     padding: 12px 14px;
   }
