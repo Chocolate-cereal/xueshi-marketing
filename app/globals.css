@@ -2625,6 +2625,8 @@ figcaption {
   gap: 30px 36px;
 }
 .home-experience-item {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
 }
 .home-experience-item h3 {
@@ -2641,7 +2643,8 @@ figcaption {
   line-height: 1.7;
 }
 .home-experience-company {
-  margin-top: 18px;
+  margin-top: auto;
+  padding-top: 18px;
   color: var(--color-muted);
   font-size: 13px;
   line-height: 1.6;
@@ -2666,6 +2669,7 @@ figcaption {
 }
 .home-experience-item--research .home-experience-company {
   margin-top: 0;
+  padding-top: 0;
 }
 .home-experience-periods {
   display: flex;
@@ -2869,7 +2873,7 @@ body:has(.portfolio-home) > div > .site-footer {
     margin-top: 12px;
   }
   .home-experience-item--research .home-experience-company {
-    margin-top: 18px;
+    padding-top: 18px;
   }
   .home-other-row {
     grid-template-columns: minmax(0, 1fr) auto;
