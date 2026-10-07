@@ -70,15 +70,44 @@ const processSteps = [
 
 const marketingExperience = [
   {
-    dates: "Jun 2018 – Jun 2020",
-    title: "Marketing & Sales Coordinator — IMS Health, China",
-    description: "Marketing reports, CRM audience segmentation and market research.",
+    title: "Search & Display campaigns",
+    description:
+      "Built and updated campaigns in Google Ads Editor, including headlines, descriptions and callouts.",
+    company: "Majorel · Google client",
   },
   {
-    dates: "Aug 2022 – Nov 2023",
-    title: "Senior Advertising Campaign Optimiser — Majorel, Google client",
+    title: "Localised copy & page reviews",
     description:
-      "Implemented optimisation plans across Google Ads Search and Display, supporting keyword research, localisation and landing-page analysis.",
+      "Adapted ad copy for different markets and reviewed landing, product and FAQ pages to suggest improvements.",
+    company: "Majorel · Google client",
+  },
+  {
+    title: "Reports & audience segments",
+    description:
+      "Prepared marketing reports, segmented CRM audiences and supported market research.",
+    company: "IMS Health, China",
+  },
+  {
+    title: "Market & mobile-ad research",
+    description:
+      "Researched businesses across Europe, APAC and the Americas, including Google Play mobile advertising.",
+    company: "Majorel · Google client",
+    wide: true,
+  },
+];
+
+const otherExperience = [
+  {
+    company: "Covalen · Meta client",
+    role: "Community Operations Analyst",
+    dates: "Mar 2025 – present",
+    description: "Account reviews, team calibration and onboarding.",
+  },
+  {
+    company: "TLScontact",
+    role: "Visa & Immigration Officer",
+    dates: "May – Dec 2024",
+    description: "Document checks and clear guidance for applicants.",
   },
 ];
 
@@ -204,39 +233,52 @@ export default function HomePage() {
         <div className="portfolio-wrap">
           <div className="home-section-heading">
             <p className="portfolio-eyebrow">Marketing experience</p>
-            <h2 id="experience-title">Relevant experience in digital marketing.</h2>
-            <p>
-              Campaign optimisation, market research and marketing coordination across
-              international teams.
-            </p>
+            <h2 id="experience-title">What I’ve worked on.</h2>
+            <p>Examples from campaign work, research and marketing coordination.</p>
           </div>
-          <div className="home-experience-list">
+          <div className="home-experience-grid">
             {marketingExperience.map((item) => (
-              <article className="home-experience-row" key={item.title}>
-                <p className="home-experience-dates">{item.dates}</p>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>{item.description}</p>
-                </div>
+              <article
+                className={
+                  item.wide
+                    ? "home-experience-item home-experience-item--research"
+                    : "home-experience-item"
+                }
+                key={item.title}
+              >
+                <h3>{item.title}</h3>
+                <p className="home-experience-description">{item.description}</p>
+                <p className="home-experience-company">{item.company}</p>
               </article>
             ))}
           </div>
+          <p className="home-experience-periods">
+            <span>Majorel: Aug 2022 – Nov 2023</span>
+            <span>IMS Health: Jun 2018 – Jun 2020</span>
+          </p>
         </div>
       </section>
 
-      <section className="portfolio-wrap home-transfer" aria-labelledby="transfer-title">
-        <div>
-          <p className="portfolio-eyebrow">A wider operational perspective</p>
-          <h2 id="transfer-title">Transferable experience beyond marketing.</h2>
-        </div>
-        <div className="home-transfer-copy">
-          <p>
-            Work at TLScontact and Covalen has strengthened my accuracy, quality
-            assurance, calibration, onboarding and communication skills.
-          </p>
-          <Link className="portfolio-text-link" href="/about#marketing-experience-title">
-            See my full experience <span aria-hidden="true">→</span>
-          </Link>
+      <section className="home-other-experience" aria-labelledby="other-experience-title">
+        <div className="portfolio-wrap">
+          <div className="home-other-heading">
+            <h2 id="other-experience-title">Other experience</h2>
+            <Link className="portfolio-text-link" href="/about#marketing-experience-title">
+              See my full experience <span aria-hidden="true">→</span>
+            </Link>
+          </div>
+          <div className="home-other-list">
+            {otherExperience.map((item) => (
+              <article className="home-other-row" key={item.company}>
+                <div>
+                  <h3>{item.company}</h3>
+                  <p className="home-other-role">{item.role}</p>
+                </div>
+                <p className="home-other-dates">{item.dates}</p>
+                <p className="home-other-description">{item.description}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
